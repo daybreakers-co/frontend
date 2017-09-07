@@ -1,0 +1,7 @@
+#import "./_Location.gql"
+
+mutation($postId: String!, $title: String!, $lat: Float!, $lng: Float!) {
+  createLocation(postId: $postId, title: $title, lat: $lat, lng: $lng) {
+    ...LocationFragment
+  }
+}

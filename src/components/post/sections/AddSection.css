@@ -1,0 +1,20 @@
+.AddSection {
+  display: inline-block;
+  margin: 10px auto;
+  padding: 0;
+  border-radius: 5px;
+  background: black;
+  list-style: none
+}
+
+.AddSection a {
+  display: inline-block;
+  color: white;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-left: 1px solid #222;
+}
+
+.AddSection a:first-child {
+  border: 0;
+}

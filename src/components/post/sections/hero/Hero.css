@@ -1,0 +1,21 @@
+.EditHero {
+  text-align: left;
+  margin: 10px auto;
+}
+
+.EditHero .dropzone {
+  width: 80wv;
+  background-color: #bdbdbd;
+}
+
+.EditHero img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.Hero img {
+  width: 100%;
+  height: auto;
+  display: block;
+}

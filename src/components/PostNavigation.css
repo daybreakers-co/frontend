@@ -1,0 +1,17 @@
+.PostNavigation {
+  display: block;
+  height: 200px;
+}
+
+.PostNavigation > div {
+  width: 50%;
+  height: 200px;
+}
+
+.PostNavigation .next {
+  float: right;
+}
+
+.PostNavigation .previous {
+  float: left;
+}

@@ -1,0 +1,6 @@
+mutation {
+  createTrip {
+    id
+    title
+  }
+}

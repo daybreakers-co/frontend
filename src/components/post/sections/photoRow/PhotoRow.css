@@ -1,0 +1,34 @@
+.EditPhotoRow {
+  text-align: left;
+  max-width: 80vw;
+  margin: 10px auto;
+}
+
+.dropzone {
+  width: 100%;
+  min-height: 100px;
+  background-color: #bdbdbd;
+}
+.columns {
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  display: flex;
+  text-align: left;
+}
+
+.columns > figure {
+  flex: 1.5;
+  margin: 0 0 0 10px;
+  display: block;
+}
+
+.columns > figure:first-child {
+  margin: 0;
+}
+
+.columns img {
+  width: 100%;
+  height: auto;
+  display: block;
+}

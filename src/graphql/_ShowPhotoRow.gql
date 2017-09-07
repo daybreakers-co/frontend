@@ -1,0 +1,11 @@
+fragment ShowPhotoRow on PhotoRowSection {
+  id
+  index
+  photos {
+    id
+    url
+    ratio
+    width
+    height
+  }
+}

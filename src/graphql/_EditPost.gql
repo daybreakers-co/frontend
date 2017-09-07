@@ -1,0 +1,27 @@
+#import "./_Sections.gql"
+#import "./_Location.gql"
+
+fragment EditPostFragment on Post {
+  id
+  title
+  subtitle
+  publishDate
+  published
+  locations {
+    ...LocationFragment
+  }
+  header {
+    ratio
+    id
+    url
+    width
+    height
+  }
+  trip {
+    title
+    id
+  }
+  sections {
+    ...SectionsFragment
+  }
+}

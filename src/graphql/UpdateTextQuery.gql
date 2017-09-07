@@ -1,0 +1,8 @@
+mutation($id: String!, $title: String, $body: String) {
+  updateTextSection(id: $id, title: $title, body: $body) {
+    id
+    title
+    body
+    index
+  }
+}

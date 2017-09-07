@@ -1,0 +1,7 @@
+#import "./_Location.gql"
+
+mutation($postId: String!, $id: String!) {
+  deleteLocation(postId: $postId, id: $id) {
+    ...LocationFragment
+  }
+}

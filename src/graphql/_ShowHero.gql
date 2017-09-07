@@ -1,0 +1,11 @@
+fragment ShowHero on HeroSection {
+  id
+  index
+  photo {
+    id
+    url
+    ratio
+    width
+    height
+  }
+}

@@ -1,0 +1,12 @@
+mutation($id: String!, $title: String, $subtitle: String) {
+  updateTrip(id: $id, title: $title, subtitle: $subtitle) {
+    id
+    title
+    subtitle
+    header {
+      id
+      url
+      ratio
+    }
+  }
+}

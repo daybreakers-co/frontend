@@ -1,0 +1,6 @@
+fragment ShowText on TextSection {
+  id
+  title
+  body
+  index
+}

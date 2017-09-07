@@ -1,0 +1,12 @@
+#import "./_EditPost.gql"
+
+query($username: String!  , $id: String!) {
+  user(username: $username) {
+    id
+    username
+    isViewer
+    post(id: $id) {
+      ...EditPostFragment
+    }
+  }
+}

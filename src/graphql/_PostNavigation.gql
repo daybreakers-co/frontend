@@ -1,0 +1,10 @@
+#import "./_HeaderCard.gql"
+
+fragment PostNavigation on Post {
+  next {
+    ...HeaderCard
+  }
+  previous {
+    ...HeaderCard
+  }
+}

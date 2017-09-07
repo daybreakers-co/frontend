@@ -1,0 +1,11 @@
+query DeleteTripPageQuery($username: String!, $tripId: String!) {
+  user(username: $username) {
+    id
+    trip(id: $tripId) {
+      id
+      posts {
+        id
+      }
+    }
+  }
+}

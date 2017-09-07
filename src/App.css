@@ -1,0 +1,55 @@
+.Content {
+  padding: 0rem 4rem;
+}
+
+.Columns {
+  display: flex;
+}
+
+.Column {
+  flex: 1;
+}
+
+.Centered {
+  width: 100vw;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Container {
+  width: 80vw;
+  max-width: 1200px;
+  margin: 40px auto 40px;
+}
+
+.Container.full {
+  width: 100%;
+  max-width: 100%;
+}
+
+.Container.padded {
+  padding: 2rem;
+}
+
+.Container.narrow {
+  width: 50vw;
+  max-width: 500px
+}
+
+.Container.header {
+  margin-top: 0;
+}
+
+.align-left {
+  text-align: left
+}
+.App {
+  text-align: center;
+}
+
+.App figure {
+  padding: 0;
+  margin: 0;
+}

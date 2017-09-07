@@ -1,0 +1,26 @@
+fragment SectionsFragment on Section {
+  ... on TextSection {
+    id
+    title
+    body
+    index
+  }
+  ... on PhotoRowSection {
+    id
+    index
+    photos {
+      id
+      url
+      ratio
+    }
+  }
+  ... on HeroSection {
+    id
+    index
+    photo {
+      id
+      url
+      ratio
+    }
+  }
+}

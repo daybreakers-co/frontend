@@ -1,0 +1,6 @@
+fragment LocationFragment on Location {
+  id
+  title
+  lat
+  lng
+}

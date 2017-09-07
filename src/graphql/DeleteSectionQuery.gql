@@ -1,0 +1,10 @@
+mutation ($id: String!) {
+  deleteSection(id: $id) {
+    ... on TextSection {
+      id
+    }
+    ... on PhotoRowSection {
+      id
+    }
+  }
+}

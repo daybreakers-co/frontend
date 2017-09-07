@@ -1,0 +1,67 @@
+.Header {
+  z-index: 1;
+  width: 100%;
+}
+
+.Header .Container {
+  padding: 2rem 0;
+  margin: auto;
+  text-align: left;
+}
+
+.Header .Container > * {
+  display: inline;
+  padding: 0;
+  margin: 0;
+}
+
+.Header h1 {
+  display: inline;
+  font-size: 2rem;
+  font-weight: bold;
+  color: rgba(0,0,0,.7);
+}
+
+.Header img {
+  padding-right: 5px;
+  height: 2rem;
+}
+
+.Header ul {
+  display: inline;
+  float: right;
+}
+
+.Header .BreadCrumbs {
+  float: none;
+}
+
+.Header .BreadCrumbs li {
+  margin-left: 1.25rem;
+}
+.Header .BreadCrumbs li:before {
+  content: '>';
+  margin-right: 1.25rem;
+}
+
+.Header .BreadCrumbs li:first-child {
+  margin-left: 2.5rem;
+}
+.Header .BreadCrumbs li:first-child:before {
+  content: none;
+}
+
+@media (min-width: 80rem) {
+  .Header ul {
+      margin-right: 0
+  }
+}
+
+.Header li {
+  display: inline;
+  margin-bottom: 0;
+  margin-left: 2.5rem;
+  position: relative;
+  list-style-type: none;
+  font-weight: 400;
+}

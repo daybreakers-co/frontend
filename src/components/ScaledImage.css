@@ -1,0 +1,11 @@
+.ScaledImage {
+  position: relative;
+}
+
+.ScaledImage i {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 12px;
+  color: white;
+}

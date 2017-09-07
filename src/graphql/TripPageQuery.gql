@@ -1,0 +1,24 @@
+#import "./_HeaderCard.gql"
+
+query TripPageQuery($username: String!, $tripId: String!) {
+  user(username: $username) {
+    id
+    name
+    username
+    isViewer
+    trip(id: $tripId) {
+      id
+      title
+      subtitle
+      header {
+        ratio
+        id
+        url
+      }
+      posts {
+        id
+        ...HeaderCard
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+query UserPageQuery($username: String!) {
+  user(username: $username) {
+    id
+    name
+    isViewer
+    username
+    trips {
+      id
+      title
+      subtitle
+      viewerCanEdit
+      header {
+        ratio
+        id
+        url
+      }
+    }
+  }
+}

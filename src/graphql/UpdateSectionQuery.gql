@@ -1,0 +1,12 @@
+mutation ($id: String!, $index: Int) {
+  updateSection(id: $id, index: $index) {
+    ... on TextSection {
+      id
+      index
+    }
+    ... on PhotoRowSection {
+      id
+      index
+    }
+  }
+}

@@ -1,0 +1,9 @@
+query DeletePostPageQuery($username: String!, $postId: String!) {
+  user(username: $username) {
+    id
+    post(id: $postId) {
+      id
+      title
+    }
+  }
+}

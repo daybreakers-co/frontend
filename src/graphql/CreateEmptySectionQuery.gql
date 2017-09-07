@@ -1,0 +1,7 @@
+#import "./_Sections.gql"
+
+mutation ($postId: String!, $type: SectionEnum!) {
+  createEmptySection(postId: $postId, type: $type) {
+    ...SectionsFragment
+  }
+}

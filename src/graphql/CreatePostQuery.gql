@@ -1,0 +1,5 @@
+mutation($tripId: String!) {
+  createPost(tripId: $tripId) {
+    id
+  }
+}

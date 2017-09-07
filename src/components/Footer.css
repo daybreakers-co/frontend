@@ -1,0 +1,13 @@
+.Footer {
+  padding-top: 80px;
+}
+
+.Footer li {
+  display: inline;
+  list-style-type: none;
+}
+
+.Footer li:not(:last-child)::after {
+  padding: 0 10px;
+  content: '-';
+}
