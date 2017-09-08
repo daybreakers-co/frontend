@@ -20,7 +20,6 @@ const HeaderCard = ({ link, headerCard: { title, subtitle, header } }) => (
   </div>
 )
 
-
 HeaderCard.propTypes = {
   link: PropTypes.string.isRequired,
   headerCard: propType(HeaderCardFragment).isRequired,

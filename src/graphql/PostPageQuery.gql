@@ -1,7 +1,4 @@
-#import "./_PostNavigation.gql"
-#import "./_ShowText.gql"
-#import "./_ShowPhotoRow.gql"
-#import "./_ShowHero.gql"
+#import "./_Post.gql"
 
 query($username: String!, $id: String!) {
   user(username: $username) {
@@ -9,26 +6,7 @@ query($username: String!, $id: String!) {
     username
     isViewer
     post(id: $id) {
-      id
-      title
-      subtitle
-      trip {
-        id
-        title
-      }
-      header {
-        ratio
-        id
-        url
-        width
-        height
-      }
-      sections {
-        ...ShowText
-        ...ShowPhotoRow
-        ...ShowHero
-      }
-      ...PostNavigation
+      ...PostFragment
     }
   }
 }

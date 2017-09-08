@@ -1,4 +1,4 @@
-#import "./_EditPost.gql"
+#import "./_Post.gql"
 
 query($username: String!  , $id: String!) {
   user(username: $username) {
@@ -6,7 +6,7 @@ query($username: String!  , $id: String!) {
     username
     isViewer
     post(id: $id) {
-      ...EditPostFragment
+      ...PostFragment
     }
   }
 }

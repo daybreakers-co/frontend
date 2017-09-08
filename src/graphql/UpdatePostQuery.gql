@@ -1,7 +1,7 @@
-#import "./_EditPost.gql"
+#import "./_Post.gql"
 
 mutation($id: String!, $title: String, $subtitle: String, $publishDate: Date, $published: Boolean) {
   updatePost(id: $id, title: $title, subtitle: $subtitle, publishDate: $publishDate, published: $published) {
-    ...EditPostFragment
+    ...PostFragment
   }
 }

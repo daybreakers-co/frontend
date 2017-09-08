@@ -46,13 +46,13 @@ class EditHeroHeader extends React.Component {
         <Dropzone onDrop={this.props.onDrop} className="EditHeroHeaderOverlay" disableClick={true}>
           <input
             className="title"
-            value={this.state.title}
+            value={this.state.title || ""}
             placeholder='(Title of your amazing journey)'
             onChange={(e) => this.setState({title: e.target.value})}
             onBlur={this.handleBlur} />
           <input
             className="subtitle"
-            value={this.state.subtitle}
+            value={this.state.subtitle || ""}
             placeholder='(Subtitle of your amazing journey)'
             onChange={(e) => this.setState({subtitle: e.target.value})}
             onBlur={this.handleBlur} />

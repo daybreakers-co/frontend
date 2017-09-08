@@ -1,7 +1,8 @@
 #import "./_Sections.gql"
 #import "./_Location.gql"
+#import "./_PostNavigation.gql"
 
-fragment EditPostFragment on Post {
+fragment PostFragment on Post {
   id
   title
   subtitle
@@ -24,4 +25,5 @@ fragment EditPostFragment on Post {
   sections {
     ...SectionsFragment
   }
+  ...PostNavigation
 }

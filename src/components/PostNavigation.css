@@ -15,3 +15,7 @@
 .PostNavigation .previous {
   float: left;
 }
+
+.PostNavigation .HeaderCard figure {
+  height: 200px;
+}
