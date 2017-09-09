@@ -1,7 +1,5 @@
-fragment ShowPhotoRow on PhotoRowSection {
-  id
-  index
-  items {
+mutation($sectionId: String!) {
+  createPhotoRowSectionItem(sectionId: $sectionId,) {
     id
     index
     photo {

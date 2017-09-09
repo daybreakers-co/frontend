@@ -6,14 +6,14 @@ import ShowPhotoRowFragment from '../../../../graphql/_ShowPhotoRow.gql'
 
 import './PhotoRow.css'
 
-const ShowPhotoRow = ({ photoRowSection: { id, index, photos }}) => (
+const ShowPhotoRow = ({ photoRowSection: { id, index, items }}) => (
   <div className="Container">
     <div className="columns">
-      {photos.map((photo) =>
+      {items.map((item) =>
         <ScaledImage
-          key={photo.id}
-          image={photo}
-          style={{flex: photo.ratio}}
+          key={item.photo.id}
+          image={item.photo}
+          style={{flex: item.photo.ratio}}
           alt="image"/>
       )}
     </div>
