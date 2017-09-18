@@ -8,10 +8,16 @@ fragment SectionsFragment on Section {
   ... on PhotoRowSection {
     id
     index
-    photos {
+    items {
       id
-      url
-      ratio
+      index
+      photo {
+        id
+        url
+        ratio
+        width
+        height
+      }
     }
   }
   ... on HeroSection {

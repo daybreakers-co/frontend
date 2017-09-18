@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 
 import { withRouter, Link } from 'react-router-dom'
 import { graphql, compose } from 'react-apollo'
-import { uploadPhoto } from '../utils/uploadPhoto'
 import DayPicker from 'react-day-picker'
 
 import withCurrentUser from '../components/hoc/withCurrentUser'
@@ -112,12 +111,6 @@ class EditPostPage extends React.Component {
     })
   }
 
-  handleDrop = (files) => {
-    uploadPhoto(files[0], 'Post', this.props.data.user.post.id).then(image => {
-      this.props.data.refetch()
-    })
-  }
-
   render () {
     const { currentUser, data: { error, loading, user }, match: { params: { username, tripId, postId } } } = this.props
 
@@ -178,8 +171,9 @@ class EditPostPage extends React.Component {
             title={post.title}
             subtitle={post.subtitle}
             header={post.header}
-            onChange={this.handleChange}
-            onDrop={this.handleDrop} />
+            uploadParentId={post.id}
+            uploadParentType="Post"
+            onChange={this.handleChange} />
           {sections}
           <PostAddSection
             username={username}

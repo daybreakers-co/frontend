@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { withRouter, Link } from 'react-router-dom'
 import { graphql, compose } from 'react-apollo'
-import { uploadPhoto } from '../utils/uploadPhoto'
 
 import withCurrentUser from '../components/hoc/withCurrentUser'
 import Header from '../components/Header'
@@ -42,12 +41,6 @@ class EditTripPage extends React.Component {
     })
   }
 
-  handleDrop = (files) => {
-    uploadPhoto(files[0], 'Trip', this.props.data.user.trip.id).then(image => {
-      this.props.data.refetch()
-    })
-  }
-
   render () {
     const { currentUser, data: { loading, error, user }} = this.props;
     if (loading) { return (<div>Loading</div>) }
@@ -69,8 +62,9 @@ class EditTripPage extends React.Component {
             title={title}
             subtitle={subtitle}
             header={header}
-            onChange={this.handleChange}
-            onDrop={this.handleDrop} />
+            uploadParentId={id}
+            uploadParentType="Trip"
+            onChange={this.handleChange} />
         </div>
       </div>
     )

@@ -17,18 +17,18 @@
   text-align: left;
 }
 
-.columns > figure {
+.columns > figure, .columns > .UploadableImage {
   flex: 1.5;
   margin: 0 0 0 10px;
   display: block;
 }
 
-.columns > figure:first-child {
+.columns > figure:first-child,  .columns > .UploadableImage:first-child {
   margin: 0;
 }
 
 .columns img {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
 }

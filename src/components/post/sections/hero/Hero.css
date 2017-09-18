@@ -1,6 +1,7 @@
 .EditHero {
   text-align: left;
   margin: 10px auto;
+  position: relative;
 }
 
 .EditHero .dropzone {
@@ -18,4 +19,13 @@
   width: 100%;
   height: auto;
   display: block;
+}
+
+.EditHero .progress {
+  position: absolute;
+  height: 5px;
+  bottom: 0;
+  left: 0;
+  background-color: red;
+  z-index: 100;
 }

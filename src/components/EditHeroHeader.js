@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Dropzone from 'react-dropzone'
+import UploadableImage from './UploadableImage'
+import ScaledImage from './ScaledImage'
 
 import './EditHeroHeader.css'
 
@@ -9,7 +11,8 @@ class EditHeroHeader extends React.Component {
     super()
     this.state = {
       title: props.title,
-      subtitle: props.subtitle
+      subtitle: props.subtitle,
+      file: null
     }
   }
 
@@ -17,8 +20,9 @@ class EditHeroHeader extends React.Component {
     title: PropTypes.string,
     subtitle: PropTypes.string,
     header: PropTypes.object,
-    onChange: PropTypes.func.isRequired,
-    onDrop:  PropTypes.func.isRequired,
+    uploadParentId: PropTypes.string.isRequired,
+    uploadParentType: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired
   }
 
   componentWillReceiveProps(nextProps) {
@@ -29,6 +33,10 @@ class EditHeroHeader extends React.Component {
     })
   }
 
+  onDrop = (files) => {
+    this.setState({file: files[0]})
+  }
+
   handleBlur = () => {
     this.props.onChange({
       title:    this.state.title,
@@ -37,29 +45,42 @@ class EditHeroHeader extends React.Component {
   }
 
   render () {
-    let style = {};
-    if (this.props.header) {
-      style['backgroundImage'] = `url(${this.props.header.url}?width=1000)`
+    const { header, uploadParentId, uploadParentType } = this.props
+    const { title, subtitle, file } = this.state
+    let backgroundImage;
+
+    if (file) {
+      backgroundImage = <UploadableImage
+      parentType={uploadParentType}
+      parentId={uploadParentId}
+      file={this.state.file} />
+    } else if (header) {
+      backgroundImage = <ScaledImage
+      key={header.id}
+      image={header}
+      style={{flex: header.ratio}}
+      alt="image"/>
     }
     return (
-      <div className="EditHeroHeader" style={style}>
-        <Dropzone onDrop={this.props.onDrop} className="EditHeroHeaderOverlay" disableClick={true}>
+      <Dropzone onDrop={this.onDrop} className="EditHeroHeader" disableClick={true}>
+        {backgroundImage}
+        <hgroup>
           <input
             className="title"
-            value={this.state.title || ""}
+            value={title || ""}
             placeholder='(Title of your amazing journey)'
             onChange={(e) => this.setState({title: e.target.value})}
             onBlur={this.handleBlur} />
           <input
             className="subtitle"
-            value={this.state.subtitle || ""}
-            placeholder='(Subtitle of your amazing journey)'
+            value={subtitle || ""}
+            placeholder='(Optional subtitle)'
             onChange={(e) => this.setState({subtitle: e.target.value})}
             onBlur={this.handleBlur} />
 
           <p>Drop an image here to update the header image.</p>
-        </Dropzone>
-      </div>
+        </hgroup>
+      </Dropzone>
     )
   }
 }

@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditHeroHeader Matches snapshot 1`] = `
+<Dropzone
+  className="EditHeroHeader"
+  disableClick={true}
+  disablePreview={false}
+  maxSize={Infinity}
+  minSize={0}
+  multiple={true}
+  onDrop={[Function]}
+  preventDropOnDocument={true}
+>
+  <ScaledImage
+    alt="image"
+    image={
+      Object {
+        "id": "def234",
+        "ratio": 1,
+        "url": "image.jpg",
+      }
+    }
+    key="def234"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  />
+  <hgroup>
+    <input
+      className="title"
+      onBlur={[Function]}
+      onChange={[Function]}
+      placeholder="(Title of your amazing journey)"
+      value="Header title"
+    />
+    <input
+      className="subtitle"
+      onBlur={[Function]}
+      onChange={[Function]}
+      placeholder="(Optional subtitle)"
+      value="Header subtitle"
+    />
+    <p>
+      Drop an image here to update the header image.
+    </p>
+  </hgroup>
+</Dropzone>
+`;

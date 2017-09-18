@@ -1,43 +1,49 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Dropzone from 'react-dropzone'
-import { uploadPhoto } from '../../../../utils/uploadPhoto'
 import './Hero.css'
 import ScaledImage from '../../../ScaledImage'
+import UploadableImage from '../../../UploadableImage'
 
 class EditHero extends React.Component {
   constructor(props) {
     super()
 
     this.state = {
-      photo: props.photo
+      file: null,
     }
   }
 
   static propTypes = {
-    postId:   PropTypes.string.isRequired,
-    index:    PropTypes.number.isRequired,
-    photo:    PropTypes.object
+    id:    PropTypes.string.isRequired,
+    photo: PropTypes.object
   }
 
   onDrop = (files) => {
-    let file = files[0]
-    uploadPhoto(file, 'HeroSection', this.props.id).then(image => {
-      this.setState({photo: image})
-    })
+    this.setState({file: files[0]})
   }
 
   render () {
-    const { photo } = this.state;
-    return (
-      <div className="EditHero">
-        <Dropzone onDrop={this.onDrop} className="dropzone">
-          {photo &&  <ScaledImage
+    const { file } = this.state;
+    const { photo, id } = this.props;
+    let component = null
+
+    if (file) {
+      component = <UploadableImage
+            parentType="HeroSection"
+            parentId={id}
+            file={this.state.file} />
+    } else if (photo) {
+      component = <ScaledImage
             key={photo.id}
             image={photo}
             style={{flex: photo.ratio}}
             alt="image"/>
-          }
+    }
+    return (
+      <div className="EditHero">
+        <Dropzone onDrop={this.onDrop} className="dropzone">
+         {component}
         </Dropzone>
       </div>
     )
