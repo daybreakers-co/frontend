@@ -1,6 +1,6 @@
 # Daybreakers.co frontend
 
-![build status](https://travis-ci.org/daybreakers-co/frontend.svg?branch=master)
+[![Build Status](https://travis-ci.org/daybreakers-co/frontend.svg?branch=master)](https://travis-ci.org/daybreakers-co/frontend)
 
 Editor part of the Daybreakers.co app
 
