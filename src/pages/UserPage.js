@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import { graphql, compose } from 'react-apollo'
 
-import HeaderCard from '../components/HeaderCard';
+import HeaderCard from '../components/HeaderCard'
 import withCurrentUser from '../components/hoc/withCurrentUser'
 import Header from '../components/Header'
 import Button from '../components/Button'
@@ -13,7 +13,8 @@ import CreateTripQuery from '../graphql/CreateTripQuery.gql'
 class UserPage extends Component {
 
   handleCreateTripClick = () => {
-    const { username, createTripMutation, history } = this.props;
+    const { match, createTripMutation, history } = this.props
+    const username = match.params.username
 
     createTripMutation({variables: {username}}).then((result) => {
       history.push(`/${username}/${result.data.createTrip.id}/edit`)
@@ -42,7 +43,7 @@ class UserPage extends Component {
           </div>
         </section>
       </div>
-    );
+    )
   }
 }
 
