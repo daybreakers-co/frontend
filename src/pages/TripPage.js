@@ -15,7 +15,7 @@ class TripPage extends Component {
 
   handleCreatePostClick = () => {
     const { history, match: { params: { tripId }}, data: { user: { username }}, createPostMutation} = this.props
-    createPostMutation({variables: {tripId}}).then((result) => {
+    createPostMutation({ variables: { tripId }, refetchQueries: ['TripPageQuery']}).then((result) => {
       history.push(`/${username}/${tripId}/${result.data.createPost.id}/edit`)
     })
   }
@@ -62,12 +62,12 @@ class TripPage extends Component {
 
 export default compose(
   graphql(TripPageQuery, {
-  options: (ownProps) => ({
-    variables: {
-      username: ownProps.match.params.username,
-      tripId: ownProps.match.params.tripId
-    }
-  })
+    options: (ownProps) => ({
+      variables: {
+        username: ownProps.match.params.username,
+        tripId: ownProps.match.params.tripId
+      }
+    }),
   }),
   graphql(CreatePostQuery, {name: 'createPostMutation'}),
   withCurrentUser,

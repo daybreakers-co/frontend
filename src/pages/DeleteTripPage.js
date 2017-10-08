@@ -7,6 +7,7 @@ import Modal from '../components/Modal'
 
 import DeleteTripPageQuery from '../graphql/DeleteTripPageQuery.gql'
 import DeleteTripQuery from '../graphql/DeleteTripQuery.gql'
+import UserPageQuery from '../graphql/UserPageQuery.gql'
 
 class DeleteTripPage extends Component {
   handleDeleteClick = () => {
@@ -18,6 +19,11 @@ class DeleteTripPage extends Component {
 
     deleteMutation({
       variables: {tripId},
+      update: (proxy, _) => {
+        let data = proxy.readQuery({query: UserPageQuery, variables: {username: username}})
+        data.user.trips = data.user.trips.filter(trip => trip.id !== tripId)
+        proxy.writeQuery({ query: UserPageQuery, data });
+      }
     }).then((result) => {
       history.push(`/${username}`)
     })
@@ -51,12 +57,12 @@ class DeleteTripPage extends Component {
 
 export default compose(
   graphql(DeleteTripPageQuery, {
-  options: (ownProps) => ({
-    variables: {
-      username: ownProps.match.params.username,
-      tripId: ownProps.match.params.tripId
-    }
-  })
+    options: (ownProps) => ({
+      variables: {
+        username: ownProps.match.params.username,
+        tripId: ownProps.match.params.tripId
+      }
+    })
   }),
   graphql(DeleteTripQuery, {name: 'deleteMutation'}),
   withRouter
