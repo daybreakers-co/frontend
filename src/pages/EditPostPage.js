@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { withRouter, Link } from 'react-router-dom'
 import { graphql, compose } from 'react-apollo'
 import DayPicker from 'react-day-picker'
+import Toggle from 'react-toggle'
 
 import withCurrentUser from '../components/hoc/withCurrentUser'
 import PostAddSection from '../components/post/sections/AddSection'
@@ -11,7 +12,7 @@ import PostEditText from '../components/post/sections/text/EditText'
 import PostEditPhotoRow from '../components/post/sections/photoRow/EditPhotoRow'
 import EditHero from '../components/post/sections/hero/EditHero'
 import EditorNavigation from '../components/post/sections/EditorNavigation'
-import Header from '../components/Header'
+import EditHeader from '../components/EditHeader'
 import EditHeroHeader from '../components/EditHeroHeader'
 import EditLocations from '../components/EditLocations'
 import Button from '../components/Button'
@@ -23,6 +24,7 @@ import CreateLocationQuery from '../graphql/CreateLocationQuery.gql'
 import DeleteLocationQuery from '../graphql/DeleteLocationQuery.gql'
 
 import 'react-day-picker/lib/style.css'
+import "react-toggle/style.css"
 
 class EditPostPage extends React.Component {
   state = {
@@ -160,12 +162,32 @@ class EditPostPage extends React.Component {
 
     return (
       <div>
-        <Header
+        <EditHeader
           currentUser={currentUser}
           user={user}
           trip={post.trip}
           post={post}
-          button={user.isViewer && <Link className="Button small destructive" to={`/${username}/${tripId}/${postId}/delete`}>Delete post</Link>} />
+          button={user.isViewer && [
+            <Link className="Button small" to={`/${username}/${tripId}/${postId}`}>Finish editing</Link>,
+            <Link className="Button small destructive" to={`/${username}/${tripId}/${postId}/delete`}>Delete post</Link>
+          ]}
+        >
+          <input placeholder="Today" />
+          <DayPicker
+            onDayClick={day => this.handleChange({publishDate: day.toISOString() })}
+            enableOutsideDays
+            selectedDays={[new Date(post.publishDate)]} />
+            <EditLocations
+              locations={post.locations}
+              onCreate={this.handleCreateLocation}
+              onDelete={this.handleDeleteLocation} />
+              <Toggle
+                defaultChecked={post.published}
+                onChange={(event)=> this.handleChange({published: event.target.checked})}
+              />
+            {post.published ? "published" : "unpublished"}
+
+        </EditHeader>
         <div className="Container full header EditPost">
           <EditHeroHeader
             title={post.title}
@@ -173,35 +195,13 @@ class EditPostPage extends React.Component {
             header={post.header}
             uploadParentId={post.id}
             uploadParentType="Post"
-            onChange={this.handleChange} />
+            onChange={this.handleChange}
+            />
           {sections}
           <PostAddSection
             username={username}
             postId={postId}
             handleClick={this.handleAddSection} />
-
-          <div className="Container narrow">
-            <h4>Metadata</h4>
-            <DayPicker
-              onDayClick={day => this.handleChange({publishDate: day.toISOString() })}
-              enableOutsideDays
-              selectedDays={[new Date(post.publishDate)]} />
-            <EditLocations
-              locations={post.locations}
-              onCreate={this.handleCreateLocation}
-              onDelete={this.handleDeleteLocation} />
-            {post.published &&
-              <Button
-                type="destructive"
-                title="Unpublish post"
-                onClick={_ => this.handleChange({published: false})} />
-            }
-            {!post.published &&
-              <Button
-                title="Publish post"
-                onClick={_ => this.handleChange({published: true})} />
-            }
-          </div>
         </div>
       </div>
     )

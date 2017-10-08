@@ -70,7 +70,7 @@ class EditHeroHeader extends React.Component {
           <input
             className="title"
             value={title || ""}
-            placeholder='(Title of your amazing journey)'
+            placeholder='(Amazing title)'
             onChange={(e) => this.setState({title: e.target.value})}
             onBlur={this.handleBlur} />
           <input

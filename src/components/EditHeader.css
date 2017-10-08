@@ -1,0 +1,62 @@
+.edit.Header {
+  background: var(--bg-invert);
+  color: var(--color-invert);
+  border: 0;
+  box-shadow: var(--shadow);
+}
+
+.edit.Header a:not(.Button) {
+  color: var(--color-invert);
+}
+
+.edit.Header .EditOptions {
+  display: flex;
+  align-items: stretch
+}
+
+.edit.Header .EditOptions {
+  align-self: stretch;
+}
+
+.edit.Header .EditOptions label {
+  margin-right: 0.5rem
+}
+
+.edit.Header .EditOptions input {
+  width: 150px;
+  transition: width 0.2s;
+}
+
+.edit.Header .EditOptions input:focus {
+  width: 250px;
+}
+
+.edit.Header .EditOptions .tag {
+  line-height: 1rem;
+  padding: 0.25rem 0.5rem;
+  background: var(--light);
+  border-radius: var(--br);
+  margin-left: 0.5rem
+}
+
+.edit.Header .EditOptions .fa {
+  color: var(--dark);
+  opacity: 0.6
+}
+
+.edit.Header .EditOptions > div {
+  margin-right: 1rem;
+  border-right: 1px solid var(--medium);
+  display: flex;
+  align-items: center;
+  padding-right: 1rem
+}
+
+.edit.Header .EditOptions .locations {
+  display: flex;
+  align-items: center;
+}
+
+.edit.Header .EditOptions .react-toggle {
+  margin-right: 0.25rem
+}

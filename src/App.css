@@ -3,6 +3,7 @@
   --dark:         #222936;
   --white:        #fff;
   --light:        #EEEEEE;
+  --medium:       #ccc;
 
   --uh:           5px;
   --u:            10px;
@@ -16,14 +17,18 @@
 
   --bg:           var(--darkest);
   --bg-shade:     var(--dark);
+  --bg-invert:    var(--white);
 
   --color:        var(--white);
   --color-shade:  var(--light);
+  --color-invert: var(--dark);
 
   --border-color: var(--dark);
   --border:       1px solid var(--border-color);
+  --br:           5px;
 
-  --br:           5px
+  --shadow:       0 2px 5px rgba(0,0,0,0.1), 0 4px 10px rgba(0,0,0,0.1);
+
 }
 
 body {
@@ -71,8 +76,7 @@ a {
 }
 
 .Container.narrow {
-  width: 50vw;
-  max-width: 500px
+  max-width: 30rem
 }
 
 .Container.header {
@@ -82,6 +86,7 @@ a {
 .align-left {
   text-align: left
 }
+
 .App {
 }
 

@@ -1,0 +1,28 @@
+input,
+textarea,
+select {
+  line-height: 1rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--medium);
+  border-radius: var(--br);
+  transition: border 0.2s, box-shadow 0.2s;
+  font-size: 0.75rem
+}
+
+input:focus,
+input:hover,
+textarea:focus,
+textarea:hover,
+select:focus,
+select:hover {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(76,175,80,0.3);
+  border: 1px solid var(--green);
+}
+
+input.small,
+textarea.small,
+select.small {
+  line-height: 1rem;
+  padding: 0.25rem 0.5rem;
+}

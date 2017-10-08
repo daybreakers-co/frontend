@@ -55,8 +55,7 @@ class Header extends React.Component {
           }
         </ul>
         <ul className="UserActions">
-
-          {button && <li>{button}</li>}
+          {button}
           {content}
         </ul>
       </nav>

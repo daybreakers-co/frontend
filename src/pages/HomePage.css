@@ -1,0 +1,28 @@
+.HomePage {
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.8)), url("/HomePageBackground.jpg");
+  background-position: center center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center
+}
+
+.HomePage img {
+  width: 6rem;
+}
+
+.HomePage h1 {
+  font-size: 3rem;
+  font-style: italic;
+  text-transform: uppercase;
+  font-weight: 900;
+  margin-bottom: 0.5rem
+}
+
+.HomePage p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import 'font-awesome/css/font-awesome.css';
-import './App.css';
 import { Route, Switch } from 'react-router-dom'
 
 import SignupPage from './pages/SignupPage';
@@ -35,7 +34,6 @@ export class App extends Component {
           <Route exact path="/:username/:tripId/delete" component={DeleteTripPage}/>
           <Route exact path="/:username/:tripId/:postId/delete" component={DeletePostPage}/>
         </Switch>
-        <Footer />
       </main>
     );
   }

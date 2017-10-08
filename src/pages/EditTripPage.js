@@ -4,7 +4,7 @@ import { withRouter, Link } from 'react-router-dom'
 import { graphql, compose } from 'react-apollo'
 
 import withCurrentUser from '../components/hoc/withCurrentUser'
-import Header from '../components/Header'
+import EditHeader from '../components/EditHeader'
 import EditHeroHeader from '../components/EditHeroHeader'
 
 import TripPageQuery from '../graphql/TripPageQuery.gql'
@@ -43,11 +43,12 @@ class EditTripPage extends React.Component {
 
     return (
       <div>
-        <Header
+        <EditHeader
           user={user}
           trip={user.trip}
           currentUser={currentUser}
           button={[
+            <li key="finishEditing"><Link to={`/${user.username}/${id}`} className="Button small">Finish editing</Link></li>,
             <li key="deleteButton"><Link to={`/${user.username}/${id}/delete`} className="Button small destructive">Delete trip</Link></li>,
             ]} />
 
