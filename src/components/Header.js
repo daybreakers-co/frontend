@@ -23,13 +23,18 @@ class Header extends React.Component {
     let content;
     const { button, currentUser, user, trip, post } = this.props;
 
+    if (Array.isArray(button)) {
+      content = button
+    } else {
+      content = [<li key="Button">{button}</li>]
+    }
     if (currentUser) {
-      content = [<li key="signOut"><a title="Sign out" onClick={this._logout}><i className="fa fa-sign-out" aria-hidden="true"></i>
-</a></li>]
+      content.push(<li key="signOut"><a title="Sign out" onClick={this._logout}><i className="fa fa-sign-out" aria-hidden="true"></i>
+</a></li>)
 
     } else {
-      content = [<li key="signIn"><Link to="/signin">Sign in</Link></li>,
-                 <li key="signUp"><Link to="/signup">Sign Up</Link></li>]
+      content.push(<li key="signIn"><Link to="/signin">Sign in</Link></li>)
+      content.push(<li key="signUp"><Link to="/signup">Sign Up</Link></li>)
     }
     return (
       <nav className="Header">
@@ -55,8 +60,6 @@ class Header extends React.Component {
           }
         </ul>
         <ul className="UserActions">
-
-          {button && <li>{button}</li>}
           {content}
         </ul>
       </nav>
