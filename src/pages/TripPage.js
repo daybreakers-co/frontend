@@ -15,7 +15,7 @@ class TripPage extends Component {
 
   handleCreatePostClick = () => {
     const { history, match: { params: { tripId }}, data: { user: { username }}, createPostMutation} = this.props
-    createPostMutation({variables: {tripId}}).then((result) => {
+    createPostMutation({ variables: { tripId }, refetchQueries: ['TripPageQuery']}).then((result) => {
       history.push(`/${username}/${tripId}/${result.data.createPost.id}/edit`)
     })
   }

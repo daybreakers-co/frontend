@@ -19,7 +19,7 @@ class DeleteTripPage extends Component {
 
     deleteMutation({
       variables: {tripId},
-      update: (proxy, { data: { createLocation } }) => {
+      update: (proxy, _) => {
         let data = proxy.readQuery({query: UserPageQuery, variables: {username: username}})
         data.user.trips = data.user.trips.filter(trip => trip.id !== tripId)
         proxy.writeQuery({ query: UserPageQuery, data });

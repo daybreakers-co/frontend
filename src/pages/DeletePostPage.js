@@ -7,6 +7,7 @@ import Modal from '../components/Modal'
 
 import DeletePostQuery from '../graphql/DeletePostQuery.gql'
 import DeletePostPageQuery from '../graphql/DeletePostPageQuery.gql'
+import TripPageQuery from '../graphql/TripPageQuery.gql'
 
 class DeletePostPage extends Component {
 
@@ -19,6 +20,11 @@ class DeletePostPage extends Component {
 
     deleteMutation({
       variables: {postId},
+      update: (proxy, _) => {
+        let data = proxy.readQuery({ query: TripPageQuery, variables: { username: username, tripId: tripId } })
+        data.user.trip.posts = data.user.trip.posts.filter(post => post.id !== postId)
+        proxy.writeQuery({ query: TripPageQuery, data });
+      }
     }).then((result) => {
       history.push(`/${username}/${tripId}`)
     })
