@@ -4,6 +4,7 @@ import Dropzone from 'react-dropzone'
 import UploadableImage from './UploadableImage'
 import ScaledImage from './ScaledImage'
 
+import './HeroHeader.css'
 import './EditHeroHeader.css'
 
 class EditHeroHeader extends React.Component {
@@ -20,6 +21,7 @@ class EditHeroHeader extends React.Component {
     title: PropTypes.string,
     subtitle: PropTypes.string,
     header: PropTypes.object,
+    type: PropTypes.string,
     uploadParentId: PropTypes.string.isRequired,
     uploadParentType: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired
@@ -45,7 +47,7 @@ class EditHeroHeader extends React.Component {
   }
 
   render () {
-    const { header, uploadParentId, uploadParentType } = this.props
+    const { header, uploadParentId, uploadParentType, type } = this.props
     const { title, subtitle, file } = this.state
     let backgroundImage;
 
@@ -62,7 +64,7 @@ class EditHeroHeader extends React.Component {
       alt="image"/>
     }
     return (
-      <Dropzone onDrop={this.onDrop} className="EditHeroHeader" disableClick={true}>
+      <Dropzone onDrop={this.onDrop} className={`HeroHeader edit ${type}`} disableClick={true}>
         {backgroundImage}
         <hgroup>
           <input
@@ -78,7 +80,7 @@ class EditHeroHeader extends React.Component {
             onChange={(e) => this.setState({subtitle: e.target.value})}
             onBlur={this.handleBlur} />
 
-          <p>Drop an image here to update the header image.</p>
+          <p className="drophint">Drop an image here to update the header image.</p>
         </hgroup>
       </Dropzone>
     )

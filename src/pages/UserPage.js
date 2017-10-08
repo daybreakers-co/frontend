@@ -6,6 +6,7 @@ import HeaderCard from '../components/HeaderCard';
 import withCurrentUser from '../components/hoc/withCurrentUser'
 import Header from '../components/Header'
 import Button from '../components/Button'
+import PageTitle from '../components/PageTitle'
 
 import UserPageQuery from '../graphql/UserPageQuery.gql'
 import CreateTripQuery from '../graphql/CreateTripQuery.gql'
@@ -29,9 +30,13 @@ class UserPage extends Component {
         <Header
           currentUser={currentUser}
           user={user}
-          button={user.isViewer && <Button size="small" onClick={this.handleCreateTripClick} title="Create trip" />}/>
+          button={user.isViewer && <Button size="small" type="secondary" onClick={this.handleCreateTripClick} title="Create trip" />}/>
         <section className="Container">
-          <h1>{user.isViewer ? "These are your own trips!" : `Trips ${user.name} has made`}</h1>
+          <PageTitle>
+            <h1>Trips {user.name} has made</h1>
+            <p>{user.name} is keeping track of their trips on daybreakers. You can view trips and posts here!</p>
+          </PageTitle>
+
           <div style={{flex: 1}} >
             {user.trips.map((trip) => (
               <HeaderCard

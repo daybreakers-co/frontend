@@ -14,7 +14,7 @@ const HeaderCard = ({ link, headerCard: { title, subtitle, header } }) => (
       <ScaledImage image={header} alt="Trip header" auto={false} />
       <hgroup>
         <h1>{title || "Untitled"}</h1>
-        {subtitle && <h4>{subtitle}</h4>}
+        {subtitle && <p>{subtitle}</p>}
       </hgroup>
     </Link>
   </div>

@@ -7,7 +7,7 @@ class HomePage extends Component {
     return (
       <div className="Centered">
         <div className="Container Content narrow align-left">
-          <h1><img src="./logo.png" width="40px" alt="Logo" /></h1>
+          <h1><img src="./daybreakers-logo.svg" alt="Logo" /></h1>
           <p>Daybreakers is a community of travellers who want to share their experiences across the world.</p>
           <p>Already a Daybreaker? <Link to="/signin">sign in!</Link></p>
         </div>

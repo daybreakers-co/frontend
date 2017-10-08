@@ -1,3 +1,40 @@
+:root {
+  --darkest:      #171C24;
+  --dark:         #222936;
+  --white:        #fff;
+  --light:        #EEEEEE;
+
+  --uh:           5px;
+  --u:            10px;
+  --u15:           20px;
+  --u2:           20px;
+  --u3:           30px;
+  --u4:           40px;
+
+  --green:        #4CAF50;
+  --red:          #E60027;
+
+  --bg:           var(--darkest);
+  --bg-shade:     var(--dark);
+
+  --color:        var(--white);
+  --color-shade:  var(--light);
+
+  --border-color: var(--dark);
+  --border:       1px solid var(--border-color);
+
+  --br:           5px
+}
+
+body {
+  background: var(--bg);
+  color: var(--color);
+}
+
+a {
+  color: var(--color-shade);
+}
+
 .Content {
   padding: 0rem 4rem;
 }
@@ -21,7 +58,7 @@
 .Container {
   width: 80vw;
   max-width: 1200px;
-  margin: 40px auto 40px;
+  margin: 0 auto;
 }
 
 .Container.full {
@@ -46,7 +83,6 @@
   text-align: left
 }
 .App {
-  text-align: center;
 }
 
 .App figure {

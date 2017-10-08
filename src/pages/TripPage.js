@@ -47,7 +47,9 @@ class TripPage extends Component {
         <HeroHeader
           image={user.trip.header}
           title={user.trip.title}
-          subtitle={user.trip.subtitle} />
+          subtitle={user.trip.subtitle}
+          type="trip"
+        />
         <section className="Container">
           <div style={{flex: 1}}>
             {posts}

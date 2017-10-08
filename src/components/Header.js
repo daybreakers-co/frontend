@@ -33,35 +33,32 @@ class Header extends React.Component {
     }
     return (
       <nav className="Header">
-        <div className="Container">
-          <h1 className="title">
-            <a className="Title" href="/">
-              <img src="/logo.png" alt="Daybreakers logo"/>
-              Daybreakers
-            </a>
-          </h1>
-          <ul className="BreadCrumbs">
-            {user &&
-              <li>
-                <Link to={`/${user.username}`}>{user.username}</Link>
-              </li>
-            }
-            {user && trip &&
-              <li>
-                <Link to={`/${user.username}/${trip.id}`}>{trip.title}</Link>
-              </li>
-            }
-            {user && trip && post &&
-              <li>
-                <Link to={`/${user.username}/${trip.id}/${post.id}`}>{post.title}</Link>
-              </li>
-            }
-          </ul>
-          <ul className="UserActions">
-            {button}
-            {content}
-          </ul>
-        </div>
+        <a className="Title" href="/">
+          <img src="/daybreakers-logo.svg" alt="Daybreakers logo"/>
+          Daybreakers
+        </a>
+        <ul className="BreadCrumbs">
+          {user &&
+            <li>
+              <Link to={`/${user.username}`}>{user.username}</Link>
+            </li>
+          }
+          {user && trip &&
+            <li>
+              <Link to={`/${user.username}/${trip.id}`}>{trip.title}</Link>
+            </li>
+          }
+          {user && trip && post &&
+            <li>
+              <Link to={`/${user.username}/${trip.id}/${post.id}`}>{post.title}</Link>
+            </li>
+          }
+        </ul>
+        <ul className="UserActions">
+
+          {button && <li>{button}</li>}
+          {content}
+        </ul>
       </nav>
     );
   }

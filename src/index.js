@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './normalize.css';
-import './milligram.css';
+import './reset.css';
+import './layout.css';
+import './typography.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { ApolloClient, ApolloProvider, createBatchingNetworkInterface, IntrospectionFragmentMatcher } from 'react-apollo';

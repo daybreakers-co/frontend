@@ -1,0 +1,15 @@
+html {
+  font-size: 20px;
+}
+
+body {
+  font-size: 0.75rem;
+  line-height: 1.5;
+  font-family: "Circular Std", "Proxima Nova", sans-serif;
+  font-weight: lighter;
+}
+
+
+h1, h2, h3, h4, h5, h6, .title {
+  font-weight: 800;
+}
