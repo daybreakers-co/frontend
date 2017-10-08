@@ -16,7 +16,9 @@ class UserPage extends Component {
     const { match, createTripMutation, history } = this.props
     const username = match.params.username
 
-    createTripMutation({variables: {username}}).then((result) => {
+    createTripMutation(
+      {variables: { username }, refetchQueries: ['UserPageQuery']}
+    ).then((result) => {
       history.push(`/${username}/${result.data.createTrip.id}/edit`)
     })
   }

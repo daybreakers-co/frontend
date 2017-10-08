@@ -23,6 +23,6 @@ export default (WrappedComponent) => {
   }
   return graphql(
     CurrentUserQuery,
-    {name: 'currentUser',options: {fetchPolicy: 'network-only'}}
+    {name: 'currentUser', options: {fetchPolicy: 'network-only'}}
   )(WithCurrentUser);
 };

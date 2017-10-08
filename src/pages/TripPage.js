@@ -60,12 +60,12 @@ class TripPage extends Component {
 
 export default compose(
   graphql(TripPageQuery, {
-  options: (ownProps) => ({
-    variables: {
-      username: ownProps.match.params.username,
-      tripId: ownProps.match.params.tripId
-    }
-  })
+    options: (ownProps) => ({
+      variables: {
+        username: ownProps.match.params.username,
+        tripId: ownProps.match.params.tripId
+      }
+    }),
   }),
   graphql(CreatePostQuery, {name: 'createPostMutation'}),
   withCurrentUser,

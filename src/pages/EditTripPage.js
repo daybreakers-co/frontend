@@ -32,12 +32,6 @@ class EditTripPage extends React.Component {
           '__typename': 'Trip'
         }
       },
-      // After receiving mutated data from the server, update the cache
-      update: (proxy, { data: { updateTrip } }) => {
-        let data = tripDataByIdFromProxy(id, username, proxy);
-        data.viewer.trip = updateTrip;
-        proxy.writeQuery({ query: TripPageQuery, data});
-      },
     })
   }
 
