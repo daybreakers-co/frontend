@@ -2,7 +2,7 @@
 
 exports[`EditHeroHeader Matches snapshot 1`] = `
 <Dropzone
-  className="EditHeroHeader"
+  className="HeroHeader edit undefined"
   disableClick={true}
   disablePreview={false}
   maxSize={Infinity}
@@ -42,7 +42,9 @@ exports[`EditHeroHeader Matches snapshot 1`] = `
       placeholder="(Optional subtitle)"
       value="Header subtitle"
     />
-    <p>
+    <p
+      className="drophint"
+    >
       Drop an image here to update the header image.
     </p>
   </hgroup>
