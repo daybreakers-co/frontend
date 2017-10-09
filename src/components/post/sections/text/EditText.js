@@ -72,7 +72,7 @@ class PostEditText extends React.Component {
 
   render () {
     return (
-      <div className="EditText">
+      <div className="EditText Container narrow">
         <input
           className='w-100 pa3 mv2'
           value={this.state.title}

@@ -11,17 +11,24 @@ class PostAddSection extends React.Component {
   render() {
     return(
       <div className="AddSection">
-        <li>
+        <div>
           <a onClick={(e) => this.props.handleClick("TEXT")}>
-            <i className="fa fa-font" aria-hidden="true"></i>
+            <i className="fa fa-font" aria-hidden="true" />
+            Text
           </a>
+        </div>
+        <div>
           <a onClick={(e) => this.props.handleClick("PHOTOROW")}>
-            <i className="fa fa-image" aria-hidden="true"></i>
+            <i className="fa fa-image" aria-hidden="true" />
+            Photorow
           </a>
+        </div>
+        <div>
           <a onClick={(e) => this.props.handleClick("HERO")}>
-            <i className="fa fa-image" aria-hidden="true"></i>
+            <i className="fa fa-image" aria-hidden="true" />
+            Image
           </a>
-        </li>
+        </div>
       </div>
     )
   }

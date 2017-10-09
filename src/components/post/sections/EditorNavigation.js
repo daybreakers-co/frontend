@@ -9,6 +9,7 @@ import UpdateSectionQuery from '../../../graphql/UpdateSectionQuery.gql'
 import PostPageQuery from '../../../graphql/PostPageQuery.gql'
 
 import './EditorNavigation.css';
+import './EditorSection.css';
 
 export class EditorNavigation extends React.Component {
   static propTypes = {

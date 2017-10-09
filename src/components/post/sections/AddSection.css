@@ -1,20 +1,29 @@
 .AddSection {
-  display: inline-block;
-  margin: 10px auto;
+  margin: 2rem auto;
   padding: 0;
-  border-radius: 5px;
-  background: black;
-  list-style: none
+  border-radius: var(--br);
+  background: var(--bg-shade);
+  list-style: none;
+  display: flex;
+  width: min-content;
+}
+
+.AddSection div {
+  flex: 0 0 auto
 }
 
 .AddSection a {
-  display: inline-block;
   color: white;
   cursor: pointer;
-  padding: 4px 8px;
-  border-left: 1px solid #222;
+  padding: 0.5rem 1rem;
+  white-space: nowrap;
+  display: block;
 }
 
-.AddSection a:first-child {
-  border: 0;
+.AddSection .fa {
+  margin-right: 0.5rem
+}
+
+.AddSection div + div {
+  border-left: 1px solid var(--bg);
 }
