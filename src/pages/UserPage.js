@@ -33,7 +33,7 @@ class UserPage extends Component {
         <Header
           currentUser={currentUser}
           user={user}
-          button={user.isViewer && <Button size="small" type="secondary" onClick={this.handleCreateTripClick} title="Create trip" />}/>
+          button={user.isViewer && <Button size="small" onClick={this.handleCreateTripClick} title="Create trip" />}/>
         <section className="Container">
           <PageTitle>
             <h1>Trips {user.name} has made</h1>

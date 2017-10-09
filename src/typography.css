@@ -5,10 +5,16 @@ html {
 body {
   font-size: 0.75rem;
   line-height: 1.5;
-  font-family: "Circular Std", "Proxima Nova", sans-serif;
+  font-family: var(--font);
   font-weight: lighter;
 }
 
+input,
+textarea,
+button {
+  font-family: var(--font);
+  font-size: 0.75rem
+}
 
 h1, h2, h3, h4, h5, h6, .title {
   font-weight: 800;

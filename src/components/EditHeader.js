@@ -48,7 +48,7 @@ class Header extends React.Component {
 
 
           <div className="toggle">
-            <Toggle /> Published
+            <Toggle defaultChecked={true} /> Published
           </div>
         </div>
 

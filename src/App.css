@@ -29,6 +29,10 @@
 
   --shadow:       0 2px 5px rgba(0,0,0,0.1), 0 4px 10px rgba(0,0,0,0.1);
 
+  --font:         "Circular Std", "Proxima Nova", sans-serif;
+
+  --header-height: 3rem;
+
 }
 
 body {
@@ -77,6 +81,10 @@ a {
 
 .Container.narrow {
   max-width: 30rem
+}
+
+.Container.tiny {
+  max-width: 20rem
 }
 
 .Container.header {

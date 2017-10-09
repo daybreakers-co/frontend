@@ -188,21 +188,19 @@ class EditPostPage extends React.Component {
             {post.published ? "published" : "unpublished"}
 
         </EditHeader>
-        <div className="Container full header EditPost">
-          <EditHeroHeader
-            title={post.title}
-            subtitle={post.subtitle}
-            header={post.header}
-            uploadParentId={post.id}
-            uploadParentType="Post"
-            onChange={this.handleChange}
-            />
-          {sections}
-          <PostAddSection
-            username={username}
-            postId={postId}
-            handleClick={this.handleAddSection} />
-        </div>
+        <EditHeroHeader
+          title={post.title}
+          subtitle={post.subtitle}
+          header={post.header}
+          uploadParentId={post.id}
+          uploadParentType="Post"
+          onChange={this.handleChange}
+          />
+        {sections}
+        <PostAddSection
+          username={username}
+          postId={postId}
+          handleClick={this.handleAddSection} />
       </div>
     )
    }

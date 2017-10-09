@@ -4,7 +4,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 4rem;
+  height: var(--header-height);
   position: relative;
   z-index: 1000;
 }

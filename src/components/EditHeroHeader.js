@@ -80,7 +80,7 @@ class EditHeroHeader extends React.Component {
             onChange={(e) => this.setState({subtitle: e.target.value})}
             onBlur={this.handleBlur} />
 
-          <p className="drophint">Drop an image here to update the header image.</p>
+          <p className="drophint"><i className="fa fa-picture-o" /> Drop an image here to update the header image.</p>
         </hgroup>
       </Dropzone>
     )

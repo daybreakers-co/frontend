@@ -9,6 +9,11 @@
   border: none
 }
 
+.edit.HeroHeader .fa {
+  font-size: 1.25rem;
+  margin-right: 0.5rem;
+}
+
 .edit.HeroHeader .drophint {
   order: 1;
   background: var(--bg);
