@@ -48,8 +48,8 @@ class DeleteTripPage extends Component {
           <p>This trip has <strong>{user.trip.posts.length}</strong> posts, are you sure you want to delete it?
           </p>
         )}
-        <Button type="destructive" title="Delete Trip" onClick={this.handleDeleteClick} />
-        <Button type="secondary" title="Never mind" onClick={this.back} />
+        <Button type="destructive" size="large" title="Delete Trip" onClick={this.handleDeleteClick} />
+        <Button type="secondary" size="large" title="Never mind" onClick={this.back} />
       </Modal>
     );
   }

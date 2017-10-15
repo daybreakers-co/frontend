@@ -7,7 +7,7 @@ import ShowHeroFragment from '../../../../graphql/_ShowHero.gql'
 import './Hero.css'
 
 const ShowHero = ({ heroSection: { id, index, photo }}) => (
-  <div className="Hero Container full">
+  <div className="Hero Container">
     <ScaledImage
       key={photo.id}
       image={photo}

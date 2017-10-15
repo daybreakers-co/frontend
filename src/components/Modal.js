@@ -4,10 +4,8 @@ import "./Modal.css"
 const Modal = ({ onClose, children }) => {
   return (
     <div className="Modal" onClick={onClose} >
-      <div className='Centered'>
-        <div className="Container narrow padded" style={{backgroundColor: 'white'}}>
-          {children}
-        </div>
+      <div className="Container narrow padded" style={{backgroundColor: 'white'}}>
+        {children}
       </div>
     </div>
   )

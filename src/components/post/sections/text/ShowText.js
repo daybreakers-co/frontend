@@ -4,9 +4,9 @@ import { propType } from 'graphql-anywhere';
 import ShowTextFragment from '../../../../graphql/_ShowText.gql'
 
 const ShowText = ({textSection: { id, title, body, index}}) => (
-  <div className="Container narrow ShowText">
-    <h2>{title}</h2>
-    <div>{body}</div>
+  <div className="Text Container narrow">
+    <h2 className="TextTitle">{title}</h2>
+    <div className="TextContent">{body}</div>
   </div>
 );
 

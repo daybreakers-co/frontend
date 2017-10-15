@@ -1,34 +1,34 @@
-.EditPhotoRow {
-  text-align: left;
-  max-width: 80vw;
-  margin: 10px auto;
+.PhotoRow {
+  display: flex;
+  padding: 2rem 0
+}
+
+.PhotoRow > figure,
+.PhotoRow > .UploadableImage {
+  flex: 1.5;
+  margin: 0 0 0 0.5rem;
+  display: block;
+}
+
+.PhotoRow > figure:first-child,
+.PhotoRow > .UploadableImage:first-child {
+  margin: 0;
+}
+
+.PhotoRow img {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 .dropzone {
   width: 100%;
-  min-height: 100px;
-  background-color: #bdbdbd;
-}
-.columns {
-  width: 100%;
-  margin: 0 auto;
-  overflow: hidden;
-  display: flex;
-  text-align: left;
+  min-height: 10rem;
 }
 
-.columns > figure, .columns > .UploadableImage {
-  flex: 1.5;
-  margin: 0 0 0 10px;
-  display: block;
-}
-
-.columns > figure:first-child,  .columns > .UploadableImage:first-child {
-  margin: 0;
-}
-
-.columns img {
-  width: 100%;
-  height: 100%;
-  display: block;
+.PhotoRowDropHint {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

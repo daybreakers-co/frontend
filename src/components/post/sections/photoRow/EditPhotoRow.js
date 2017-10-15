@@ -64,11 +64,10 @@ export class PostEditPhotoRow extends React.Component {
       return component
     });
     return (
-      <div className="EditPhotoRow">
-        <Dropzone onDrop={this.onDrop} className="dropzone">
-          <div className="columns">{items}</div>
-        </Dropzone>
-      </div>
+      <Dropzone onDrop={this.onDrop} className="dropzone">
+        <p className="PhotoRowDropHint"><i className="fa fa-picture-o" /> Drop images here or click to create a row of photos.</p>
+        <div className="PhotoRow Container edit">{items}</div>
+      </Dropzone>
     )
   }
 }

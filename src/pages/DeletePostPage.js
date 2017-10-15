@@ -44,8 +44,8 @@ class DeletePostPage extends Component {
       <Modal onClose={this.back}>
         <h1>Delete post</h1>
         <p>Are you sure you want to delete "{user.post.title || 'Untitled'}"?</p>
-        <Button type="destructive" title="Delete Post" onClick={this.handleDeleteClick} />
-        <Button type="secondary" title="Never mind" onClick={this.back} />
+        <Button type="destructive" size="large" title="Delete Post" onClick={this.handleDeleteClick} />
+        <Button type="secondary" size="large" title="Never mind" onClick={this.back} />
       </Modal>
     );
   }

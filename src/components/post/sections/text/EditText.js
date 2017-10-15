@@ -7,7 +7,7 @@ import { postDataByUsernameAndIdFromProxy } from '../../../../pages/EditPostPage
 import PostPageQuery from '../../../../graphql/PostPageQuery.gql'
 import UpdateTextQuery from '../../../../graphql/UpdateTextQuery.gql'
 
-import './EditText.css';
+import './Text.css';
 
 const schema = {
   marks: {
@@ -72,16 +72,16 @@ class PostEditText extends React.Component {
 
   render () {
     return (
-      <div className="EditText Container narrow">
+      <div className="Text Container narrow">
         <input
-          className='w-100 pa3 mv2'
+          className='TextTitle InputWithoutStyling'
           value={this.state.title}
           placeholder='(Optional title)'
           onChange={(e) => this.setState({title: e.target.value})}
           onBlur={this.handleBlur}/>
 
         <Editor
-          className="EditTextor"
+          className="TextContent"
           schema={schema}
           state={this.state.state}
           onChange={(state) => {this.setState({ state })}}

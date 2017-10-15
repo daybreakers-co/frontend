@@ -7,16 +7,14 @@ import ShowPhotoRowFragment from '../../../../graphql/_ShowPhotoRow.gql'
 import './PhotoRow.css'
 
 const ShowPhotoRow = ({ photoRowSection: { id, index, items }}) => (
-  <div className="Container">
-    <div className="columns">
-      {items.map((item) =>
-        <ScaledImage
-          key={item.photo.id}
-          image={item.photo}
-          style={{flex: item.photo.ratio}}
-          alt="image"/>
-      )}
-    </div>
+  <div className="PhotoRow Container">
+    {items.map((item) =>
+      <ScaledImage
+        key={item.photo.id}
+        image={item.photo}
+        style={{flex: item.photo.ratio}}
+        alt="image"/>
+    )}
   </div>
 )
 

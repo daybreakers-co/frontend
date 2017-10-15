@@ -2,7 +2,6 @@
   background: var(--bg-invert);
   color: var(--color-invert);
   border: 0;
-  box-shadow: var(--shadow);
 }
 
 .edit.Header a:not(.Button) {

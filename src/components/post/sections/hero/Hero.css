@@ -1,18 +1,9 @@
-.EditHero {
-  text-align: left;
-  margin: 10px auto;
-  position: relative;
+.Hero {
+  padding: 2rem 0;
 }
 
-.EditHero .dropzone {
-  width: 80wv;
-  background-color: #bdbdbd;
-}
-
-.EditHero img {
-  width: 100%;
-  height: auto;
-  display: block;
+.Hero .dropzone {
+  min-height: 40rem
 }
 
 .Hero img {
@@ -21,11 +12,11 @@
   display: block;
 }
 
-.EditHero .progress {
+.edit.Hero .progress {
   position: absolute;
   height: 5px;
   bottom: 0;
   left: 0;
-  background-color: red;
+  background-color: var(--green);
   z-index: 100;
 }

@@ -1,9 +1,31 @@
 .Modal {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-  background: var(--bg);
+  background: rgba(0,0,0,0.8);
   z-index: 1000;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Modal .Container {
+  background: var(--white);
+  color: var(--dark);
+  border-radius: var(--br);
+  box-shadow: var(--box-shadow);
+}
+
+.Modal h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.Modal p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
 }

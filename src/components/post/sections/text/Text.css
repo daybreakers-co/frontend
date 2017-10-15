@@ -1,0 +1,16 @@
+.Text {
+  padding: 2rem;
+}
+
+.TextTitle {
+  font-size: 2rem;
+  margin-bottom: 0.5rem
+}
+
+.TextContent {
+  font-size: 1rem;
+}
+
+.TextContent p {
+  margin-bottom: 1rem;
+}

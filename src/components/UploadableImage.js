@@ -147,7 +147,10 @@ class UploadableImage extends React.Component {
               alt="preview" />
           }
         </figure>
-        { error && <div className="uploadError">Error!</div>}
+        { error &&
+          <div className="uploadError">
+            <span>Upload error. Please try again!</span>
+        </div>}
         { percentComplete > 0 && <div className="progress" style={{width: `${percentComplete}%`}}></div>}
       </div>
     )

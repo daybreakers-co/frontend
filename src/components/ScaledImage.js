@@ -58,7 +58,7 @@ class ScaledImage extends React.Component {
     return (
       <figure className="ScaledImage" ref={this.props.measureRef} style={style}>
         {!this.state.loaded &&
-          <i className="fa fa-cog fa-spin fa-3x fa-fw"></i>
+          <i className="fa fa-circle-o-notch"></i>
         }
         <img
           ref={(previewImage) => { this.previewImage = previewImage }}

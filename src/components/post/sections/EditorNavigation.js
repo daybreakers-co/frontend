@@ -105,23 +105,24 @@ export class EditorNavigation extends React.Component {
     let moveDownButton;
     let moveUpButton;
     if (this.props.index > 0) {
-      moveUpButton = <li><a onClick={this.handleMoveUp}><i className="fa fa-angle-up"></i></a></li>
+      moveUpButton = <li><a onClick={this.handleMoveUp}><i className="fa fa-angle-up"></i> Move up</a></li>
     }
 
     if (this.props.index < (this.props.sectionsLength - 1)) {
-      moveDownButton = <li><a onClick={this.handleMoveDown}><i className="fa fa-angle-down"></i></a></li>
+      moveDownButton = <li><a onClick={this.handleMoveDown}><i className="fa fa-angle-down"></i> Move down</a></li>
     }
 
     return (
       <div className="EditorWithNavigation">
         <ul className="EditorNavigation">
-          <li>
-            <a href="remove this item" onClick={this.handleRemove}>
-              <i className="fa fa-trash-o" aria-hidden="true"></i>
-            </a>
-          </li>
           {moveUpButton}
           {moveDownButton}
+          <li>
+            <a href="#remove-this-item" className="remove" onClick={this.handleRemove}>
+              <i className="fa fa-trash-o" aria-hidden="true"></i>
+              Delete
+            </a>
+          </li>
         </ul>
         <div className="EditorSection">
           {this.props.children}

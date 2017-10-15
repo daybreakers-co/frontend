@@ -22,7 +22,8 @@
 
 .Button.secondary {
   background: none;
-  border: var(--border)
+  border: 1px solid currentColor;
+  color: currentColor;
 }
 
 .Button.destructive {

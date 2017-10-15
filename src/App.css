@@ -1,51 +1,50 @@
 :root {
-  --darkest:      #171C24;
-  --dark:         #222936;
-  --white:        #fff;
-  --light:        #EEEEEE;
-  --medium:       #ccc;
+  --darkest:               #171C24;
+  --dark:                  #222936;
+  --white:                 #fff;
+  --light:                 #EEEEEE;
+  --medium:                #ccc;
 
-  --uh:           5px;
-  --u:            10px;
-  --u15:           20px;
-  --u2:           20px;
-  --u3:           30px;
-  --u4:           40px;
+  --uh:                    5px;
+  --u:                     10px;
+  --u15:                   20px;
+  --u2:                    20px;
+  --u3:                    30px;
+  --u4:                    40px;
 
-  --green:        #4CAF50;
-  --red:          #E60027;
+  --green:                 #4CAF50;
+  --red:                   #E60027;
 
-  --bg:           var(--darkest);
-  --bg-shade:     var(--dark);
-  --bg-invert:    var(--white);
+  --bg:                    var(--darkest);
+  --bg-shade:              var(--dark);
+  --bg-invert:             var(--white);
 
-  --color:        var(--white);
-  --color-shade:  var(--light);
-  --color-invert: var(--dark);
+  --color:                 var(--white);
+  --color-shade:           var(--light);
+  --color-invert:          var(--dark);
 
-  --border-color: var(--dark);
-  --border:       1px solid var(--border-color);
-  --br:           5px;
+  --border-color:          var(--dark);
+  --border-color-invert:   var(--light);
+  --border:                1px solid var(--border-color);
+  --border-invert:         1px solid var(--border-color-invert);
+  --br:                    5px;
 
-  --shadow:       0 2px 5px rgba(0,0,0,0.1), 0 4px 10px rgba(0,0,0,0.1);
+  --shadow:                0 2px 5px rgba(0,0,0,0.1), 0 4px 10px rgba(0,0,0,0.1);
 
-  --font:         "Circular Std", "Proxima Nova", sans-serif;
+  --font:                  "Circular Std", "Proxima Nova", sans-serif;
 
-  --header-height: 3rem;
+  --header-height:         3rem;
 
 }
 
 body {
   background: var(--bg);
   color: var(--color);
+  padding-top: var(--header-height);
 }
 
 a {
   color: var(--color-shade);
-}
-
-.Content {
-  padding: 0rem 4rem;
 }
 
 .Columns {
@@ -80,19 +79,11 @@ a {
 }
 
 .Container.narrow {
-  max-width: 30rem
+  max-width: 40rem
 }
 
 .Container.tiny {
-  max-width: 20rem
-}
-
-.Container.header {
-  margin-top: 0;
-}
-
-.align-left {
-  text-align: left
+  max-width: 30rem
 }
 
 .App {
