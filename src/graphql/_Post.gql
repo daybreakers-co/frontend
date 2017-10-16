@@ -6,7 +6,8 @@ fragment PostFragment on Post {
   id
   title
   subtitle
-  publishDate
+  startDate
+  endDate
   published
   locations {
     ...LocationFragment

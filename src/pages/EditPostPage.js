@@ -5,6 +5,7 @@ import { withRouter, Link } from 'react-router-dom'
 import { graphql, compose } from 'react-apollo'
 import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
 import Toggle from 'react-toggle'
+import moment from 'moment'
 
 import withCurrentUser from '../components/hoc/withCurrentUser'
 import PostAddSection from '../components/post/sections/AddSection'
@@ -48,7 +49,8 @@ class EditPostPage extends React.Component {
         id: postId,
         title: params.title || post.title,
         subtitle: params.subtitle || post.subtitle,
-        publishDate: params.publishDate || post.publishDate,
+        startDate: params.startDate || post.startDate,
+        endDate: params.endDate || post.endDate,
         published: params.published === undefined ? post.published : params.published
       },
       // After receiving mutated data from the server, update the cache
@@ -178,9 +180,10 @@ class EditPostPage extends React.Component {
               <label><i className="fa fa-calendar" /></label>
               <DateRangePicker
                 minimumNights={0}
-                startDate={this.state.startDate} // momentPropTypes.momentObj or null,
-                endDate={this.state.endDate} // momentPropTypes.momentObj or null,
-                onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} // PropTypes.func.isRequired,
+                isOutsideRange={() => false}
+                startDate={moment(post.startDate)} // momentPropTypes.momentObj or null,
+                endDate={moment(post.endDate)} // momentPropTypes.momentObj or null,
+                onDatesChange={({ startDate, endDate }) => this.handleChange({ startDate: startDate.format(), endDate: endDate.format() })} // PropTypes.func.isRequired,
                 focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
                 onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
               />
