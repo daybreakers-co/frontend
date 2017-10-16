@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'react-dates/initialize';
 import './reset.css';
 import './App.css';
 import './forms.css';

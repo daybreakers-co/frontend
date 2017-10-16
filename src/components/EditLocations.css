@@ -3,20 +3,8 @@
  * NOTE: duplicated font-sizes' are for browsers which don't support rem (only IE 8)
  */
 .geosuggest {
-  font-size: 18px;
-  font-size: 1rem;
-  position: relative;
-  width: 50%;
-  margin: 1em auto;
-  text-align: left;
 }
 .geosuggest__input {
-  width: 100%;
-  border: 2px solid transparent;
-  box-shadow: 0 0 1px #3d464d;
-  padding: .5em 1em;
-  -webkit-transition: border 0.2s, box-shadow 0.2s;
-          transition: border 0.2s, box-shadow 0.2s;
 }
 .geosuggest__input:focus {
   border-color: #267dc0;

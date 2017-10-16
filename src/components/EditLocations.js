@@ -22,14 +22,20 @@ class EditLocations extends React.Component {
   render () {
     const { locations, onDelete } = this.props;
     return (
-      <div className="EditLocation">
+      <div className="locations">
+        <label><i className="fa fa-map-marker" /></label>
         <Geosuggest
+        className="small"
+        placeholder="Find locations"
         onSuggestSelect={this.handleSuggestSelect} />
-        <ul>
-          {locations.map(location => (
-            <li key={location.id}><a onClick={(e) => onDelete(location)}>{location.title}</a></li>
-          ))}
-        </ul>
+        {locations.map(location => (
+          <div className="tag" key={location.id}>
+            {location.title}
+            <a onClick={(e) => onDelete(location)}>
+              <i className="fa fa-times" />
+            </a>
+          </div>
+        ))}
       </div>
     )
   }

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import { withRouter, Link } from 'react-router-dom'
 import { graphql, compose } from 'react-apollo'
-import DayPicker from 'react-day-picker'
+import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
 import Toggle from 'react-toggle'
 
 import withCurrentUser from '../components/hoc/withCurrentUser'
@@ -23,12 +23,13 @@ import CreateEmptySectionQuery from '../graphql/CreateEmptySectionQuery.gql'
 import CreateLocationQuery from '../graphql/CreateLocationQuery.gql'
 import DeleteLocationQuery from '../graphql/DeleteLocationQuery.gql'
 
-import 'react-day-picker/lib/style.css'
 import "react-toggle/style.css"
+import 'react-dates/lib/css/_datepicker.css'
 
 class EditPostPage extends React.Component {
   state = {
-    sections: []
+    sections: [],
+    focusedInput: null
   }
 
   static propTypes = {
@@ -172,21 +173,33 @@ class EditPostPage extends React.Component {
             <Link className="Button small destructive" to={`/${username}/${tripId}/${postId}/delete`}>Delete post</Link>
           ]}
         >
-          <input placeholder="Today" />
-          <DayPicker
-            onDayClick={day => this.handleChange({publishDate: day.toISOString() })}
-            enableOutsideDays
-            selectedDays={[new Date(post.publishDate)]} />
+          <div className="EditOptions">
+            <div className="dates">
+              <label><i className="fa fa-calendar" /></label>
+              <DateRangePicker
+                minimumNights={0}
+                startDate={this.state.startDate} // momentPropTypes.momentObj or null,
+                endDate={this.state.endDate} // momentPropTypes.momentObj or null,
+                onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} // PropTypes.func.isRequired,
+                focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
+                onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
+              />
+            </div>
             <EditLocations
               locations={post.locations}
               onCreate={this.handleCreateLocation}
               onDelete={this.handleDeleteLocation} />
+            <div className="toggle">
               <Toggle
                 defaultChecked={post.published}
                 onChange={(event)=> this.handleChange({published: event.target.checked})}
-              />
-            {post.published ? "published" : "unpublished"}
-
+              /> {post.published ? "published" : "unpublished"}
+            </div>
+          </div>
+          <ul className="UserActions">
+            <Link className="Button small" to={`/${username}/${tripId}/${postId}`}>Finish editing</Link>
+            <Link className="Button small destructive" to={`/${username}/${tripId}/${postId}/delete`}>Delete post</Link>
+          </ul>
         </EditHeader>
         <EditHeroHeader
           title={post.title}
