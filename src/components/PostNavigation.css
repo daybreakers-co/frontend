@@ -1,21 +1,11 @@
 .PostNavigation {
   display: block;
-  height: 200px;
+  margin-top: 4rem;
+  padding: 2rem 0;
+  display: flex;
+  background: var(--bg-shade)
 }
 
-.PostNavigation > div {
-  width: 50%;
-  height: 200px;
-}
-
-.PostNavigation .next {
-  float: right;
-}
-
-.PostNavigation .previous {
-  float: left;
-}
-
-.PostNavigation .HeaderCard figure {
-  height: 200px;
+.PostNavigation div {
+  flex: 1 0 50%;
 }

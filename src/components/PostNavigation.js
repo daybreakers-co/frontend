@@ -12,21 +12,23 @@ const PostNavigation = ({
   match: { params: { username, tripId } },
   postNavigation: { previous, next }
 }) => (
-  <div className="Container PostNavigation">
-    {previous &&
-      <div className="previous">
-        <HeaderCard
-          link={`/${username}/${tripId}/${previous.id}`}
-          headerCard={previous} />
-      </div>
-    }
-    {next &&
-      <div className="next">
-        <HeaderCard
-        link={`/${username}/${tripId}/${next.id}`}
-        headerCard={next} />
-      </div>
-    }
+  <div className="PostNavigation">
+    <div className="Container">
+      {previous &&
+        <div className="previous">
+          <HeaderCard
+            link={`/${username}/${tripId}/${previous.id}`}
+            headerCard={previous} />
+        </div>
+      }
+      {next &&
+        <div className="next">
+          <HeaderCard
+          link={`/${username}/${tripId}/${next.id}`}
+          headerCard={next} />
+        </div>
+      }
+    </div>
   </div>
 )
 
