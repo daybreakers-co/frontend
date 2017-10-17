@@ -79,6 +79,7 @@ class PostPage extends React.Component {
 export default compose(
   graphql(ShowPostQuery, {
     options: (ownProps) => ({
+      fetchPolicy: 'network-only',
       variables: {
         username: ownProps.match.params.username,
         id: ownProps.match.params.postId
