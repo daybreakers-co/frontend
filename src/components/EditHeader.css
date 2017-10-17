@@ -1,11 +1,11 @@
 .edit.Header {
-  background: var(--bg-invert);
-  color: var(--color-invert);
+  background: var(--white);
+  color: var(--dark);
   border: 0;
 }
 
 .edit.Header a:not(.Button) {
-  color: var(--color-invert);
+  color: var(--dark);
 }
 
 .edit.Header .EditOptions {

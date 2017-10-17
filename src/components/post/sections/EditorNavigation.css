@@ -17,7 +17,7 @@
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
   border-radius: var(--br);
-  background: var(--bg-invert);
+  background: var(--white);
   list-style: none;
   display: none;
   width: min-content;
@@ -30,7 +30,7 @@
   padding: 0.5rem 1rem;
   white-space: nowrap;
   display: block;
-  color: var(--color-invert);
+  color: var(--dark);
   text-decoration: none;
 }
 
@@ -43,5 +43,5 @@
 }
 
 .EditorNavigation li + li {
-  border-left: var(--border-invert);
+  border-left: 1px solid var(--light);
 }

@@ -16,11 +16,12 @@
 
 .edit.HeroHeader .drophint {
   order: 1;
-  background: var(--bg);
+  background: var(--dark);
   border-radius: var(--br);
   padding: 1rem 1.5rem;
   opacity: 0.8;
-  margin-bottom: auto
+  margin-bottom: auto;
+  color: var(--white)
 }
 
 .edit.HeroHeader.trip .drophint {

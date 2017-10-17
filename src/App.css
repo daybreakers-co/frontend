@@ -37,7 +37,20 @@
 
 }
 
-body {
+main.white {
+  --bg:                    var(--white);
+  --bg-shade:              var(--light);
+  --bg-invert:             var(--darkest);
+
+  --color:                 var(--dark);
+  --color-shade:           var(--darkest);
+  --color-invert:          var(--white);
+
+  --border-color:          var(--light);
+  --border-color-invert:   var(--dark);
+}
+
+main {
   background: var(--bg);
   color: var(--color);
   padding-top: var(--header-height);
