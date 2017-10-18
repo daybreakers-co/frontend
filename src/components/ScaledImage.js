@@ -18,7 +18,8 @@ class ScaledImage extends React.Component {
   }
 
   static defaultProps = {
-    style: {}
+    style: {},
+    cover: false
   }
 
   // Cleanup any loading images and
@@ -31,18 +32,26 @@ class ScaledImage extends React.Component {
   }
 
   // Once the preview has been loaded, load the full image
-  handleLoadFullImage = ({ target }) => {
-    if(this.state.width === target.offsetWidth) {
+  handleLoadFullImage = () => {
+    let width = this.previewImage.offsetWidth;
+
+    if (this.state.width === width) {
       return
     }
-    this.setState({ width: target.offsetWidth })
+    this.setState({ width: width })
   }
 
   render() {
-    const { alt, style, image } = this.props
+    const { alt, style, image, cover } = this.props
+    let className = "ScaledImage";
+
+    if (cover) {
+      className += " cover"
+    }
 
     return (
-      <figure className="ScaledImage" style={style}>
+      <figure className={className} style={style}>
+      { image &&
         <img
           ref={(previewImage) => { this.previewImage = previewImage }}
           onLoad={this.handleLoadFullImage}
@@ -55,6 +64,7 @@ class ScaledImage extends React.Component {
             `${image.url}?width=2200 2200w`,
           ].join(",")}
           sizes={`${this.state.width}px`} />
+      }
       </figure>
     )
   }

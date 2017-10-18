@@ -14,11 +14,6 @@
   height: 30vh;
 }
 
-.HeaderCard img {
-  height: 100%;
-  width: 100%;
-}
-
 .HeaderCard hgroup {
   background: linear-gradient(rgba(0,0,0,0.7), transparent);
   position: absolute;

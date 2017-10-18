@@ -11,7 +11,7 @@ import HeaderCardFragment from '../graphql/_HeaderCard.gql'
 const HeaderCard = ({ link, headerCard: { title, subtitle, header } }) => (
   <div className="HeaderCard">
     <Link to={link}>
-      <ScaledImage image={header} alt="Trip header" auto={false} />
+      <ScaledImage image={header} alt="Trip header" cover />
       <hgroup>
         <h1>{title || "Untitled"}</h1>
         {subtitle && <p>{subtitle}</p>}

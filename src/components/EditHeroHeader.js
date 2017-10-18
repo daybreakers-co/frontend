@@ -55,12 +55,14 @@ class EditHeroHeader extends React.Component {
       backgroundImage = <UploadableImage
       parentType={uploadParentType}
       parentId={uploadParentId}
-      file={this.state.file} />
+      file={this.state.file}
+      cover />
     } else if (header) {
       backgroundImage = <ScaledImage
       key={header.id}
       image={header}
       style={{flex: header.ratio}}
+      cover
       alt="image"/>
     }
     return (

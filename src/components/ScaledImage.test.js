@@ -6,41 +6,18 @@ describe("ScaledImage", () => {
   const image = {id: "def234", ratio: 1, url: "image.jpg"}
 
   describe("Without image", () => {
-    it("Renders a scaled image", () => {
+    it("Does not render an image", () => {
       const wrapper = shallow(
         <ScaledImage
           alt="Alt text"
           image={null} />
       )
 
-      let img = wrapper.find("img")
-      expect(img.prop("src")).toBe(null)
-      expect(img.prop("alt")).toEqual("Alt text")
-      expect(img.prop("onLoad")).toEqual(wrapper.instance().handleLoadFullImage)
+      expect(wrapper.find("img").exists()).toBe(false)
     })
   })
 
-  describe("When loading", () => {
-    const wrapper = shallow(
-      <ScaledImage
-        alt="Alt text"
-        image={image} />
-    )
-
-    it("Renders an image", () => {
-      let img = wrapper.find("img")
-      expect(img.prop("src")).toEqual("image.jpg?width=40")
-      expect(img.prop("alt")).toEqual("Alt text")
-      expect(img.prop("onLoad")).toEqual(wrapper.instance().handleLoadFullImage)
-    })
-
-    it("Renders a loading indicator", () => {
-      let indictor = wrapper.find("i")
-      expect(indictor.prop("className")).toEqual("fa fa-circle-o-notch")
-    })
-  })
-
-  describe("When loaded", () => {
+  describe("With an image", () => {
     const wrapper = shallow(
       <ScaledImage
         alt="Alt text"
@@ -50,13 +27,11 @@ describe("ScaledImage", () => {
 
     it("Renders an image", () => {
       let img = wrapper.find("img")
-      expect(img.prop("src")).toEqual("image.jpg?width=40")
+      expect(img.prop("src")).toEqual("image.jpg?width=360")
       expect(img.prop("alt")).toEqual("Alt text")
+      expect(img.prop("srcSet")).toContain("image.jpg?width=360 360w")
       expect(img.prop("onLoad")).toEqual(wrapper.instance().handleLoadFullImage)
-    })
-
-    it("Does not render a loading indicator", () => {
-      expect(wrapper.contains("i")).toBe(false)
+      expect(img.prop("sizes")).toEqual("360px")
     })
   })
 
@@ -67,14 +42,23 @@ describe("ScaledImage", () => {
           alt="Alt text"
           image={image} />
       )
-      const event = {target: {src: "image.jpg?width=1000"}}
-      wrapper.instance().handleFullImageLoaded.call(wrapper.instance(), event)
+      wrapper.instance().previewImage = {offsetWidth: 500}
+      wrapper.instance().handleLoadFullImage.call(wrapper.instance())
 
+      expect(wrapper.instance().state).toEqual({width: 500})
+    })
+  })
 
-      expect(wrapper.instance().state).toEqual({
-        loaded: true,
-        src: "image.jpg?width=1000"
-      })
+  describe("cover image", () => {
+    it("It updates the state after the image is loaded", () => {
+      const wrapper = shallow(
+        <ScaledImage
+          alt="Alt text"
+          image={image}
+          cover />
+      )
+
+      expect(wrapper.prop("className")).toEqual("ScaledImage cover")
     })
   })
 })

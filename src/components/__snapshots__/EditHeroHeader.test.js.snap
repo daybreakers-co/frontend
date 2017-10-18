@@ -13,6 +13,7 @@ exports[`EditHeroHeader Matches snapshot 1`] = `
 >
   <ScaledImage
     alt="image"
+    cover={true}
     image={
       Object {
         "id": "def234",
