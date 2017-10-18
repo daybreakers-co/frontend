@@ -8,8 +8,7 @@ class ScaledImage extends React.Component {
     super()
 
     this.state = {
-      loaded: false,
-      src: props.image ? `${props.image.url}?width=${40}` : null
+      width: '360'
     }
   }
 
@@ -25,46 +24,37 @@ class ScaledImage extends React.Component {
   // Cleanup any loading images and
   // prevent setState from beeing called on removed component.
   componentWillUnmount = () => {
-    if (this.fullImage) {
-      this.fullImage.onload = function(){}
-      delete this.fullImage
-    }
-
     if (this.previewImage) {
       this.previewImage.onload = function(){}
       delete this.previewImage
     }
   }
 
-  // Once the full image has been loaded, set the image src and state
-  handleFullImageLoaded = (event) => {
-    this.setState({
-      src: event.target.src,
-      loaded: true
-    })
-  }
-
   // Once the preview has been loaded, load the full image
-  handleLoadFullImage = ({target}) => {
-    let fullImage = new Image()
-    fullImage.onload = this.handleFullImageLoaded
-    this.fullImage = fullImage
-    fullImage.src = `${this.props.image.url}?width=${target.offsetWidth}&height=${target.offsetHeight}`
+  handleLoadFullImage = ({ target }) => {
+    if(this.state.width === target.offsetWidth) {
+      return
+    }
+    this.setState({ width: target.offsetWidth })
   }
 
   render() {
-    const { alt, style } = this.props
+    const { alt, style, image } = this.props
 
     return (
-      <figure className="ScaledImage" ref={this.props.measureRef} style={style}>
-        {!this.state.loaded &&
-          <i className="fa fa-circle-o-notch"></i>
-        }
+      <figure className="ScaledImage" style={style}>
         <img
           ref={(previewImage) => { this.previewImage = previewImage }}
           onLoad={this.handleLoadFullImage}
-          src={this.state.src}
-          alt={alt} />
+          alt={alt}
+          src={`${image.url}?width=360`}
+          srcSet={[
+            `${image.url}?width=360 360w`,
+            `${image.url}?width=720 720w`,
+            `${image.url}?width=1200 1200w`,
+            `${image.url}?width=2200 2200w`,
+          ].join(",")}
+          sizes={`${this.state.width}px`} />
       </figure>
     )
   }
