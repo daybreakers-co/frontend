@@ -36,7 +36,7 @@ describe("ScaledImage", () => {
 
     it("Renders a loading indicator", () => {
       let indictor = wrapper.find("i")
-      expect(indictor.prop("className")).toEqual("fa fa-cog fa-spin fa-3x fa-fw")
+      expect(indictor.prop("className")).toEqual("fa fa-circle-o-notch")
     })
   })
 

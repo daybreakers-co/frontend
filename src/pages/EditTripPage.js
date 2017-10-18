@@ -59,6 +59,7 @@ class EditTripPage extends React.Component {
             header={header}
             uploadParentId={id}
             uploadParentType="Trip"
+            type={"Trip"}
             onChange={this.handleChange} />
         </div>
       </div>

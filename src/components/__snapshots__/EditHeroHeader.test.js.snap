@@ -2,7 +2,7 @@
 
 exports[`EditHeroHeader Matches snapshot 1`] = `
 <Dropzone
-  className="EditHeroHeader"
+  className="HeroHeader edit undefined"
   disableClick={true}
   disablePreview={false}
   maxSize={Infinity}
@@ -32,7 +32,7 @@ exports[`EditHeroHeader Matches snapshot 1`] = `
       className="title"
       onBlur={[Function]}
       onChange={[Function]}
-      placeholder="(Title of your amazing journey)"
+      placeholder="(Amazing title)"
       value="Header title"
     />
     <input
@@ -42,8 +42,13 @@ exports[`EditHeroHeader Matches snapshot 1`] = `
       placeholder="(Optional subtitle)"
       value="Header subtitle"
     />
-    <p>
-      Drop an image here to update the header image.
+    <p
+      className="drophint"
+    >
+      <i
+        className="fa fa-picture-o"
+      />
+       Drop an image here to update the header image.
     </p>
   </hgroup>
 </Dropzone>
