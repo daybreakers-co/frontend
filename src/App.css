@@ -3,28 +3,25 @@
   --dark:                  #222936;
   --white:                 #fff;
   --light:                 #EEEEEE;
-  --medium:                #ccc;
-
-  --uh:                    5px;
-  --u:                     10px;
-  --u15:                   20px;
-  --u2:                    20px;
-  --u3:                    30px;
-  --u4:                    40px;
+  --medium:                #555;
 
   --green:                 #4CAF50;
   --red:                   #E60027;
 
-  --bg:                    var(--darkest);
-  --bg-shade:              var(--dark);
-  --bg-invert:             var(--white);
+  --bg:                    var(--white);
+  --bg-shade:              var(--light);
+  --bg-invert:             var(--darkest);
 
-  --color:                 var(--white);
-  --color-shade:           var(--light);
-  --color-invert:          var(--dark);
 
-  --border-color:          var(--dark);
-  --border-color-invert:   var(--light);
+
+  --color:                 var(--dark);
+  --color-shade:           var(--medium);
+  --color-invert:          var(--white);
+  --color-link:            var(--darkest);
+
+  --border-color:          var(--light);
+  --border-color-invert:   var(--dark);
+
   --border:                1px solid var(--border-color);
   --border-invert:         1px solid var(--border-color-invert);
   --br:                    5px;
@@ -37,27 +34,27 @@
 
 }
 
-main.white {
-  --bg:                    var(--white);
-  --bg-shade:              var(--light);
-  --bg-invert:             var(--darkest);
+body.dark {
+  --bg:                    var(--darkest);
+  --bg-shade:              var(--dark);
+  --bg-invert:             var(--white);
 
-  --color:                 var(--dark);
-  --color-shade:           var(--darkest);
-  --color-invert:          var(--white);
+  --color:                 var(--white);
+  --color-shade:           var(--light);
+  --color-invert:          var(--dark);
 
-  --border-color:          var(--light);
-  --border-color-invert:   var(--dark);
+  --border-color:          var(--dark);
+  --border-color-invert:   var(--light);
 }
 
-main {
+body {
   background: var(--bg);
   color: var(--color);
   padding-top: var(--header-height);
 }
 
 a {
-  color: var(--color-shade);
+  color: var(--color-link);
 }
 
 .Columns {

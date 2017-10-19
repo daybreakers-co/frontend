@@ -7,6 +7,7 @@ import HeaderCard from '../components/HeaderCard'
 import Header from '../components/Header'
 import Button from '../components/Button'
 import HeroHeader from '../components/HeroHeader'
+import LoadingPage from '../components/LoadingPage'
 
 import CreatePostQuery from '../graphql/CreatePostQuery.gql'
 import TripPageQuery from '../graphql/TripPageQuery.gql'
@@ -23,7 +24,7 @@ class TripPage extends Component {
   render() {
     const { currentUser, data: { loading, error, user } } = this.props;
     if (error)   { return (<div>ERROR: {error}</div>) }
-    if (loading) { return (<div>Loading...</div>)     }
+    if (loading) { return (<LoadingPage />) }
 
     let posts = user.trip.posts.map((post) => {
       return <HeaderCard

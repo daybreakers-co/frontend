@@ -1,7 +1,8 @@
 .HeroHeader {
   height: 70vh;
   position: relative;
-  margin-bottom: 4rem
+  margin-bottom: 4rem;
+  color: var(--white)
 }
 
 .HeroHeader .UploadableImage, .HeroHeader figure {
@@ -10,7 +11,7 @@
 }
 
 .HeroHeader hgroup {
-  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  background: linear-gradient(to bottom, rgba(0,0,0,0.7), transparent);
   text-align: center;
   position: absolute;
   top: 0;
@@ -44,6 +45,5 @@
 }
 
 .HeroHeader.trip hgroup {
-  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.2), var(--bg));
   justify-content: flex-start;
 }

@@ -1,5 +1,4 @@
 .Header {
-  box-shadow: var(--shadow);
   background: var(--bg);
   padding: 0 1rem;
   display: flex;
@@ -11,6 +10,7 @@
   position: fixed;
   top: 0;
   width: 100%;
+  border-bottom: var(--border)
 }
 
 .Header a {

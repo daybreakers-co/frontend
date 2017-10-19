@@ -1,17 +1,19 @@
 .HeaderCard {
-  margin-bottom: 40px;
   position: relative;
-  transition: all 0.2s;
+  overflow: hidden;
+  margin-bottom: 4rem;
   border-radius: var(--br);
-  overflow: hidden
+  top: 0;
 }
 
-.HeaderCard:hover {
-  transform: scale(0.99)
+.HeaderCard:hover figure {
+  transform: scale(1)
 }
 
 .HeaderCard figure {
-  height: 30vh;
+  transition: all 0.2s;
+  max-height: 30vh;
+  transform: scale(1.05);
 }
 
 .HeaderCard hgroup {
@@ -27,9 +29,22 @@
 
 .HeaderCard h1 {
   font-size: 3rem;
-  line-height: 1
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.HeaderCard h2 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 1rem;
+  opacity: 0.6;
+  letter-spacing: 0.1em;
+  line-height: 1.2
 }
 
 .HeaderCard p {
-  font-size: 1.5rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  max-width: 40rem
 }
