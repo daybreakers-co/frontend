@@ -7,16 +7,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center
+  text-align: center;
 }
 
 .AuthPage h1 {
-  font-size: 4rem
+  font-size: 3rem;
+  color: var(--white);
 }
 
 .AuthPage p {
   font-size: 1rem;
-  margin-bottom: 1rem
+  margin-bottom: 1rem;
+  color: var(--white);
 }
 
 .AuthPage input {

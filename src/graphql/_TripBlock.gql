@@ -1,0 +1,12 @@
+fragment TripBlock on Post {
+  id
+  title
+  subtitle
+  header {
+    ratio
+    id
+    url
+    width
+    height
+  }
+}

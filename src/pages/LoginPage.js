@@ -32,11 +32,13 @@ class LoginPage extends React.Component {
             <h1>Login</h1>
             <p>We hope you enjoy(ed) your travels!</p>
             <input
+              className="large"
               type="text"
               value={this.state.email}
               placeholder='Email'
               onChange={(e) => this.setState({email: e.target.value})} />
             <input
+              className="large"
               type='password'
               value={this.state.password}
               placeholder='Password'
