@@ -7,12 +7,14 @@
   "private": true,
   "dependencies": {
     "add": "^2.0.6",
+    "draft-js": "^0.10.3",
     "enzyme": "^2.9.1",
     "enzyme-to-json": "^2.0.0",
     "font-awesome": "^4.7.0",
     "graphql-anywhere": "^3.1.0",
     "jest-enzyme": "^3.6.1",
     "jest-transform-graphql": "^2.1.0",
+    "markdown-draft-js": "^0.4.2",
     "moment": "^2.19.1",
     "react": "^15.6.1",
     "react-apollo": "^1.4.8",
@@ -29,7 +31,6 @@
     "react-scripts": "1.0.10",
     "react-test-renderer": "^15.6.1",
     "react-toggle": "^4.0.2",
-    "slate": "^0.21.1",
     "yarn": "^0.27.5"
   },
   "scripts": {
