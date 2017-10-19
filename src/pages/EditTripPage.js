@@ -43,14 +43,12 @@ class EditTripPage extends React.Component {
 
     return (
       <div>
-        <EditHeader
-          user={user}
-          trip={user.trip}
-          currentUser={currentUser}
-          button={[
-            <li key="finishEditing"><Link to={`/${user.username}/${id}`} className="Button small">Finish editing</Link></li>,
-            <li key="deleteButton"><Link to={`/${user.username}/${id}/delete`} className="Button small destructive">Delete trip</Link></li>,
-            ]} />
+        <EditHeader>
+          <ul className="UserActions">
+            <Link to={`/${user.username}/${id}`} className="Button small">Finish editing</Link>
+            <Link to={`/${user.username}/${id}/delete`} className="Button small destructive">Delete trip</Link>
+          </ul>
+        </EditHeader>
 
         <div className="Container full header EditTrip">
           <EditHeroHeader

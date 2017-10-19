@@ -165,16 +165,7 @@ class EditPostPage extends React.Component {
 
     return (
       <div>
-        <EditHeader
-          currentUser={currentUser}
-          user={user}
-          trip={post.trip}
-          post={post}
-          button={user.isViewer && [
-            <Link className="Button small" to={`/${username}/${tripId}/${postId}`}>Finish editing</Link>,
-            <Link className="Button small destructive" to={`/${username}/${tripId}/${postId}/delete`}>Delete post</Link>
-          ]}
-        >
+        <EditHeader>
           <div className="EditOptions">
             <div className="dates">
               <label><i className="fa fa-calendar" /></label>
