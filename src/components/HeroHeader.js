@@ -8,8 +8,12 @@ const HeroHeader = ({ title, subtitle, image, type, startDate, endDate, location
   <section className={`HeroHeader ${type}`}>
     <ScaledImage image={image} alt="Hero Header" cover />
     <hgroup>
-      <date>{startDate} till {endDate}</date>
       <h1 className="title">{title}</h1>
+      <date>
+        {startDate}
+        { endDate && <span> <i className="fa fa-angle-right"></i> {endDate}</span>
+        }
+      </date>
       {subtitle && <p className="subtitle">{subtitle}</p>}
     </hgroup>
   </section>

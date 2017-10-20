@@ -3,9 +3,7 @@ import PropTypes from 'prop-types'
 
 import { withRouter, Link } from 'react-router-dom'
 import { graphql, compose } from 'react-apollo'
-import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
 import Toggle from 'react-toggle'
-import moment from 'moment'
 
 import withCurrentUser from '../components/hoc/withCurrentUser'
 import PostAddSection from '../components/post/sections/AddSection'
@@ -167,18 +165,6 @@ class EditPostPage extends React.Component {
       <div>
         <EditHeader>
           <div className="EditOptions">
-            <div className="dates">
-              <label><i className="fa fa-calendar" /></label>
-              <DateRangePicker
-                minimumNights={0}
-                isOutsideRange={() => false}
-                startDate={moment(post.startDate)} // momentPropTypes.momentObj or null,
-                endDate={moment(post.endDate)} // momentPropTypes.momentObj or null,
-                onDatesChange={({ startDate, endDate }) => this.handleChange({ startDate: startDate.format(), endDate: endDate.format() })} // PropTypes.func.isRequired,
-                focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
-                onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
-              />
-            </div>
             <div className="toggle">
               <Toggle
                 defaultChecked={post.published}
@@ -195,6 +181,8 @@ class EditPostPage extends React.Component {
           title={post.title}
           subtitle={post.subtitle}
           header={post.header}
+          startDate={post.startDate}
+          endDate={post.endDate}
           uploadParentId={post.id}
           uploadParentType="Post"
           onChange={this.handleChange}

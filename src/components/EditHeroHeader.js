@@ -3,9 +3,14 @@ import PropTypes from 'prop-types'
 import Dropzone from 'react-dropzone'
 import UploadableImage from './UploadableImage'
 import ScaledImage from './ScaledImage'
+import moment from 'moment'
+
+import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
+
 
 import './HeroHeader.css'
 import './EditHeroHeader.css'
+import './DayPicker.css';
 
 class EditHeroHeader extends React.Component {
   constructor(props) {
@@ -22,6 +27,8 @@ class EditHeroHeader extends React.Component {
     subtitle: PropTypes.string,
     header: PropTypes.object,
     type: PropTypes.string,
+    startDate: PropTypes.string,
+    endDate: PropTypes.string,
     uploadParentId: PropTypes.string.isRequired,
     uploadParentType: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired
@@ -31,7 +38,9 @@ class EditHeroHeader extends React.Component {
     this.setState({
       title: nextProps.title,
       subtitle: nextProps.subtitle,
-      header: nextProps.header
+      header: nextProps.header,
+      startDate: PropTypes.string,
+      endDate: PropTypes.string
     })
   }
 
@@ -48,7 +57,7 @@ class EditHeroHeader extends React.Component {
 
   render () {
     const { header, uploadParentId, uploadParentType, type } = this.props
-    const { title, subtitle, file } = this.state
+    const { title, subtitle, file, startDate, endDate } = this.state
     let backgroundImage;
 
     if (file) {
@@ -75,14 +84,23 @@ class EditHeroHeader extends React.Component {
             placeholder='(Amazing title)'
             onChange={(e) => this.setState({title: e.target.value})}
             onBlur={this.handleBlur} />
+          <dates>
+            <DateRangePicker
+              minimumNights={0}
+              isOutsideRange={() => false}
+              startDate={moment(startDate)} // momentPropTypes.momentObj or null,
+              endDate={moment(endDate)} // momentPropTypes.momentObj or null,
+              onDatesChange={({ startDate, endDate }) => this.handleChange({ startDate: startDate.format(), endDate: endDate.format() })} // PropTypes.func.isRequired,
+              focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
+              onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
+            />
+          </dates>
           <input
             className="subtitle"
             value={subtitle || ""}
             placeholder='(Optional subtitle)'
             onChange={(e) => this.setState({subtitle: e.target.value})}
             onBlur={this.handleBlur} />
-
-          <p className="drophint"><i className="fa fa-picture-o" /> Drop an image here to update the header image.</p>
         </hgroup>
       </Dropzone>
     )

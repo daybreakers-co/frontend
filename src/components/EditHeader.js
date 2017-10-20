@@ -5,7 +5,6 @@ import Toggle from 'react-toggle'
 
 import './Header.css';
 import './EditHeader.css';
-import './DayPicker.css';
 
 import "react-toggle/style.css"
 
