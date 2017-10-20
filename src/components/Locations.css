@@ -1,0 +1,33 @@
+.Locations {
+  margin-bottom: 4rem;
+  position: relative;
+}
+
+.Locations,
+.Locations .tags {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-shade);
+  padding: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.Locations .tag {
+  list-style: none;
+  line-height: 1rem;
+  padding: 0.5rem 0.75rem;
+  background: var(--bg);
+  border-radius: var(--br);
+  margin-right: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.Locations .delete {
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
+
+.Locations .geosuggest {
+  margin-bottom: 0.25rem;
+}

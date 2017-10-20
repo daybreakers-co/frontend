@@ -1,7 +1,6 @@
 .HeroHeader {
   height: 70vh;
   position: relative;
-  margin-bottom: 4rem;
   color: var(--white)
 }
 
@@ -30,12 +29,10 @@
   font-size: 5rem;
   margin-bottom: 1rem;
   line-height: 1.3;
-  order: 2;
 }
 
 .HeroHeader .subtitle {
   font-size: 1.25rem;
-  order: 2;
   max-width: 40rem;
 }
 

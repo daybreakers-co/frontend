@@ -3,7 +3,8 @@ textarea,
 select {
   line-height: 1rem;
   padding: 0.375rem 0.5rem;
-  border: 1px solid var(--medium);
+  border: 1px solid rgba(0,0,0,0.2);
+  box-shadow: inset 2px 2px 4px rgba(0,0,0,0.1);
   border-radius: var(--br);
   font-size: 0.75rem
 }
@@ -14,9 +15,8 @@ textarea:focus,
 textarea:hover,
 select:focus,
 select:hover {
-  /*outline: none;
-  box-shadow: 0 0 0 3px rgba(76,175,80,0.3);
-  border: 1px solid var(--green);*/
+  outline: none;
+  border: 1px solid var(--green);
 }
 
 .InputWithoutStyling,

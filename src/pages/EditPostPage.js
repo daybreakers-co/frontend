@@ -179,10 +179,6 @@ class EditPostPage extends React.Component {
                 onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
               />
             </div>
-            <EditLocations
-              locations={post.locations}
-              onCreate={this.handleCreateLocation}
-              onDelete={this.handleDeleteLocation} />
             <div className="toggle">
               <Toggle
                 defaultChecked={post.published}
@@ -203,6 +199,11 @@ class EditPostPage extends React.Component {
           uploadParentType="Post"
           onChange={this.handleChange}
           />
+        <EditLocations
+          locations={post.locations}
+          onCreate={this.handleCreateLocation}
+          onDelete={this.handleDeleteLocation} />
+
         {sections}
         <PostAddSection
           username={username}

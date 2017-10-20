@@ -42,9 +42,12 @@ body.dark {
   --color:                 var(--white);
   --color-shade:           var(--light);
   --color-invert:          var(--dark);
+  --color-link:            var(--white);
 
   --border-color:          var(--dark);
   --border-color-invert:   var(--light);
+  --border:                1px solid var(--border-color);
+  --border-invert:         1px solid var(--border-color-invert);
 }
 
 body {

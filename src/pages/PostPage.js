@@ -10,6 +10,7 @@ import ShowText from '../components/post/sections/text/ShowText'
 import ShowHero from '../components/post/sections/hero/ShowHero'
 import Header from '../components/Header'
 import HeroHeader from '../components/HeroHeader'
+import Locations from '../components/Locations'
 import PostNavigation from '../components/PostNavigation'
 
 import ShowPostQuery from '../graphql/PostPageQuery.gql'
@@ -67,7 +68,13 @@ class PostPage extends React.Component {
         <HeroHeader
           image={post.header}
           title={post.title}
+          startDate={post.startDate}
+          endDate={post.endDate}
+          locations={post.locations}
           subtitle={post.subtitle} />
+        <Locations
+          locations={post.locations}
+        />
         {sections}
         <PostNavigation
           postNavigation={filter(PostNavigationFragment, post)} />
