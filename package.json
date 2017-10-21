@@ -16,6 +16,7 @@
     "jest-transform-graphql": "^2.1.0",
     "markdown-draft-js": "^0.4.2",
     "moment": "^2.19.1",
+    "pluralize": "^7.0.0",
     "react": "^15.6.1",
     "react-apollo": "^1.4.8",
     "react-app-rewire-graphql-tag": "^1.0.1",

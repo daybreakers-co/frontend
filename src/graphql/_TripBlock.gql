@@ -9,4 +9,11 @@ fragment TripBlockFragment on Trip {
     width
     height
   }
+  posts {
+    id
+  }
+  photos {
+    id
+    url
+  }
 }
