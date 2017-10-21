@@ -1,3 +1,5 @@
+#import "./_TripBlock.gql"
+
 query UserPageQuery($username: String!) {
   user(username: $username) {
     id
@@ -5,15 +7,8 @@ query UserPageQuery($username: String!) {
     isViewer
     username
     trips {
-      id
-      title
-      subtitle
+      ...TripBlockFragment
       viewerCanEdit
-      header {
-        ratio
-        id
-        url
-      }
     }
   }
 }

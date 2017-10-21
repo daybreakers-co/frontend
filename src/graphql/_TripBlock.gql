@@ -1,4 +1,4 @@
-fragment TripBlock on Post {
+fragment TripBlockFragment on Trip {
   id
   title
   subtitle
