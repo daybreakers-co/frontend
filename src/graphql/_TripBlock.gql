@@ -1,4 +1,4 @@
-fragment TripBlock on Post {
+fragment TripBlockFragment on Trip {
   id
   title
   subtitle
@@ -8,5 +8,12 @@ fragment TripBlock on Post {
     url
     width
     height
+  }
+  posts {
+    id
+  }
+  photos {
+    id
+    url
   }
 }

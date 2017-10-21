@@ -12,7 +12,7 @@
 
 .HeaderCard figure {
   transition: all 0.2s;
-  max-height: 30vh;
+  height: 30vh;
   transform: scale(1.05);
 }
 
