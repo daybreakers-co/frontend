@@ -39,7 +39,7 @@ const TripBlock = ({ link, trip: { title, subtitle, header, posts, photos, start
         {photoGroups.map(group => (
           <div key={group.map(p => p.id).join()}>
             {group.map(photo => (
-              <figure key={photo.id}><img src={`${photo.url}?width=360`} /></figure>
+              <figure key={photo.id}><img src={`${photo.url}?height=80`} /></figure>
             ))}
           </div>
         ))}

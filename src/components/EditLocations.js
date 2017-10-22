@@ -18,6 +18,8 @@ class EditLocations extends React.Component {
       lat: suggestion.location.lat,
       lng: suggestion.location.lng
     })
+    this._geoSuggest.clear()
+    this._geoSuggest.focus()
   }
 
   render () {
@@ -25,6 +27,7 @@ class EditLocations extends React.Component {
     return (
       <section className="Locations edit">
         <Geosuggest
+        ref={el => this._geoSuggest = el}
         className="small"
         placeholder="Add locations 🔎"
         onSuggestSelect={this.handleSuggestSelect} />
