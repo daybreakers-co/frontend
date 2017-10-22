@@ -33,14 +33,14 @@ exports[`EditHeroHeader Matches snapshot 1`] = `
       className="title"
       onBlur={[Function]}
       onChange={[Function]}
-      placeholder="(Amazing title)"
+      placeholder="Enter the title of your post"
       value="Header title"
     />
     <input
       className="subtitle"
       onBlur={[Function]}
       onChange={[Function]}
-      placeholder="(Optional subtitle)"
+      placeholder="Enter an introduction to your post"
       value="Header subtitle"
     />
     <p

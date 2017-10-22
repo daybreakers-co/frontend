@@ -68,7 +68,7 @@ class PostEditText extends React.Component {
         <input
           className='H-Medium InputWithoutStyling'
           value={this.state.title}
-          placeholder='(Optional title)'
+          placeholder='Title of text section'
           onChange={(e) => this.setState({title: e.target.value})}
           onBlur={this.handleBlur}/>
 
@@ -76,7 +76,7 @@ class PostEditText extends React.Component {
           className="T-Normal"
           editorState={this.state.editorState}
           onChange={(editorState) => { this.setState({ editorState })}}
-          placeholder="Tell a story..."
+          placeholder="Your adventures go here."
           onBlur={this.handleBlur} />
       </div>
     )

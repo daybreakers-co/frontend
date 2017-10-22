@@ -26,7 +26,6 @@ class EditHeroHeader extends React.Component {
     title: PropTypes.string,
     subtitle: PropTypes.string,
     header: PropTypes.object,
-    type: PropTypes.string,
     startDate: PropTypes.string,
     endDate: PropTypes.string,
     uploadParentId: PropTypes.string.isRequired,
@@ -56,7 +55,7 @@ class EditHeroHeader extends React.Component {
   }
 
   render () {
-    const { header, uploadParentId, uploadParentType, type } = this.props
+    const { header, uploadParentId, uploadParentType } = this.props
     const { title, subtitle, file, startDate, endDate } = this.state
     let backgroundImage;
 
@@ -75,13 +74,13 @@ class EditHeroHeader extends React.Component {
       alt="image"/>
     }
     return (
-      <Dropzone onDrop={this.onDrop} className={`HeroHeader edit ${type}`} disableClick={true}>
+      <Dropzone onDrop={this.onDrop} className="HeroHeader edit" disableClick={true}>
         {backgroundImage}
         <hgroup>
           <input
             className="H-Large"
             value={title || ""}
-            placeholder='(Amazing title)'
+            placeholder="Enter the title of your post"
             onChange={(e) => this.setState({title: e.target.value})}
             onBlur={this.handleBlur} />
           <dates>
@@ -98,7 +97,7 @@ class EditHeroHeader extends React.Component {
           <input
             className="T-Large"
             value={subtitle || ""}
-            placeholder='(Optional subtitle)'
+            placeholder="Enter an introduction to your post"
             onChange={(e) => this.setState({subtitle: e.target.value})}
             onBlur={this.handleBlur} />
         </hgroup>
