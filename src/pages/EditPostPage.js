@@ -192,8 +192,9 @@ class EditPostPage extends React.Component {
           locations={post.locations}
           onCreate={this.handleCreateLocation}
           onDelete={this.handleDeleteLocation} />
-
-        {sections}
+        <section className="PostSections">
+          {sections}
+        </section>
         <PostAddSection
           username={username}
           postId={postId}

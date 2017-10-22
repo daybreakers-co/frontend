@@ -43,7 +43,7 @@ class EditHero extends React.Component {
             alt="image"/>
     }
     return (
-      <div className="Hero Container edit">
+      <div className="Hero edit">
         <Dropzone onDrop={this.onDrop} className="Dropzone">
          {component}
         </Dropzone>
