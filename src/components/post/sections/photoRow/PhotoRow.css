@@ -35,6 +35,10 @@
   background-size: auto 4rem;
 }
 
+.PhotoRow.empty .Dropzone {
+  min-height: 10em
+}
+
 .PhotoRowDropHint {
   position: absolute;
   top: 50%;

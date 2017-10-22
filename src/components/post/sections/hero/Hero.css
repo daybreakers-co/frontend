@@ -7,6 +7,10 @@
   background-size: auto 8rem;
 }
 
+.Hero.empty .Dropzone {
+  min-height: 10em
+}
+
 .Hero img {
   width: 100%;
   height: auto;

@@ -5,7 +5,6 @@ import ScaledImage from '../../../ScaledImage'
 import UploadableImage from '../../../UploadableImage'
 
 import './Hero.css'
-import '../../../Dropzone.css'
 
 class EditHero extends React.Component {
   constructor(props) {

@@ -7,7 +7,6 @@ import CreatePhotoRowItemQuery from '../../../../graphql/CreatePhotoRowItemQuery
 import UploadableImage from '../../../UploadableImage'
 
 import './PhotoRow.css'
-import '../../../Dropzone.css'
 
 export class PostEditPhotoRow extends React.Component {
   constructor(props) {
