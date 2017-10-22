@@ -23,7 +23,6 @@ import CreateLocationQuery from '../graphql/CreateLocationQuery.gql'
 import DeleteLocationQuery from '../graphql/DeleteLocationQuery.gql'
 
 import "react-toggle/style.css"
-import 'react-dates/lib/css/_datepicker.css'
 
 class EditPostPage extends React.Component {
   state = {

@@ -10,6 +10,7 @@ import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'rea
 
 import './HeroHeader.css'
 import './EditHeroHeader.css'
+import 'react-dates/lib/css/_datepicker.css'
 import './DayPicker.css';
 
 class EditHeroHeader extends React.Component {

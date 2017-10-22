@@ -1772,7 +1772,7 @@ create-react-class@^15.6.0:
     loose-envify "^1.3.1"
     object-assign "^4.1.1"
 
-cross-spawn@5.1.0, cross-spawn@^5.1.0:
+cross-spawn@5.1.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-5.1.0.tgz#e8bd0efee58fcff6f8f94510a0a554bbfa235449"
   dependencies:
@@ -2173,7 +2173,7 @@ dot-prop@^3.0.0:
   dependencies:
     is-obj "^1.0.0"
 
-dotenv@4.0.0, dotenv@^4.0.0:
+dotenv@4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-4.0.0.tgz#864ef1379aced55ce6f95debecdce179f7a0cd1d"
 
@@ -2940,7 +2940,7 @@ fs.realpath@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
 
-fsevents@1.1.2, fsevents@^1.0.0:
+fsevents@^1.0.0:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-1.1.2.tgz#3282b713fb3ad80ede0e9fcf4611b5aa6fc033f4"
   dependencies:
@@ -3119,7 +3119,7 @@ graphql-anywhere@^3.0.1, graphql-anywhere@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/graphql-anywhere/-/graphql-anywhere-3.1.0.tgz#3ea0d8e8646b5cee68035016a9a7557c15c21e96"
 
-graphql-tag@^2.0.0, graphql-tag@^2.4.2:
+graphql-tag@^2.0.0, graphql-tag@^2.4.2, graphql-tag@^2.5.0:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/graphql-tag/-/graphql-tag-2.5.0.tgz#b43bfd8b5babcd2c205ad680c03e98b238934e0f"
 
@@ -5722,19 +5722,6 @@ react-apollo@^1.4.8:
     object-assign "^4.0.1"
     prop-types "^15.5.8"
 
-react-app-rewire-graphql-tag@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/react-app-rewire-graphql-tag/-/react-app-rewire-graphql-tag-1.0.1.tgz#6016bb351144f1096d52d6cf14dcb91d228e1744"
-  dependencies:
-    graphql-tag "^2.4.2"
-
-react-app-rewired@^1.2.5:
-  version "1.3.2"
-  resolved "https://registry.yarnpkg.com/react-app-rewired/-/react-app-rewired-1.3.2.tgz#788a119ae39b6c01371b358c3c6227f0c201d8ad"
-  dependencies:
-    cross-spawn "^5.1.0"
-    dotenv "^4.0.0"
-
 react-click-outside@^2.3.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/react-click-outside/-/react-click-outside-2.3.1.tgz#318737ebdf081a4a3bcd46825663674cbe9836eb"
@@ -5865,49 +5852,6 @@ react-router@^4.2.0:
     path-to-regexp "^1.7.0"
     prop-types "^15.5.4"
     warning "^3.0.0"
-
-react-scripts@1.0.10:
-  version "1.0.10"
-  resolved "https://registry.yarnpkg.com/react-scripts/-/react-scripts-1.0.10.tgz#876035594742220f40ffb865a4c7e8dc0fa7ae23"
-  dependencies:
-    autoprefixer "7.1.1"
-    babel-core "6.25.0"
-    babel-eslint "7.2.3"
-    babel-jest "20.0.3"
-    babel-loader "7.0.0"
-    babel-preset-react-app "^3.0.1"
-    babel-runtime "6.23.0"
-    case-sensitive-paths-webpack-plugin "2.1.1"
-    chalk "1.1.3"
-    css-loader "0.28.4"
-    dotenv "4.0.0"
-    eslint "3.19.0"
-    eslint-config-react-app "^1.0.5"
-    eslint-loader "1.7.1"
-    eslint-plugin-flowtype "2.34.0"
-    eslint-plugin-import "2.2.0"
-    eslint-plugin-jsx-a11y "5.0.3"
-    eslint-plugin-react "7.1.0"
-    extract-text-webpack-plugin "2.1.2"
-    file-loader "0.11.2"
-    fs-extra "3.0.1"
-    html-webpack-plugin "2.29.0"
-    jest "20.0.4"
-    object-assign "4.1.1"
-    postcss-flexbugs-fixes "3.0.0"
-    postcss-loader "2.0.6"
-    promise "7.1.1"
-    react-dev-utils "^3.0.2"
-    react-error-overlay "^1.0.9"
-    style-loader "0.18.2"
-    sw-precache-webpack-plugin "0.11.3"
-    url-loader "0.5.9"
-    webpack "2.6.1"
-    webpack-dev-server "2.5.0"
-    webpack-manifest-plugin "1.1.0"
-    whatwg-fetch "2.0.3"
-  optionalDependencies:
-    fsevents "1.1.2"
 
 react-test-renderer@^15.6.1:
   version "15.6.2"
