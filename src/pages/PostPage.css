@@ -1,3 +1,7 @@
 .PostPage {
   padding-bottom: 0.1rem;
 }
+
+.PostPage .PostSections {
+  padding-top: 4rem;
+}

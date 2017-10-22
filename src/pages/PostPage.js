@@ -58,7 +58,7 @@ class PostPage extends React.Component {
     });
 
     return (
-      <div>
+      <div className="PostPage">
         <Header
           currentUser={currentUser}
           user={user}
@@ -72,10 +72,14 @@ class PostPage extends React.Component {
           endDate={post.endDate}
           locations={post.locations}
           subtitle={post.subtitle} />
-        <Locations
-          locations={post.locations}
-        />
-        {sections}
+        {post.locations.length > 0 &&
+            <Locations
+            locations={post.locations}
+          />
+        }
+        <section className="PostSections">
+          {sections}
+        </section>
         <PostNavigation
           postNavigation={filter(PostNavigationFragment, post)} />
       </div>
