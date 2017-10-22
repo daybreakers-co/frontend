@@ -7,7 +7,6 @@ import moment from 'moment'
 
 import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
 
-
 import './HeroHeader.css'
 import './EditHeroHeader.css'
 import './DayPicker.css';

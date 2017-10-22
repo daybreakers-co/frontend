@@ -1,5 +1,6 @@
 .Locations {
   position: relative;
+  padding: 1rem;
 }
 
 .Locations,
@@ -8,7 +9,6 @@
   align-items: center;
   justify-content: center;
   background: var(--bg-shade);
-  padding: 0.5rem;
   flex-wrap: wrap;
 }
 
@@ -29,4 +29,5 @@
 
 .Locations .geosuggest {
   margin-bottom: 0.25rem;
+  margin-right: 1rem;
 }
