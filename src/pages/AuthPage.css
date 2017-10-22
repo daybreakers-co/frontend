@@ -1,5 +1,5 @@
 .AuthPage {
-  min-height: 100vh;
+  min-height: calc(100vh - var(--header-height));
   width: 100%;
   background: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.8)),  url("/HomePageBackground.jpg");
   background-color: var(--dark);
@@ -9,16 +9,6 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-}
-
-.AuthPage h1 {
-  font-size: 3rem;
-  color: var(--white);
-}
-
-.AuthPage p {
-  font-size: 1rem;
-  margin-bottom: 1rem;
   color: var(--white);
 }
 

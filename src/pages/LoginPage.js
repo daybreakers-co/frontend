@@ -29,8 +29,8 @@ class LoginPage extends React.Component {
         <Header />
         <div className="AuthPage">
           <form onSubmit={this.signinUser} className="Container tiny">
-            <h1>Login</h1>
-            <p>We hope you enjoy(ed) your travels!</p>
+            <h1 className="H-Large">Welcome back!</h1>
+            <p className="T-Large">We hope you enjoy(ed) your travels. You can login here and share your stories with the world.</p>
             <input
               className="large"
               type="text"

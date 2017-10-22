@@ -1,5 +1,5 @@
 .Button {
-  background: var(--green);
+  background: var(--yellow);
   padding: 0.5rem 1rem;
   border-radius: var(--br);
   cursor: pointer;
@@ -11,15 +11,11 @@
   border: 0;
   font-weight: bold;
   transition: all 0.3s;
+  color: rgba(0,0,0,0.8)
 }
 
 .Button + .Button {
   margin-left: 1rem
-}
-
-.Button.primary {
-  background: var(--green);
-  color: var(--white);
 }
 
 .Button.secondary {
