@@ -2,6 +2,11 @@ fragment HeaderCard on Post {
   id
   title
   subtitle
+  startDate
+  endDate
+  photos {
+    id
+  }
   header {
     ratio
     id

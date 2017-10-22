@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { withRouter, Link } from 'react-router-dom'
 import { graphql, compose } from 'react-apollo'
+import moment from 'moment'
 
 import withCurrentUser from '../components/hoc/withCurrentUser'
 import EditHeader from '../components/EditHeader'
@@ -19,18 +20,15 @@ class EditTripPage extends React.Component {
   }
 
   handleChange = (newParams) => {
-    const { data: { user: { trip: {id, header}, username } } } = this.props;
+    const { data: { user: { trip: { id, title, subtitle, startDate, endDate } } } } = this.props;
 
     this.props.updateMutation({
-      variables: {id: id, title: newParams.title, subtitle: newParams.subtitle},
-      optimisticResponse: {
-        updateTrip: {
-          id: id,
-          title: newParams.title,
-          subtitle: newParams.subtitle,
-          header: header,
-          '__typename': 'Trip'
-        }
+      variables: {
+        id: id,
+        title: newParams.title || title,
+        subtitle: newParams.subtitle || subtitle,
+        startDate: newParams.startDate || startDate,
+        endDate: newParams.endDate || endDate
       },
     })
   }
@@ -39,7 +37,7 @@ class EditTripPage extends React.Component {
     const { currentUser, data: { loading, error, user }} = this.props;
     if (loading) { return (<div>Loading</div>) }
     if (error)   { return (<div>ERROR: {error}</div>) }
-    const { id, title, subtitle, header } = user.trip;
+    const { id, title, subtitle, header, startDate, endDate } = user.trip;
 
     return (
       <div>
@@ -55,6 +53,8 @@ class EditTripPage extends React.Component {
             title={title}
             subtitle={subtitle}
             header={header}
+            startDate={startDate}
+            endDate={endDate}
             uploadParentId={id}
             uploadParentType="Trip"
             type={"Trip"}

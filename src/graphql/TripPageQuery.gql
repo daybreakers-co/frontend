@@ -10,11 +10,8 @@ query TripPageQuery($username: String!, $tripId: String!) {
       id
       title
       subtitle
-      header {
-        ratio
-        id
-        url
-      }
+      startDate
+      endDate
       posts {
         id
         ...HeaderCard

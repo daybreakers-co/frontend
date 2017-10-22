@@ -37,9 +37,7 @@ class EditHeroHeader extends React.Component {
     this.setState({
       title: nextProps.title,
       subtitle: nextProps.subtitle,
-      header: nextProps.header,
-      startDate: PropTypes.string,
-      endDate: PropTypes.string
+      header: nextProps.header
     })
   }
 
@@ -55,8 +53,8 @@ class EditHeroHeader extends React.Component {
   }
 
   render () {
-    const { header, uploadParentId, uploadParentType } = this.props
-    const { title, subtitle, file, startDate, endDate } = this.state
+    const { header, uploadParentId, uploadParentType, startDate, endDate } = this.props
+    const { title, subtitle, file } = this.state
     let backgroundImage;
 
     if (file) {
@@ -73,6 +71,7 @@ class EditHeroHeader extends React.Component {
       cover
       alt="image"/>
     }
+
     return (
       <Dropzone onDrop={this.onDrop} className="HeroHeader edit" disableClick={true}>
         {backgroundImage}
@@ -89,7 +88,16 @@ class EditHeroHeader extends React.Component {
               isOutsideRange={() => false}
               startDate={moment(startDate)} // momentPropTypes.momentObj or null,
               endDate={moment(endDate)} // momentPropTypes.momentObj or null,
-              onDatesChange={({ startDate, endDate }) => this.handleChange({ startDate: startDate.format(), endDate: endDate.format() })} // PropTypes.func.isRequired,
+              onDatesChange={({ startDate, endDate }) => {
+                var changes = {}
+                if(startDate) {
+                  changes['startDate'] = startDate.format()
+                }
+                if(endDate) {
+                  changes['endDate'] = endDate.format()
+                }
+                this.props.onChange(changes)
+              }} // PropTypes.func.isRequired,
               focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
               onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
             />

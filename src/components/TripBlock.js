@@ -2,6 +2,7 @@ import React from 'react'
 import { propType } from 'graphql-anywhere'
 import PropTypes from 'prop-types'
 import pluralize from 'pluralize'
+import moment from 'moment'
 
 import { Link } from 'react-router-dom'
 import ScaledImage from './ScaledImage'
@@ -9,10 +10,13 @@ import './TripBlock.css'
 
 import TripBlockFragment from '../graphql/_TripBlock.gql'
 
-const TripBlock = ({ link, trip: { title, subtitle, header, posts, photos } }) => {
+const TripBlock = ({ link, trip: { title, subtitle, header, posts, photos, startDate, endDate } }) => {
 
   let shuffled = shuffle(photos)
   let photoGroups = partition(shuffled, 3, 8)
+  var duration = moment.duration(moment(endDate).diff(moment(startDate)));
+  var days = duration.asDays() + 1;
+
   return(<div className="TripBlock">
     <div className="Container">
       <header>
@@ -20,7 +24,7 @@ const TripBlock = ({ link, trip: { title, subtitle, header, posts, photos } }) =
           <Link to={link}>
             {title || "Untitled"}
             <small>
-              25 days
+              {`${days} ${pluralize("day", days)}`}
               &mdash;
               {`${posts.length} ${pluralize("post", posts.length)}`}
               &mdash;
