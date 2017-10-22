@@ -21,13 +21,12 @@
   flex: 1;
 }
 
-.Header .Title {
+.Header .Logo {
   display: flex;
   align-items: center;
   text-transform: uppercase;
-  font-style: italic;
-  font-weight: 900;
-  width: 20rem;
+  letter-spacing: 0.1rem;
+  position: relative;
 }
 
 .Header .BreadCrumbs {

@@ -33,7 +33,7 @@ class Header extends React.Component {
     }
     return (
       <nav className="Header">
-        <a className="Title" href="/">
+        <a className="Logo" href="/">
           <img src="/daybreakers-logo.svg" alt="Daybreakers logo"/>
           Daybreakers
         </a>
