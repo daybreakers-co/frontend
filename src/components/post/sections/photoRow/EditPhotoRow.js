@@ -44,9 +44,12 @@ export class PostEditPhotoRow extends React.Component {
   }
 
   render () {
+    let className = "PhotoRow Container edit"
+    let empty = true
     let items = this.state.items.map((item) => {
       let component =  <div>Moo</div>
       if (item.file) {
+        empty = false
         component =  (
           <UploadableImage
             key={item.id}
@@ -55,6 +58,7 @@ export class PostEditPhotoRow extends React.Component {
             file={item.file} />
         )
       } else if (item.photo && item.photo.id) {
+        empty = false
         component =  (
           <ScaledImage
           key={item.id}
@@ -65,8 +69,12 @@ export class PostEditPhotoRow extends React.Component {
       }
       return component
     });
+
+    if(empty) {
+      className = "PhotoRow Container edit empty"
+    }
     return (
-      <div className="PhotoRow Container edit">
+      <div className={className}>
         <Dropzone onDrop={this.onDrop} className="Dropzone">
           {items}
         </Dropzone>

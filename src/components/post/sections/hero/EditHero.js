@@ -29,21 +29,24 @@ class EditHero extends React.Component {
     const { file } = this.state;
     const { photo, id } = this.props;
     let component = null
+    let className = "Hero edit empty";
 
     if (file) {
       component = <UploadableImage
             parentType="HeroSection"
             parentId={id}
             file={this.state.file} />
+      className = "Hero edit"
     } else if (photo) {
       component = <ScaledImage
             key={photo.id}
             image={photo}
             style={{flex: photo.ratio}}
             alt="image"/>
+      className = "Hero edit"
     }
     return (
-      <div className="Hero edit">
+      <div className={className}>
         <Dropzone onDrop={this.onDrop} className="Dropzone">
          {component}
         </Dropzone>
