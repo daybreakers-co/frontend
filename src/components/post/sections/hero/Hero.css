@@ -2,8 +2,9 @@
   padding: 2rem 0;
 }
 
-.Hero .dropzone {
-  min-height: 40rem
+.Hero .Dropzone {
+  background: url("/placeholder-dark.svg") no-repeat center center;
+  background-size: auto 8rem;
 }
 
 .Hero img {

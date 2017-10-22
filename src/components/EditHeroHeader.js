@@ -79,7 +79,7 @@ class EditHeroHeader extends React.Component {
         {backgroundImage}
         <hgroup>
           <input
-            className="title"
+            className="H-Large"
             value={title || ""}
             placeholder='(Amazing title)'
             onChange={(e) => this.setState({title: e.target.value})}
@@ -96,7 +96,7 @@ class EditHeroHeader extends React.Component {
             />
           </dates>
           <input
-            className="subtitle"
+            className="T-Large"
             value={subtitle || ""}
             placeholder='(Optional subtitle)'
             onChange={(e) => this.setState({subtitle: e.target.value})}

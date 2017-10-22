@@ -2,11 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import ScaledImage from './ScaledImage'
-import './HeroHeader.css'
+import './TripHeader.css'
 
-const HeroHeader = ({ title, subtitle, image, type, startDate, endDate, locations }) => (
-  <section className={`HeroHeader ${type}`}>
-    <ScaledImage image={image} alt="Hero Header" cover />
+const TripHeader = ({ title, subtitle, startDate, endDate }) => (
+  <section className="TripHeader">
     <hgroup>
       <h1 className="H-Large">{title}</h1>
       <date>
@@ -19,13 +18,11 @@ const HeroHeader = ({ title, subtitle, image, type, startDate, endDate, location
   </section>
 )
 
-HeroHeader.propTypes = {
+TripHeader.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string,
-  image: PropTypes.object,
-  type: PropTypes.string,
   startDate: PropTypes.string,
   endDate: PropTypes.string
 }
 
-export default HeroHeader;
+export default TripHeader;

@@ -6,11 +6,13 @@ import withCurrentUser from '../components/hoc/withCurrentUser'
 import HeaderCard from '../components/HeaderCard'
 import Header from '../components/Header'
 import Button from '../components/Button'
-import HeroHeader from '../components/HeroHeader'
+import TripHeader from '../components/TripHeader'
 import LoadingPage from '../components/LoadingPage'
 
 import CreatePostQuery from '../graphql/CreatePostQuery.gql'
 import TripPageQuery from '../graphql/TripPageQuery.gql'
+
+import './TripPage.css'
 
 class TripPage extends Component {
 
@@ -34,7 +36,7 @@ class TripPage extends Component {
     })
 
     return (
-      <div>
+      <div className="TripPage">
         <Header
           user={user}
           trip={user.trip}
@@ -45,11 +47,9 @@ class TripPage extends Component {
               <li key="editButton"><Link to={`/${user.username}/${user.trip.id}/edit`} className="Button small secondary">Edit trip</Link></li>
             ]
           }/>
-        <HeroHeader
-          image={user.trip.header}
+        <TripHeader
           title={user.trip.title}
           subtitle={user.trip.subtitle}
-          type="trip"
         />
         <section className="Container">
           <div style={{flex: 1}}>

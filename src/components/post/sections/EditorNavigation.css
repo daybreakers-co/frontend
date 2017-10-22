@@ -2,6 +2,10 @@
   position: relative;
 }
 
+.EditorWithNavigation + .EditorWithNavigation {
+  border-top: var(--border);
+}
+
 .EditorWithNavigation:hover {
   background: var(--bg-shade);
 }

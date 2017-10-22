@@ -66,14 +66,14 @@ class PostEditText extends React.Component {
     return (
       <div className="Text Container narrow">
         <input
-          className='TextTitle InputWithoutStyling'
+          className='H-Medium InputWithoutStyling'
           value={this.state.title}
           placeholder='(Optional title)'
           onChange={(e) => this.setState({title: e.target.value})}
           onBlur={this.handleBlur}/>
 
         <Editor
-          className="TextContent"
+          className="T-Normal"
           editorState={this.state.editorState}
           onChange={(editorState) => { this.setState({ editorState })}}
           placeholder="Tell a story..."

@@ -1,7 +1,6 @@
 .edit.Header {
   background: var(--white);
   color: var(--dark);
-  border: 0;
 }
 
 .edit.Header a:not(.Button) {
@@ -37,7 +36,7 @@
 
 .edit.Header .EditOptions > div {
   margin-right: 1rem;
-  border-right: 1px solid var(--medium);
+  border-right: var(--border);
   display: flex;
   align-items: center;
   padding-right: 1rem

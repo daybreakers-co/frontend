@@ -7,6 +7,9 @@
 
   --green:                 #4CAF50;
   --red:                   #E60027;
+  --blue:                  #2979FF;
+  --purple:                #9C27B0;
+  --orange:                #FF6D00;
 
   --bg:                    var(--white);
   --bg-shade:              var(--light);

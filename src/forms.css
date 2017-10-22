@@ -1,7 +1,6 @@
 input,
 textarea,
 select {
-  line-height: 1rem;
   padding: 0.375rem 0.5rem;
   border: 1px solid rgba(0,0,0,0.2);
   box-shadow: inset 2px 2px 4px rgba(0,0,0,0.1);
@@ -23,9 +22,10 @@ select:hover {
 .InputWithoutStyling:focus,
 .InputWithoutStyling:hover {
   outline: none;
-  line-height: inherit;
   padding: 0;
   border: 0;
+  box-shadow: none;
+  width: 100%;
   border-radius: 0;
   transition: border 0.2s, box-shadow 0.2s;
   background: none;
@@ -35,14 +35,12 @@ select:hover {
 input.small,
 textarea.small,
 select.small {
-  line-height: 1rem;
   padding: 0.25rem 0.5rem;
 }
 
 input.large,
 textarea.large,
 select.large {
-  line-height: 1.25rem;
   font-size: 1rem;
   padding: 0.5rem 0.75rem;
 }

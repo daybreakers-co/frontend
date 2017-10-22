@@ -1,50 +1,49 @@
 .HeaderCard {
-  position: relative;
-  overflow: hidden;
   margin-bottom: 4rem;
   border-radius: var(--br);
-  top: 0;
+  background: var(--bg);
+  box-shadow: var(--shadow);
+  position: relative;
 }
 
-.HeaderCard:hover figure {
-  transform: scale(1)
+.HeaderCard a {
+  display: flex;
+  text-decoration: none
 }
 
 .HeaderCard figure {
-  transition: all 0.2s;
-  height: 30vh;
-  transform: scale(1.05);
+  height: 20rem;
+  width: 50%;
+  border-radius: var(--br) 0 0 var(--br);
+  overflow: hidden;
 }
 
 .HeaderCard hgroup {
-  background: linear-gradient(rgba(0,0,0,0.7), transparent);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
   padding: 2rem;
-  color: var(--white);
-}
-
-.HeaderCard h1 {
-  font-size: 3rem;
-  line-height: 1;
-  margin-bottom: 1rem;
+  width: 50%;
 }
 
 .HeaderCard h2 {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  display: block;
-  margin-bottom: 1rem;
-  opacity: 0.6;
-  letter-spacing: 0.1em;
-  line-height: 1.2
+  opacity: 0.6
 }
 
-.HeaderCard p {
-  font-size: 1rem;
-  margin-bottom: 1rem;
-  max-width: 40rem
+/* Small headercard */
+
+.HeaderCard.small {
+  max-width: 20rem;
+  text-align: center;
+}
+
+.HeaderCard.small a {
+  display: block;
+}
+
+.HeaderCard.small figure {
+  height: 10rem;
+  width: auto;
+  border-radius: var(--br) var(--br) 0 0;
+}
+
+.HeaderCard.small hgroup {
+  width: auto;
 }

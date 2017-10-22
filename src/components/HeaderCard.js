@@ -8,15 +8,15 @@ import './HeaderCard.css'
 
 import HeaderCardFragment from '../graphql/_HeaderCard.gql'
 
-const HeaderCard = ({ link, type, headerCard: { title, subtitle, header } }) => (
-  <div className={`HeaderCard ${type}`}>
+const HeaderCard = ({ link, size, label, headerCard: { title, subtitle, header } }) => (
+  <div className={`HeaderCard ${size}`}>
     <Link to={link}>
       <ScaledImage image={header} alt="Trip header" cover />
       <hgroup>
-        <h1>{title || "Untitled"}</h1>
-        <h2>25 days &mdash; 234 photos</h2>
-        {subtitle && <p>{subtitle.substr(0, 200)}...</p>}
-        <span className="Button large secondary">View trip</span>
+        <h1 className="H-Medium">{title || "Untitled Post"}</h1>
+        <h2 className="H-Small">25 days &mdash; 234 photos</h2>
+        {subtitle && <p className="T-Medium">{subtitle}</p>}
+        <span className="Button secondary">View {label && <span>{label} </span>}trip</span>
       </hgroup>
     </Link>
   </div>
@@ -24,8 +24,9 @@ const HeaderCard = ({ link, type, headerCard: { title, subtitle, header } }) => 
 
 HeaderCard.propTypes = {
   link: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
+  size: PropTypes.string,
   headerCard: propType(HeaderCardFragment).isRequired,
+  label: PropTypes.string
 }
 
 export default HeaderCard;

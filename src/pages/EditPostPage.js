@@ -22,6 +22,8 @@ import CreateEmptySectionQuery from '../graphql/CreateEmptySectionQuery.gql'
 import CreateLocationQuery from '../graphql/CreateLocationQuery.gql'
 import DeleteLocationQuery from '../graphql/DeleteLocationQuery.gql'
 
+
+import './PostPage.css'
 import "react-toggle/style.css"
 import 'react-dates/lib/css/_datepicker.css'
 
@@ -162,7 +164,7 @@ class EditPostPage extends React.Component {
     });
 
     return (
-      <div>
+      <div className="PostPage">
         <EditHeader>
           <div className="EditOptions">
             <div className="toggle">

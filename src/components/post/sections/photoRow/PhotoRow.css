@@ -1,14 +1,14 @@
 .PhotoRow {
-  display: flex;
-  padding: 2rem 0
+  padding: 2rem 0;
+  display: flex
 }
 
 .PhotoRow:not(.edit) + .PhotoRow:not(.edit) {
   margin-top: -3.5rem;
 }
 
-.PhotoRow > figure,
-.PhotoRow > .UploadableImage {
+.PhotoRow figure,
+.PhotoRow .UploadableImage {
   flex: 1.5;
   margin: 0 0 0 0.5rem;
   display: block;
@@ -16,8 +16,8 @@
   background: var(--bg-shade);
 }
 
-.PhotoRow > figure:first-child,
-.PhotoRow > .UploadableImage:first-child {
+.PhotoRow figure:first-child,
+.PhotoRow .UploadableImage:first-child {
   margin: 0;
 }
 
@@ -28,9 +28,11 @@
   border-radius: calc(var(--br) / 2);
 }
 
-.dropzone {
-  width: 100%;
-  min-height: 10rem;
+.PhotoRow .Dropzone {
+  flex: 1;
+  display: flex;
+  background: url("/placeholder-photorow-dark.svg") no-repeat center center;
+  background-size: auto 4rem;
 }
 
 .PhotoRowDropHint {

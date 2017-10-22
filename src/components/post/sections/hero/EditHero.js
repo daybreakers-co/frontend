@@ -1,9 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Dropzone from 'react-dropzone'
-import './Hero.css'
 import ScaledImage from '../../../ScaledImage'
 import UploadableImage from '../../../UploadableImage'
+
+import './Hero.css'
+import '../../../Dropzone.css'
 
 class EditHero extends React.Component {
   constructor(props) {
@@ -42,7 +44,7 @@ class EditHero extends React.Component {
     }
     return (
       <div className="Hero Container edit">
-        <Dropzone onDrop={this.onDrop} className="dropzone">
+        <Dropzone onDrop={this.onDrop} className="Dropzone">
          {component}
         </Dropzone>
       </div>

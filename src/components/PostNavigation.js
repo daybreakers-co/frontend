@@ -13,20 +13,21 @@ const PostNavigation = ({
   postNavigation: { previous, next }
 }) => (
   <div className="PostNavigation">
+    <h1 className="H-Large">More posts from {tripId}</h1>
     <div className="Container">
       {previous &&
-        <div className="previous">
-          <HeaderCard
-            link={`/${username}/${tripId}/${previous.id}`}
-            headerCard={previous} />
-        </div>
+        <HeaderCard
+          link={`/${username}/${tripId}/${previous.id}`}
+          headerCard={previous}
+          size="small"
+          label="previous" />
       }
       {next &&
-        <div className="next">
-          <HeaderCard
-          link={`/${username}/${tripId}/${next.id}`}
-          headerCard={next} />
-        </div>
+        <HeaderCard
+        link={`/${username}/${tripId}/${next.id}`}
+        headerCard={next}
+        size="small"
+        label="next" />
       }
     </div>
   </div>

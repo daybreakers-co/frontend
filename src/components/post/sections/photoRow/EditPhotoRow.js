@@ -1,11 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Dropzone from 'react-dropzone'
-import './PhotoRow.css'
 import { graphql } from 'react-apollo'
 import ScaledImage from '../../../ScaledImage'
 import CreatePhotoRowItemQuery from '../../../../graphql/CreatePhotoRowItemQuery.gql'
 import UploadableImage from '../../../UploadableImage'
+
+import './PhotoRow.css'
+import '../../../Dropzone.css'
 
 export class PostEditPhotoRow extends React.Component {
   constructor(props) {
@@ -64,10 +66,11 @@ export class PostEditPhotoRow extends React.Component {
       return component
     });
     return (
-      <Dropzone onDrop={this.onDrop} className="dropzone">
-        <p className="PhotoRowDropHint"><i className="fa fa-picture-o" /> Drop images here or click to create a row of photos.</p>
-        <div className="PhotoRow Container edit">{items}</div>
-      </Dropzone>
+      <div className="PhotoRow Container edit">
+        <Dropzone onDrop={this.onDrop} className="Dropzone">
+          {items}
+        </Dropzone>
+      </div>
     )
   }
 }
