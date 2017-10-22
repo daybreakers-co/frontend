@@ -31,12 +31,12 @@
 .PhotoRow .Dropzone {
   flex: 1;
   display: flex;
-  background: url("/placeholder-photorow-dark.svg") no-repeat center center;
-  background-size: auto 4rem;
 }
 
 .PhotoRow.empty .Dropzone {
-  min-height: 10em
+  min-height: 10em;
+  background: url("/placeholder-photorow-dark.svg") no-repeat center center;
+  background-size: auto 4rem;
 }
 
 .PhotoRowDropHint {
