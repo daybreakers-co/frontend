@@ -1,6 +1,9 @@
 #import "./_HeaderCard.gql"
 
 fragment PostNavigation on Post {
+  trip {
+    title
+  }
   next {
     ...HeaderCard
   }

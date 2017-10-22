@@ -10,10 +10,10 @@ import './PostNavigation.css'
 
 const PostNavigation = ({
   match: { params: { username, tripId } },
-  postNavigation: { previous, next }
+  postNavigation: { previous, next, trip }
 }) => (
   <div className="PostNavigation">
-    <h1 className="H-Large">More posts from {tripId}</h1>
+    <h1 className="H-Large">More posts from {trip.title}</h1>
     <div className="Container">
       {previous &&
         <HeaderCard
