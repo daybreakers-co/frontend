@@ -16,7 +16,7 @@ const HeaderCard = ({ link, size, label, headerCard: { title, subtitle, header }
         <h1 className="H-Medium">{title || "Untitled Post"}</h1>
         <h2 className="H-Small">25 days &mdash; 234 photos</h2>
         {subtitle && <p className="T-Medium">{subtitle}</p>}
-        <span className="Button secondary">View {label && <span>{label} </span>}trip</span>
+        <span className="Button secondary">View {label && <span>{label} </span>}post</span>
       </hgroup>
     </Link>
   </div>
