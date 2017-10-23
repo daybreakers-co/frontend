@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 
 import { Link } from 'react-router-dom'
 import ScaledImage from './ScaledImage'
+import DateRange from './DateRange'
 import pluralize from 'pluralize'
 import moment from 'moment'
 
@@ -22,9 +23,7 @@ const HeaderCard = ({ link, size, label, headerCard: { title, subtitle, header, 
         <hgroup>
           <h1 className="H-Medium">{title || "Untitled Post"}</h1>
           <h2 className="H-Small">
-            {`${days} ${pluralize("day", days)}`}
-            &mdash;
-            {`${photos.length} ${pluralize("photo", photos.length)}`}
+            <DateRange startDate={startDate} endDate={endDate} />
           </h2>
           {subtitle && <p className="T-Medium">{subtitle}</p>}
           <span className="Button secondary">View {label && <span>{label} </span>}post</span>
