@@ -12,7 +12,7 @@
 }
 
 .PostCard figure {
-  height: 20rem;
+  min-height: 20rem;
   width: 50%;
   border-radius: var(--br) 0 0 var(--br);
   overflow: hidden;
@@ -39,7 +39,7 @@
 }
 
 .PostCard.small figure {
-  height: 10rem;
+  min-height: 10rem;
   width: auto;
   border-radius: var(--br) var(--br) 0 0;
 }
