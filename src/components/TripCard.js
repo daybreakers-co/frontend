@@ -14,7 +14,7 @@ const TripCard = ({ link, trip: { title, subtitle, header, posts, photos, startD
   let shuffled = shuffle(photos)
   let photoGroups = partition(shuffled, 3, 8)
   var duration = moment.duration(moment(endDate).diff(moment(startDate)));
-  var days = duration.asDays() + 1;
+  var days = parseInt(duration.asDays() + 1, 10);
 
   return(<div className="TripCard">
     <div className="Container">
