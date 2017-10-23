@@ -3,7 +3,7 @@ import { withRouter, Link } from 'react-router-dom'
 import { graphql, compose } from 'react-apollo'
 
 import withCurrentUser from '../components/hoc/withCurrentUser'
-import HeaderCard from '../components/HeaderCard'
+import PostCard from '../components/PostCard'
 import Header from '../components/Header'
 import Button from '../components/Button'
 import TripHeader from '../components/TripHeader'
@@ -29,10 +29,10 @@ class TripPage extends Component {
     if (loading) { return (<LoadingPage />) }
 
     let posts = user.trip.posts.map((post) => {
-      return <HeaderCard
+      return <PostCard
         key={post.id}
         link={`/${user.username}/${user.trip.id}/${post.id}`}
-        headerCard={post} />
+        post={post} />
     })
 
     return (

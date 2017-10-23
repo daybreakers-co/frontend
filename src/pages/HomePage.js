@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 
-import withCurrentUser from '../components/hoc/withCurrentUser'
 import Header from '../components/Header'
 
 import "./HomePage.css"

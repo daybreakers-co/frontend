@@ -1,4 +1,4 @@
-#import "./_TripBlock.gql"
+#import "./_TripCard.gql"
 
 query UserPageQuery($username: String!) {
   user(username: $username) {
@@ -7,7 +7,7 @@ query UserPageQuery($username: String!) {
     isViewer
     username
     trips {
-      ...TripBlockFragment
+      ...TripCardFragment
       viewerCanEdit
     }
   }

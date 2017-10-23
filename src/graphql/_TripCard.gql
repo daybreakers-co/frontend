@@ -1,4 +1,4 @@
-fragment TripBlockFragment on Trip {
+fragment TripCardFragment on Trip {
   id
   title
   subtitle

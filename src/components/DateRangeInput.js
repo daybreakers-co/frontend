@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types'
 
 import moment from 'moment'
-import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
+import { DateRangePicker } from 'react-dates';
 
 import './DayPicker.css';
 
@@ -12,6 +12,12 @@ class DateRangeInput extends React.Component {
     this.state = {
       focusedInput: null
     }
+  }
+
+  static propTypes = {
+    startDate: PropTypes.string,
+    endDate: PropTypes.string,
+    onChange: PropTypes.func.isRequired
   }
 
   handleDateRangeChange = ({ startDate, endDate }) => {

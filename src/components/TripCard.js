@@ -5,19 +5,18 @@ import pluralize from 'pluralize'
 import moment from 'moment'
 
 import { Link } from 'react-router-dom'
-import ScaledImage from './ScaledImage'
-import './TripBlock.css'
+import './TripCard.css'
 
-import TripBlockFragment from '../graphql/_TripBlock.gql'
+import TripCardFragment from '../graphql/_TripCard.gql'
 
-const TripBlock = ({ link, trip: { title, subtitle, header, posts, photos, startDate, endDate } }) => {
+const TripCard = ({ link, trip: { title, subtitle, header, posts, photos, startDate, endDate } }) => {
 
   let shuffled = shuffle(photos)
   let photoGroups = partition(shuffled, 3, 8)
   var duration = moment.duration(moment(endDate).diff(moment(startDate)));
   var days = duration.asDays() + 1;
 
-  return(<div className="TripBlock">
+  return(<div className="TripCard">
     <div className="Container">
       <header>
         <h1>
@@ -39,7 +38,7 @@ const TripBlock = ({ link, trip: { title, subtitle, header, posts, photos, start
         {photoGroups.map(group => (
           <div key={group.map(p => p.id).join()}>
             {group.map(photo => (
-              <figure key={photo.id}><img src={`${photo.url}?height=80`} /></figure>
+              <figure key={photo.id}><img alt={photo.title} src={`${photo.url}?height=80`} /></figure>
             ))}
           </div>
         ))}
@@ -53,9 +52,9 @@ function partition(input, size, max) {
   for (var i = 0; i < size; i += 1) {
     results[i] = []
   }
-  for (var i = 0; (i < input.length ); i += 1) {
-    if (max && i == size * max) { break }
-    results[i % size].push(input[i])
+  for (var ii = 0; (ii < input.length ); ii += 1) {
+    if (max && ii === size * max) { break }
+    results[ii % size].push(input[ii])
   }
   return results;
 }
@@ -73,9 +72,9 @@ function shuffle(input) {
   return output;
 }
 
-TripBlock.propTypes = {
+TripCard.propTypes = {
   link: PropTypes.string.isRequired,
-  trip: propType(TripBlockFragment).isRequired,
+  trip: propType(TripCardFragment).isRequired,
 }
 
-export default TripBlock;
+export default TripCard;

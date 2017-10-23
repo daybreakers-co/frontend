@@ -1,4 +1,4 @@
-.HeaderCard {
+.PostCard {
   margin-bottom: 4rem;
   border-radius: var(--br);
   background: var(--bg);
@@ -6,44 +6,44 @@
   position: relative;
 }
 
-.HeaderCard a {
+.PostCard a {
   display: flex;
   text-decoration: none
 }
 
-.HeaderCard figure {
+.PostCard figure {
   height: 20rem;
   width: 50%;
   border-radius: var(--br) 0 0 var(--br);
   overflow: hidden;
 }
 
-.HeaderCard hgroup {
+.PostCard hgroup {
   padding: 2rem;
   width: 50%;
 }
 
-.HeaderCard h2 {
+.PostCard h2 {
   opacity: 0.6
 }
 
-/* Small headercard */
+/* Small PostCard */
 
-.HeaderCard.small {
+.PostCard.small {
   max-width: 20rem;
   text-align: center;
 }
 
-.HeaderCard.small a {
+.PostCard.small a {
   display: block;
 }
 
-.HeaderCard.small figure {
+.PostCard.small figure {
   height: 10rem;
   width: auto;
   border-radius: var(--br) var(--br) 0 0;
 }
 
-.HeaderCard.small hgroup {
+.PostCard.small hgroup {
   width: auto;
 }

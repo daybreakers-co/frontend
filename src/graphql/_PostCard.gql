@@ -1,4 +1,4 @@
-fragment HeaderCard on Post {
+fragment PostCard on Post {
   id
   title
   subtitle

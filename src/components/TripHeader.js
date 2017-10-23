@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import ScaledImage from './ScaledImage'
 import './TripHeader.css'
 
 const TripHeader = ({ title, subtitle, startDate, endDate }) => (

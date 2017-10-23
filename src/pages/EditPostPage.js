@@ -14,7 +14,6 @@ import EditorNavigation from '../components/post/sections/EditorNavigation'
 import EditHeader from '../components/EditHeader'
 import EditPostHeader from '../components/EditPostHeader'
 import EditLocations from '../components/EditLocations'
-import Button from '../components/Button'
 
 import PostPageQuery from '../graphql/PostPageQuery.gql'
 import UpdatePostQuery from '../graphql/UpdatePostQuery.gql'
@@ -116,7 +115,7 @@ class EditPostPage extends React.Component {
   }
 
   render () {
-    const { currentUser, data: { error, loading, user }, match: { params: { username, tripId, postId } } } = this.props
+    const { data: { error, loading, user }, match: { params: { username, tripId, postId } } } = this.props
 
     if (loading) { return (<div>Loading</div>) }
     if (error)   { return (<div>ERROR: {error}</div>) }

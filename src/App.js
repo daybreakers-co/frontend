@@ -12,7 +12,6 @@ import UserPage from './pages/UserPage';
 import TripPage from './pages/TripPage';
 import DeleteTripPage from './pages/DeleteTripPage';
 import DeletePostPage from './pages/DeletePostPage';
-import Footer from './components/Footer';
 
 export class App extends Component {
   render() {

@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { withRouter, Link } from 'react-router-dom'
 import { graphql, compose } from 'react-apollo'
-import moment from 'moment'
 
 import withCurrentUser from '../components/hoc/withCurrentUser'
 import EditHeader from '../components/EditHeader'
@@ -34,7 +33,7 @@ class EditTripPage extends React.Component {
   }
 
   render () {
-    const { currentUser, data: { loading, error, user }} = this.props;
+    const { data: { loading, error, user }} = this.props;
     if (loading) { return (<div>Loading</div>) }
     if (error)   { return (<div>ERROR: {error}</div>) }
     const { id, title, subtitle, header, startDate, endDate } = user.trip;

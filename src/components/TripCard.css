@@ -1,4 +1,4 @@
-.TripBlock {
+.TripCard {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -8,33 +8,33 @@
   border-bottom: var(--border);
 }
 
-.TripBlock .Container {
+.TripCard .Container {
   display: flex;
   position: relative;
 }
 
-.TripBlock Header {
+.TripCard Header {
   max-width: 60%;
 }
 
-.TripBlock .images {
+.TripCard .images {
   position: absolute;
   margin-left: calc(60% + 5rem);
   top: 50%;
   transform: translateY(-50%)
 }
 
-.TripBlock a {
+.TripCard a {
   text-decoration: none;
 }
 
-.TripBlock h1 {
+.TripCard h1 {
   font-size: 3rem;
   line-height: 1;
   margin-bottom: 1rem;
 }
 
-.TripBlock h1 small {
+.TripCard h1 small {
   font-size: 0.75rem;
   text-transform: uppercase;
   display: block;
@@ -44,24 +44,24 @@
   line-height: 1.2
 }
 
-.TripBlock p {
+.TripCard p {
   font-size: 1rem;
   margin-bottom: 1rem;
   color: var(--color-shade)
 }
 
-.TripBlock .images div {
+.TripCard .images div {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 0.5rem;
 }
 
-.TripBlock .images figure:not(:last-child) {
+.TripCard .images figure:not(:last-child) {
   margin-right: 0.5rem;
 }
 
-.TripBlock .images img {
+.TripCard .images img {
   height: 4rem;
   display: block;
   border-radius: calc(var(--br) / 2)

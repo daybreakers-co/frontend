@@ -2,12 +2,10 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import { graphql, compose } from 'react-apollo'
 
-import TripBlock from '../components/TripBlock'
+import TripCard from '../components/TripCard'
 import withCurrentUser from '../components/hoc/withCurrentUser'
 import Header from '../components/Header'
 import Button from '../components/Button'
-import PageTitle from '../components/PageTitle'
-import ScaledImage from '../components/ScaledImage'
 import LoadingPage from '../components/LoadingPage'
 
 import UserPageQuery from '../graphql/UserPageQuery.gql'
@@ -40,7 +38,7 @@ class UserPage extends Component {
           button={user.isViewer && <Button size="small" onClick={this.handleCreateTripClick} title="Create trip" />}/>
         <section className="UserPage">
           {user.trips.map((trip) => (
-            <TripBlock
+            <TripCard
               key={trip.id}
               link={`/${user.username}/${trip.id}`}
               trip={trip}
