@@ -1,19 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import DateRangeInput from './DateRangeInput';
+import DateRangeInput from './DateRangeInput'
+import PlainTextAreaInput from './PlainTextAreaInput'
 
 import './TripHeader.css'
 import './EditTripHeader.css'
 
 class EditTripHeader extends React.Component {
-  constructor(props) {
-    super()
-    this.state = {
-      title: props.title,
-      subtitle: props.subtitle
-    }
-  }
 
   static propTypes = {
     title: PropTypes.string,
@@ -23,33 +17,17 @@ class EditTripHeader extends React.Component {
     onChange: PropTypes.func.isRequired
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({
-      title: nextProps.title,
-      subtitle: nextProps.subtitle
-    })
-  }
-
-  handleBlur = () => {
-    this.props.onChange({
-      title: this.state.title,
-      subtitle: this.state.subtitle
-    })
-  }
-
   render() {
-    const { startDate, endDate } = this.props
-    const { title, subtitle } = this.state
+    const { startDate, endDate, title, subtitle } = this.props
 
     return (
       <div className="TripHeader edit">
         <hgroup>
-          <input
+          <PlainTextAreaInput
             className="H-Large"
             value={title || ""}
             placeholder="Enter the title of your post"
-            onChange={(e) => this.setState({ title: e.target.value })}
-            onBlur={this.handleBlur} />
+            onBlur={({ text }) => this.props.onChange({ title: text })} />
           <dates>
             <DateRangeInput
               startDate={startDate}
@@ -57,12 +35,11 @@ class EditTripHeader extends React.Component {
               onChange={(result) => this.props.onChange(result)}
             />
           </dates>
-          <input
+          <PlainTextAreaInput
             className="T-Large"
             value={subtitle || ""}
-            placeholder="Enter an introduction to your post"
-            onChange={(e) => this.setState({ subtitle: e.target.value })}
-            onBlur={this.handleBlur} />
+            placeholder="Enter an introduction to your trip"
+            onBlur={({text}) => this.props.onChange({subtitle: text})} />
         </hgroup>
       </div>
     )
