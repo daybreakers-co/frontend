@@ -2,10 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import ScaledImage from './ScaledImage'
-import './HeroHeader.css'
+import './PostHeader.css'
 
-const HeroHeader = ({ title, subtitle, image, type, startDate, endDate, locations }) => (
-  <section className={`HeroHeader ${type}`}>
+const PostHeader = ({ title, subtitle, image, type, startDate, endDate, locations }) => (
+  <section className={`PostHeader ${type}`}>
     <ScaledImage image={image} alt="Hero Header" cover />
     <hgroup>
       <h1 className="H-Large">{title}</h1>
@@ -19,7 +19,7 @@ const HeroHeader = ({ title, subtitle, image, type, startDate, endDate, location
   </section>
 )
 
-HeroHeader.propTypes = {
+PostHeader.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string,
   image: PropTypes.object,
@@ -28,4 +28,4 @@ HeroHeader.propTypes = {
   endDate: PropTypes.string
 }
 
-export default HeroHeader;
+export default PostHeader;

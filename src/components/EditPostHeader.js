@@ -3,15 +3,13 @@ import PropTypes from 'prop-types'
 import Dropzone from 'react-dropzone'
 import UploadableImage from './UploadableImage'
 import ScaledImage from './ScaledImage'
-import moment from 'moment'
 
-import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
+import DateRangeInput from './DateRangeInput';
 
-import './HeroHeader.css'
-import './EditHeroHeader.css'
-import './DayPicker.css';
+import './PostHeader.css'
+import './EditPostHeader.css'
 
-class EditHeroHeader extends React.Component {
+class EditPostHeader extends React.Component {
   constructor(props) {
     super()
     this.state = {
@@ -72,7 +70,7 @@ class EditHeroHeader extends React.Component {
     }
 
     return (
-      <Dropzone onDrop={this.onDrop} className="HeroHeader edit" disableClick={true}>
+      <Dropzone onDrop={this.onDrop} className="PostHeader edit" disableClick={true}>
         {backgroundImage}
         <hgroup>
           <input
@@ -82,24 +80,11 @@ class EditHeroHeader extends React.Component {
             onChange={(e) => this.setState({title: e.target.value})}
             onBlur={this.handleBlur} />
           <dates>
-            <DateRangePicker
-              minimumNights={0}
-              isOutsideRange={() => false}
-              startDate={moment(startDate)} // momentPropTypes.momentObj or null,
-              endDate={moment(endDate)} // momentPropTypes.momentObj or null,
-              onDatesChange={({ startDate, endDate }) => {
-                var changes = {}
-                if(startDate) {
-                  changes['startDate'] = startDate.format()
-                }
-                if(endDate) {
-                  changes['endDate'] = endDate.format()
-                }
-                this.props.onChange(changes)
-              }} // PropTypes.func.isRequired,
-              focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
-              onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
-            />
+            <DateRangeInput
+              startDate={startDate}
+              endDate={endDate}
+              onChange={(result) => this.props.onChange(result)}
+              />
           </dates>
           <input
             className="T-Large"
@@ -113,4 +98,4 @@ class EditHeroHeader extends React.Component {
   }
 }
 
-export default EditHeroHeader;
+export default EditPostHeader;

@@ -6,7 +6,7 @@ import moment from 'moment'
 
 import withCurrentUser from '../components/hoc/withCurrentUser'
 import EditHeader from '../components/EditHeader'
-import EditHeroHeader from '../components/EditHeroHeader'
+import EditTripHeader from '../components/EditTripHeader'
 
 import TripPageQuery from '../graphql/TripPageQuery.gql'
 import UpdateTripQuery from '../graphql/UpdateTripQuery.gql'
@@ -49,15 +49,12 @@ class EditTripPage extends React.Component {
         </EditHeader>
 
         <div className="Container full header EditTrip">
-          <EditHeroHeader
+          <EditTripHeader
             title={title}
             subtitle={subtitle}
             header={header}
             startDate={startDate}
             endDate={endDate}
-            uploadParentId={id}
-            uploadParentType="Trip"
-            type={"Trip"}
             onChange={this.handleChange} />
         </div>
       </div>

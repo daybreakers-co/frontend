@@ -9,7 +9,7 @@ import ShowPhotoRow from '../components/post/sections/photoRow/ShowPhotoRow'
 import ShowText from '../components/post/sections/text/ShowText'
 import ShowHero from '../components/post/sections/hero/ShowHero'
 import Header from '../components/Header'
-import HeroHeader from '../components/HeroHeader'
+import PostHeader from '../components/PostHeader'
 import Locations from '../components/Locations'
 import PostNavigation from '../components/PostNavigation'
 
@@ -65,7 +65,7 @@ class PostPage extends React.Component {
           trip={post.trip}
           post={post}
           button={user.isViewer && <Link className="Button primary small"  to={`${pathname}/edit`}>Edit post</Link>}/>
-        <HeroHeader
+        <PostHeader
           image={post.header}
           title={post.title}
           startDate={post.startDate}

@@ -12,7 +12,7 @@ import PostEditPhotoRow from '../components/post/sections/photoRow/EditPhotoRow'
 import EditHero from '../components/post/sections/hero/EditHero'
 import EditorNavigation from '../components/post/sections/EditorNavigation'
 import EditHeader from '../components/EditHeader'
-import EditHeroHeader from '../components/EditHeroHeader'
+import EditPostHeader from '../components/EditPostHeader'
 import EditLocations from '../components/EditLocations'
 import Button from '../components/Button'
 
@@ -178,7 +178,7 @@ class EditPostPage extends React.Component {
             <Link className="Button small destructive" to={`/${username}/${tripId}/${postId}/delete`}>Delete post</Link>
           </ul>
         </EditHeader>
-        <EditHeroHeader
+        <EditPostHeader
           title={post.title}
           subtitle={post.subtitle}
           header={post.header}
@@ -203,7 +203,6 @@ class EditPostPage extends React.Component {
     )
    }
 }
-
 
 export function postDataByUsernameAndIdFromProxy(username, postId, proxy) {
   return proxy.readQuery({

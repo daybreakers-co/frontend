@@ -1,16 +1,16 @@
-.HeroHeader {
+.PostHeader {
   height: 70vh;
   position: relative;
   color: var(--white);
   background: var(--dark);
 }
 
-.HeroHeader .UploadableImage, .HeroHeader figure {
+.PostHeader .UploadableImage, .PostHeader figure {
   width: 100%;
   height: 100%;
 }
 
-.HeroHeader hgroup {
+.PostHeader hgroup {
   background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
   text-align: center;
   position: absolute;
@@ -26,11 +26,11 @@
   padding: 2rem 2rem 6rem 2rem;
 }
 
-.HeroHeader p {
+.PostHeader p {
   max-width: 40rem;
 }
 
-.HeroHeader date {
+.PostHeader date {
   font-size: 1rem;
   text-transform: uppercase;
   display: block;
@@ -42,16 +42,16 @@
   margin-bottom: 1rem;
 }
 
-.HeroHeader date .fa {
+.PostHeader date .fa {
   margin: 0 0.5rem;
   opacity: 0.4;
 }
 
-.HeroHeader.trip{
+.PostHeader.trip{
   margin-bottom: -8rem;
   height: 60vh
 }
 
-.HeroHeader.trip hgroup {
+.PostHeader.trip hgroup {
   justify-content: flex-start;
 }

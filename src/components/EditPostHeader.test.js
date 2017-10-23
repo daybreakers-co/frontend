@@ -2,9 +2,9 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json';
 
-import EditHeroHeader from './EditHeroHeader'
+import EditPostHeader from './EditPostHeader'
 
-describe("EditHeroHeader", () => {
+describe("EditPostHeader", () => {
   const photo = {id: "def234", ratio: 1, url: "image.jpg"}
   const file = {}
   const spy = jest.fn()
@@ -12,7 +12,7 @@ describe("EditHeroHeader", () => {
   describe("With photo", () => {
     it("Renders a scaled image", () => {
       const wrapper = shallow(
-        <EditHeroHeader
+        <EditPostHeader
           title="Header title"
           subtitle="Header subtitle"
           uploadParentId="trip1"
@@ -30,7 +30,7 @@ describe("EditHeroHeader", () => {
   describe("With file", () => {
     it("Renders an UploadableImage", () => {
       const wrapper = shallow(
-        <EditHeroHeader
+        <EditPostHeader
           title="Header title"
           subtitle="Header subtitle"
           uploadParentId="trip1"
@@ -49,7 +49,7 @@ describe("EditHeroHeader", () => {
 
   it("Uploads an image when file is dropped", () => {
     const wrapper = shallow(
-      <EditHeroHeader
+      <EditPostHeader
         title="Header title"
         subtitle="Header subtitle"
         uploadParentId="trip1"
@@ -64,7 +64,7 @@ describe("EditHeroHeader", () => {
 
   it("Calls onChange when input is blurred", () => {
     const wrapper = shallow(
-      <EditHeroHeader
+      <EditPostHeader
         title="Header title"
         subtitle="Header subtitle"
         uploadParentId="trip1"
@@ -86,7 +86,7 @@ describe("EditHeroHeader", () => {
 
   it("Updates state from new props", () => {
     const wrapper = shallow(
-      <EditHeroHeader
+      <EditPostHeader
         title="Header title"
         subtitle="Header subtitle"
         uploadParentId="trip1"
@@ -111,7 +111,7 @@ describe("EditHeroHeader", () => {
 
   it ("Matches snapshot",() => {
     const wrapper = shallow(
-      <EditHeroHeader
+      <EditPostHeader
         title="Header title"
         subtitle="Header subtitle"
         uploadParentId="trip1"

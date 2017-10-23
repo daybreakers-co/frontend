@@ -1,4 +1,4 @@
-.edit.HeroHeader input {
+.edit.PostHeader input {
   color: var(--white);
   text-align: center;
   background: transparent;
@@ -9,12 +9,12 @@
   border: none
 }
 
-.edit.HeroHeader .fa {
+.edit.PostHeader .fa {
   font-size: 1.25rem;
   margin-right: 0.5rem;
 }
 
-.edit.HeroHeader .drophint {
+.edit.PostHeader .drophint {
   order: 1;
   background: var(--dark);
   border-radius: var(--br);
@@ -24,7 +24,7 @@
   color: var(--white)
 }
 
-.edit.HeroHeader.Trip .drophint {
+.edit.PostHeader.Trip .drophint {
   order: 3;
   margin-bottom: 0;
   margin-top: auto;
