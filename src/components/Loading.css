@@ -1,3 +1,9 @@
 .Loading {
   background: red;
 }
+
+.Loading img {
+  margin-right: 1rem;
+  height: 1rem;
+  vertical-align: middle;
+}
