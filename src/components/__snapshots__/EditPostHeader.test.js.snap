@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EditHeroHeader Matches snapshot 1`] = `
+exports[`EditPostHeader Matches snapshot 1`] = `
 <Dropzone
-  className="HeroHeader edit undefined"
+  className="PostHeader edit"
   disableClick={true}
   disablePreview={false}
   maxSize={Infinity}
@@ -29,28 +29,23 @@ exports[`EditHeroHeader Matches snapshot 1`] = `
     }
   />
   <hgroup>
-    <input
-      className="title"
+    <PlainTextAreaInput
+      className="H-Large"
       onBlur={[Function]}
-      onChange={[Function]}
       placeholder="Enter the title of your post"
       value="Header title"
     />
-    <input
-      className="subtitle"
+    <dates>
+      <DateRangeInput
+        onChange={[Function]}
+      />
+    </dates>
+    <PlainTextAreaInput
+      className="T-Large"
       onBlur={[Function]}
-      onChange={[Function]}
-      placeholder="Enter an introduction to your post"
+      placeholder="Enter an introduction to your trip"
       value="Header subtitle"
     />
-    <p
-      className="drophint"
-    >
-      <i
-        className="fa fa-picture-o"
-      />
-       Drop an image here to update the header image.
-    </p>
   </hgroup>
 </Dropzone>
 `;

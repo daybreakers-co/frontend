@@ -62,53 +62,6 @@ describe("EditPostHeader", () => {
     expect(wrapper.instance().state.file).toEqual(file)
   })
 
-  it("Calls onChange when input is blurred", () => {
-    const wrapper = shallow(
-      <EditPostHeader
-        title="Header title"
-        subtitle="Header subtitle"
-        uploadParentId="trip1"
-        uploadParentType="Trip"
-        header={photo}
-        onChange={spy} />
-    )
-
-    // Title input
-    wrapper.find("input").at(0).simulate("blur", {})
-    expect(spy).toBeCalledWith({title: "Header title", subtitle: "Header subtitle"})
-
-    wrapper.setState({title: "New title", subtitle: "New subtitle"})
-
-    // Subtitle input
-    wrapper.find("input").at(1).simulate("blur", {})
-    expect(spy).toBeCalledWith({title: "New title", subtitle: "New subtitle"})
-  })
-
-  it("Updates state from new props", () => {
-    const wrapper = shallow(
-      <EditPostHeader
-        title="Header title"
-        subtitle="Header subtitle"
-        uploadParentId="trip1"
-        uploadParentType="Trip"
-        header={photo}
-        onChange={spy} />
-    )
-
-    wrapper.instance().componentWillReceiveProps.call(wrapper.instance(), {
-      title: "New title",
-      subtitle: "New subtitle",
-      header: photo
-    })
-
-    expect(wrapper.instance().state).toEqual({
-      title: "New title",
-      subtitle: "New subtitle",
-      header: photo,
-      file: null
-    })
-  })
-
   it ("Matches snapshot",() => {
     const wrapper = shallow(
       <EditPostHeader

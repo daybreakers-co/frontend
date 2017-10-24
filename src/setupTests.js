@@ -1,3 +1,5 @@
+import 'react-dates/initialize';
+
 const localStorageMock = (() => {
   let store = {}
   return {
