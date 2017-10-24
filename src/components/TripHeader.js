@@ -2,17 +2,18 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import DateRange from './DateRange'
+import Dates from './Dates'
 
 import './TripHeader.css'
 
 const TripHeader = ({ title, subtitle, startDate, endDate }) => (
   <section className="TripHeader">
     <hgroup>
-      <h1 className="H-Large">{title}</h1>
-      <date>
+      <Dates>
         <DateRange startDate={startDate} endDate={endDate}><i className="fa fa-angle-right"></i></DateRange>
-      </date>
-      {subtitle && <p className="T-Large">{subtitle}</p>}
+      </Dates>
+      <h1 className="H-Large trip-title">{title}</h1>
+      {subtitle && <p className="T-Large trip-intro">{subtitle}</p>}
     </hgroup>
   </section>
 )

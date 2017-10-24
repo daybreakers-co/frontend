@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 import DateRangeInput from './DateRangeInput'
 import PlainTextAreaInput from './PlainTextAreaInput'
+import Dates from './Dates'
 
 import './TripHeader.css'
 import './EditTripHeader.css'
@@ -28,13 +29,13 @@ class EditTripHeader extends React.Component {
             value={title || ""}
             placeholder="Enter the title of your post"
             onBlur={({ text }) => this.props.onChange({ title: text })} />
-          <dates>
+          <Dates>
             <DateRangeInput
               startDate={startDate}
               endDate={endDate}
               onChange={(result) => this.props.onChange(result)}
             />
-          </dates>
+          </Dates>
           <PlainTextAreaInput
             className="T-Large"
             value={subtitle || ""}

@@ -4,6 +4,7 @@ import Dropzone from 'react-dropzone'
 import UploadableImage from './UploadableImage'
 import ScaledImage from './ScaledImage'
 
+import Dates from './Dates'
 import DateRangeInput from './DateRangeInput'
 import PlainTextAreaInput from './PlainTextAreaInput'
 
@@ -64,20 +65,20 @@ class EditPostHeader extends React.Component {
       <Dropzone onDrop={this.onDrop} className="PostHeader edit" disableClick={true}>
         {backgroundImage}
         <hgroup>
-          <PlainTextAreaInput
-            className="H-Large"
-            value={title || ""}
-            placeholder="Enter the title of your post"
-            onBlur={({ text }) => this.props.onChange({ title: text })} />
-          <dates>
+          <Dates>
             <DateRangeInput
               startDate={startDate}
               endDate={endDate}
               onChange={(result) => this.props.onChange(result)}
               />
-          </dates>
+          </Dates>
           <PlainTextAreaInput
-            className="T-Large"
+            className="H-Large post-title"
+            value={title || ""}
+            placeholder="Enter the title of your post"
+            onBlur={({ text }) => this.props.onChange({ title: text })} />
+          <PlainTextAreaInput
+            className="T-Large post-intro"
             value={subtitle || ""}
             placeholder="Enter an introduction to your trip"
             onBlur={({ text }) => this.props.onChange({ subtitle: text })} />
