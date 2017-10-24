@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import DateRange from './DateRange'
 import ScaledImage from './ScaledImage'
 import './PostHeader.css'
 
@@ -10,9 +11,7 @@ const PostHeader = ({ title, subtitle, image, type, startDate, endDate, location
     <hgroup>
       <h1 className="H-Large">{title}</h1>
       <date>
-        {startDate}
-        { endDate && <span> <i className="fa fa-angle-right"></i> {endDate}</span>
-        }
+        <DateRange startDate={startDate} endDate={endDate}><i className="fa fa-angle-right"></i></DateRange>
       </date>
       {subtitle && <p className="T-Large">{subtitle}</p>}
     </hgroup>

@@ -29,3 +29,7 @@
   margin-bottom: 0;
   margin-top: auto;
 }
+
+.edit.PostHeader dates {
+  margin-bottom: 1rem
+}

@@ -1,10 +1,10 @@
 import React from 'react';
 
-const DateRange = ({ startDate, endDate, separator }) => {
+const DateRange = ({ startDate, endDate, separator, children }) => {
   if (startDate === endDate) {
     return(<span>{startDate}</span>)
   } else {
-    return(<span>{startDate} {separator || "—"} {endDate}</span>)
+    return(<span>{startDate} {separator || children || "—"} {endDate}</span>)
   }
 };
 

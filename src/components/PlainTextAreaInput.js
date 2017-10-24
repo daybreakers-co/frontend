@@ -9,9 +9,8 @@ const PlainTextAreaInput = (props) => {
     }
   }
 
-  var className = `PlainTextAreaInput ${props.className || ""}`
   return (
-    <div className={className}>
+    <div className={props.className || "PlainTextAreaInput" }>
       <TextAreaInput {...props} onBlur={handleBlur} value={plainTextToDraft(props.value)} />
     </div>
   )

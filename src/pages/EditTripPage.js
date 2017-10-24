@@ -47,7 +47,7 @@ class EditTripPage extends React.Component {
           </ul>
         </EditHeader>
 
-        <div className="Container full header EditTrip">
+        <div className="Container full header EditTrip TripPage">
           <EditTripHeader
             title={title}
             subtitle={subtitle}

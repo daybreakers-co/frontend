@@ -50,6 +50,8 @@ class TripPage extends Component {
         <TripHeader
           title={user.trip.title}
           subtitle={user.trip.subtitle}
+          startDate={user.trip.startDate}
+          endDate={user.trip.endDate}
         />
         <section className="Container">
           <div style={{flex: 1}}>

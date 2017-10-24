@@ -29,7 +29,7 @@ const PostCard = ({ link, size, label, post: { title, subtitle, header, startDat
 PostCard.propTypes = {
   link: PropTypes.string.isRequired,
   size: PropTypes.string,
-  PostCard: propType(PostCardFragment).isRequired,
+  post: propType(PostCardFragment).isRequired,
   label: PropTypes.string
 }
 

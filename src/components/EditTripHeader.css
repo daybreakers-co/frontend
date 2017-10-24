@@ -1,3 +1,7 @@
-.TripHeader.edit .PlainTextAreaInput {
+.TripHeader.edit .T-large {
   width: 100%
+}
+
+.TripHeader.edit .public-DraftStyleDefault-ltr {
+  text-align: center
 }
