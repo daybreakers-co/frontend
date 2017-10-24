@@ -8,5 +8,9 @@ mutation ($id: String!, $index: Int) {
       id
       index
     }
+    ... on HeroSection {
+      id
+      index
+    }
   }
 }

@@ -1,11 +1,19 @@
 .AddSection {
-  margin: 2rem auto;
+  height: 8rem
+}
+
+.AddSection .inner {
   padding: 0;
-  border-radius: var(--br);
-  background: var(--darkest);
+  background: var(--green);
   list-style: none;
   display: flex;
-  width: min-content;
+  align-items: stretch;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  z-index: 100;
+  font-size: 1rem;
 }
 
 .AddSection div {
@@ -15,7 +23,7 @@
 .AddSection a {
   color: white;
   cursor: pointer;
-  padding: 0.5rem 1rem;
+  padding: 1rem 1.5rem;
   white-space: nowrap;
   display: block;
 }
@@ -25,5 +33,5 @@
 }
 
 .AddSection div + div {
-  border-left: 1px solid var(--dark);
+  border-left: 1px solid rgba(255,255,255,0.3);
 }

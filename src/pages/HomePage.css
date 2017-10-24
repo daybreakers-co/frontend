@@ -1,5 +1,5 @@
 .HomePage {
-  min-height: 100vh;
+  min-height: calc(100vh - var(--header-height));
   width: 100%;
   background: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.8)), url("/HomePageBackground.jpg");
   background-position: center center;
@@ -7,23 +7,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  margin-top:  calc(-1 * var(--header-height));
-}
-
-.HomePage img {
-  width: 6rem;
+  color: var(--white)
 }
 
 .HomePage h1 {
-  font-size: 3rem;
-  font-style: italic;
-  text-transform: uppercase;
-  font-weight: 900;
-  margin-bottom: 0.5rem
-}
-
-.HomePage p {
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
+  max-width: 30rem;
 }

@@ -30,8 +30,8 @@ class SignupPage extends React.Component {
         <Header />
         <div className="AuthPage">
           <form onSubmit={this.createUser} className="Container tiny">
-            <h1>Sign up!</h1>
-            <p>Daybreakers is the most beautiful and free way to share your travels with the world.</p>
+            <h1 className="H-Large">Sign up!</h1>
+            <p className="T-Large">Daybreakers is the most beautiful and free way to share your travels with the world.</p>
             <input
               className="large"
               type="text"

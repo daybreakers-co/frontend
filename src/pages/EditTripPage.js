@@ -5,7 +5,7 @@ import { graphql, compose } from 'react-apollo'
 
 import withCurrentUser from '../components/hoc/withCurrentUser'
 import EditHeader from '../components/EditHeader'
-import EditHeroHeader from '../components/EditHeroHeader'
+import EditTripHeader from '../components/EditTripHeader'
 
 import TripPageQuery from '../graphql/TripPageQuery.gql'
 import UpdateTripQuery from '../graphql/UpdateTripQuery.gql'
@@ -19,27 +19,24 @@ class EditTripPage extends React.Component {
   }
 
   handleChange = (newParams) => {
-    const { data: { user: { trip: {id, header}, username } } } = this.props;
+    const { data: { user: { trip: { id, title, subtitle, startDate, endDate } } } } = this.props;
 
     this.props.updateMutation({
-      variables: {id: id, title: newParams.title, subtitle: newParams.subtitle},
-      optimisticResponse: {
-        updateTrip: {
-          id: id,
-          title: newParams.title,
-          subtitle: newParams.subtitle,
-          header: header,
-          '__typename': 'Trip'
-        }
+      variables: {
+        id: id,
+        title: newParams.title || title,
+        subtitle: newParams.subtitle || subtitle,
+        startDate: newParams.startDate || startDate,
+        endDate: newParams.endDate || endDate
       },
     })
   }
 
   render () {
-    const { currentUser, data: { loading, error, user }} = this.props;
+    const { data: { loading, error, user }} = this.props;
     if (loading) { return (<div>Loading</div>) }
     if (error)   { return (<div>ERROR: {error}</div>) }
-    const { id, title, subtitle, header } = user.trip;
+    const { id, title, subtitle, header, startDate, endDate } = user.trip;
 
     return (
       <div>
@@ -50,14 +47,13 @@ class EditTripPage extends React.Component {
           </ul>
         </EditHeader>
 
-        <div className="Container full header EditTrip">
-          <EditHeroHeader
+        <div className="Container full header EditTrip TripPage">
+          <EditTripHeader
             title={title}
             subtitle={subtitle}
             header={header}
-            uploadParentId={id}
-            uploadParentType="Trip"
-            type={"Trip"}
+            startDate={startDate}
+            endDate={endDate}
             onChange={this.handleChange} />
         </div>
       </div>

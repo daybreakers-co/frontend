@@ -1,5 +1,4 @@
 .Header {
-  box-shadow: var(--shadow);
   background: var(--bg);
   padding: 0 1rem;
   display: flex;
@@ -11,6 +10,7 @@
   position: fixed;
   top: 0;
   width: 100%;
+  border-bottom: var(--border)
 }
 
 .Header a {
@@ -21,13 +21,12 @@
   flex: 1;
 }
 
-.Header .Title {
+.Header .Logo {
   display: flex;
   align-items: center;
   text-transform: uppercase;
-  font-style: italic;
-  font-weight: 900;
-  width: 20rem;
+  letter-spacing: 0.1rem;
+  position: relative;
 }
 
 .Header .BreadCrumbs {

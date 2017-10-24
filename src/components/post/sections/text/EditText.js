@@ -1,9 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Editor, EditorState, convertFromRaw, convertToRaw } from 'draft-js'
+import MarkdownTextAreaInput from '../../../MarkdownTextAreaInput'
 import { graphql } from 'react-apollo'
 import { postDataByUsernameAndIdFromProxy } from '../../../../pages/EditPostPage'
-import { draftToMarkdown, markdownToDraft } from 'markdown-draft-js';
 
 import PostPageQuery from '../../../../graphql/PostPageQuery.gql'
 import UpdateTextQuery from '../../../../graphql/UpdateTextQuery.gql'
@@ -16,8 +15,7 @@ class PostEditText extends React.Component {
     super()
 
     this.state = {
-      title: props.title || '',
-      editorState: props.body ? EditorState.createWithContent(convertFromRaw(markdownToDraft(props.body))) : EditorState.createEmpty()
+      title: props.title || ''
     }
   }
 
@@ -29,10 +27,10 @@ class PostEditText extends React.Component {
     body:     PropTypes.string
   }
 
-  handleBlur = () => {
+  handleBlur = ({ markdown }) => {
     const { username, postId } = this.props;
     let title = this.state.title;
-    let body = draftToMarkdown(convertToRaw(this.state.editorState.getCurrentContent()));
+    let body = markdown || this.props.body;
     this.props.mutate({
       variables: {id: this.props.id, title: title, body: body},
       optimisticResponse: {
@@ -66,17 +64,16 @@ class PostEditText extends React.Component {
     return (
       <div className="Text Container narrow">
         <input
-          className='TextTitle InputWithoutStyling'
+          className='H-Medium InputWithoutStyling'
           value={this.state.title}
-          placeholder='(Optional title)'
+          placeholder='Title of text section'
           onChange={(e) => this.setState({title: e.target.value})}
           onBlur={this.handleBlur}/>
 
-        <Editor
-          className="TextContent"
-          editorState={this.state.editorState}
-          onChange={(editorState) => { this.setState({ editorState })}}
-          placeholder="Tell a story..."
+        <MarkdownTextAreaInput
+          className="T-Normal"
+          value={this.props.body}
+          placeholder="Your adventures go here."
           onBlur={this.handleBlur} />
       </div>
     )

@@ -1,0 +1,14 @@
+fragment TripCardFragment on Trip {
+  id
+  title
+  subtitle
+  startDate
+  endDate
+  posts {
+    id
+  }
+  photos {
+    id
+    url
+  }
+}

@@ -21,6 +21,7 @@ class Header extends React.Component {
 
   render() {
     let content;
+    let href;
     const { button, currentUser, user, trip, post } = this.props;
 
     if (currentUser) {
@@ -31,9 +32,15 @@ class Header extends React.Component {
       content = [<li key="signIn"><Link to="/signin">Sign in</Link></li>,
                  <li key="signUp"><Link to="/signup">Sign Up</Link></li>]
     }
+
+    if (currentUser) {
+      href = `/${user.username}`
+    } else {
+      href = "/"
+    }
     return (
       <nav className="Header">
-        <a className="Title" href="/">
+        <a className="Logo" href={href}>
           <img src="/daybreakers-logo.svg" alt="Daybreakers logo"/>
           Daybreakers
         </a>

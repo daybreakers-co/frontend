@@ -9,7 +9,8 @@ import ShowPhotoRow from '../components/post/sections/photoRow/ShowPhotoRow'
 import ShowText from '../components/post/sections/text/ShowText'
 import ShowHero from '../components/post/sections/hero/ShowHero'
 import Header from '../components/Header'
-import HeroHeader from '../components/HeroHeader'
+import PostHeader from '../components/PostHeader'
+import Locations from '../components/Locations'
 import PostNavigation from '../components/PostNavigation'
 
 import ShowPostQuery from '../graphql/PostPageQuery.gql'
@@ -57,18 +58,28 @@ class PostPage extends React.Component {
     });
 
     return (
-      <div>
+      <div className="PostPage">
         <Header
           currentUser={currentUser}
           user={user}
           trip={post.trip}
           post={post}
           button={user.isViewer && <Link className="Button primary small"  to={`${pathname}/edit`}>Edit post</Link>}/>
-        <HeroHeader
+        <PostHeader
           image={post.header}
           title={post.title}
+          startDate={post.startDate}
+          endDate={post.endDate}
+          locations={post.locations}
           subtitle={post.subtitle} />
-        {sections}
+        {post.locations.length > 0 &&
+            <Locations
+            locations={post.locations}
+          />
+        }
+        <section className="PostSections">
+          {sections}
+        </section>
         <PostNavigation
           postNavigation={filter(PostNavigationFragment, post)} />
       </div>

@@ -1,3 +1,8 @@
+.ScaledImage {
+  background: var(--bg-invert);
+  background-size: 4rem;
+}
+
 .ScaledImage img {
   height: 100%;
   width: 100%;

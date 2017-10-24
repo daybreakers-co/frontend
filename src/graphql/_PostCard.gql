@@ -1,7 +1,12 @@
-fragment HeaderCard on Post {
+fragment PostCard on Post {
   id
   title
   subtitle
+  startDate
+  endDate
+  photos {
+    id
+  }
   header {
     ratio
     id

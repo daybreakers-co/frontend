@@ -1,7 +1,6 @@
 .edit.Header {
   background: var(--white);
   color: var(--dark);
-  border: 0;
 }
 
 .edit.Header a:not(.Button) {
@@ -30,14 +29,6 @@
   width: 250px;
 }
 
-.edit.Header .EditOptions .tag {
-  line-height: 1rem;
-  padding: 0.25rem 0.5rem;
-  background: var(--light);
-  border-radius: var(--br);
-  margin-left: 0.5rem
-}
-
 .edit.Header .EditOptions .fa {
   color: var(--dark);
   opacity: 0.6
@@ -45,17 +36,11 @@
 
 .edit.Header .EditOptions > div {
   margin-right: 1rem;
-  border-right: 1px solid var(--medium);
+  border-right: var(--border);
   display: flex;
   align-items: center;
   padding-right: 1rem
 }
-
-.edit.Header .EditOptions .locations {
-  display: flex;
-  align-items: center;
-}
-
 .edit.Header .EditOptions .react-toggle {
   margin-right: 0.25rem
 }

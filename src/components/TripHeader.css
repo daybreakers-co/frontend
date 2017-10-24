@@ -1,0 +1,16 @@
+.TripHeader {
+  text-align: center;
+  padding: 4rem;
+}
+
+.TripHeader hgroup {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.TripHeader h1,
+.TripHeader p {
+  max-width: 40rem
+}

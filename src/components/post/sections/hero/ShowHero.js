@@ -8,11 +8,11 @@ import './Hero.css'
 
 const ShowHero = ({ heroSection: { id, index, photo }}) => (
   <div className="Hero Container full">
-    <ScaledImage
+    { photo && <ScaledImage
       key={photo.id}
       image={photo}
       style={{flex: photo.ratio}}
-      alt="image"/>
+    alt="image"/> }
   </div>
 )
 

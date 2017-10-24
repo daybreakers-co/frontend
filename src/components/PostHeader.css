@@ -1,0 +1,57 @@
+.PostHeader {
+  height: 70vh;
+  position: relative;
+  color: var(--white);
+  background: var(--dark);
+}
+
+.PostHeader .UploadableImage, .PostHeader figure {
+  width: 100%;
+  height: 100%;
+}
+
+.PostHeader hgroup {
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--white  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 2rem 2rem 6rem 2rem;
+}
+
+.PostHeader p {
+  max-width: 40rem;
+}
+
+.PostHeader date {
+  font-size: 1rem;
+  text-transform: uppercase;
+  display: block;
+  line-height: 1.2;
+  background: rgba(0,0,0,0.8);
+  border-radius: var(--br);
+  box-shadow: var(--shadow);
+  padding: 0.75rem 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.PostHeader date .fa {
+  margin: 0 0.5rem;
+  opacity: 0.4;
+}
+
+.PostHeader.trip{
+  margin-bottom: -8rem;
+  height: 60vh
+}
+
+.PostHeader.trip hgroup {
+  justify-content: flex-start;
+}

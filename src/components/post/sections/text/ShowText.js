@@ -8,8 +8,8 @@ const ShowText = ({textSection: { id, title, body, index}}) => {
   let md = new Remarkable()
 
   return( <div className="Text Container narrow">
-    <h2 className="TextTitle">{title}</h2>
-    <div className="TextContent" dangerouslySetInnerHTML={{ __html: md.render(body)}} />
+    <h2 className="H-Medium">{title}</h2>
+    <div className="T-Medium" dangerouslySetInnerHTML={{ __html: md.render(body)}} />
   </div>)
 };
 

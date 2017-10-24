@@ -3,9 +3,7 @@ import PropTypes from 'prop-types'
 
 import { withRouter, Link } from 'react-router-dom'
 import { graphql, compose } from 'react-apollo'
-import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
 import Toggle from 'react-toggle'
-import moment from 'moment'
 
 import withCurrentUser from '../components/hoc/withCurrentUser'
 import PostAddSection from '../components/post/sections/AddSection'
@@ -14,9 +12,8 @@ import PostEditPhotoRow from '../components/post/sections/photoRow/EditPhotoRow'
 import EditHero from '../components/post/sections/hero/EditHero'
 import EditorNavigation from '../components/post/sections/EditorNavigation'
 import EditHeader from '../components/EditHeader'
-import EditHeroHeader from '../components/EditHeroHeader'
+import EditPostHeader from '../components/EditPostHeader'
 import EditLocations from '../components/EditLocations'
-import Button from '../components/Button'
 
 import PostPageQuery from '../graphql/PostPageQuery.gql'
 import UpdatePostQuery from '../graphql/UpdatePostQuery.gql'
@@ -24,6 +21,7 @@ import CreateEmptySectionQuery from '../graphql/CreateEmptySectionQuery.gql'
 import CreateLocationQuery from '../graphql/CreateLocationQuery.gql'
 import DeleteLocationQuery from '../graphql/DeleteLocationQuery.gql'
 
+import './PostPage.css'
 import "react-toggle/style.css"
 import 'react-dates/lib/css/_datepicker.css'
 
@@ -117,7 +115,7 @@ class EditPostPage extends React.Component {
   }
 
   render () {
-    const { currentUser, data: { error, loading, user }, match: { params: { username, tripId, postId } } } = this.props
+    const { data: { error, loading, user }, match: { params: { username, tripId, postId } } } = this.props
 
     if (loading) { return (<div>Loading</div>) }
     if (error)   { return (<div>ERROR: {error}</div>) }
@@ -164,25 +162,9 @@ class EditPostPage extends React.Component {
     });
 
     return (
-      <div>
+      <div className="PostPage">
         <EditHeader>
           <div className="EditOptions">
-            <div className="dates">
-              <label><i className="fa fa-calendar" /></label>
-              <DateRangePicker
-                minimumNights={0}
-                isOutsideRange={() => false}
-                startDate={moment(post.startDate)} // momentPropTypes.momentObj or null,
-                endDate={moment(post.endDate)} // momentPropTypes.momentObj or null,
-                onDatesChange={({ startDate, endDate }) => this.handleChange({ startDate: startDate.format(), endDate: endDate.format() })} // PropTypes.func.isRequired,
-                focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
-                onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
-              />
-            </div>
-            <EditLocations
-              locations={post.locations}
-              onCreate={this.handleCreateLocation}
-              onDelete={this.handleDeleteLocation} />
             <div className="toggle">
               <Toggle
                 defaultChecked={post.published}
@@ -195,15 +177,23 @@ class EditPostPage extends React.Component {
             <Link className="Button small destructive" to={`/${username}/${tripId}/${postId}/delete`}>Delete post</Link>
           </ul>
         </EditHeader>
-        <EditHeroHeader
+        <EditPostHeader
           title={post.title}
           subtitle={post.subtitle}
           header={post.header}
+          startDate={post.startDate}
+          endDate={post.endDate}
           uploadParentId={post.id}
           uploadParentType="Post"
           onChange={this.handleChange}
           />
-        {sections}
+        <EditLocations
+          locations={post.locations}
+          onCreate={this.handleCreateLocation}
+          onDelete={this.handleDeleteLocation} />
+        <section className="PostSections">
+          {sections}
+        </section>
         <PostAddSection
           username={username}
           postId={postId}
@@ -212,7 +202,6 @@ class EditPostPage extends React.Component {
     )
    }
 }
-
 
 export function postDataByUsernameAndIdFromProxy(username, postId, proxy) {
   return proxy.readQuery({

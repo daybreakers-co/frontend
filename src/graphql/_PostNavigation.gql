@@ -1,10 +1,13 @@
-#import "./_HeaderCard.gql"
+#import "./_PostCard.gql"
 
 fragment PostNavigation on Post {
+  trip {
+    title
+  }
   next {
-    ...HeaderCard
+    ...PostCard
   }
   previous {
-    ...HeaderCard
+    ...PostCard
   }
 }

@@ -6,7 +6,7 @@ body {
   font-size: 0.75rem;
   line-height: 1.5;
   font-family: var(--font);
-  font-weight: lighter;
+  font-weight: 300;
 }
 
 input,
@@ -16,6 +16,37 @@ button {
   font-size: 0.75rem
 }
 
-h1, h2, h3, h4, h5, h6, .title {
+h1, h2, h3, h4, h5, h6, .title, .Title, [class^="H-"] {
   font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1rem;
 }
+
+p {
+  margin-bottom: 1rem;
+}
+
+.H-Small {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-weight: lighter;
+}
+
+.H-Normal   { font-size: 1rem; }
+.H-Medium   { font-size: 1.5rem; }
+.H-Large    { font-size: 3rem; }
+
+/* Paragraphs */
+.T-Small    { font-size: 0.5rem; }
+.T-Normal   { font-size: 0.75rem; }
+.T-Medium   { font-size: 1rem; }
+.T-Large    { font-size: 1.25rem; }
+
+/* Colors */
+.C-Green    { color: var(--green); }
+.C-Blue     { color: var(--blue); }
+.C-Red      { color: var(--red); }
+.C-Orange   { color: var(--orange); }
+.C-Purple   { color: var(--purple); }
+.C-Yellow   { color: var(--yellow); }

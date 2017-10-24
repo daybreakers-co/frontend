@@ -4,15 +4,16 @@ import Dropzone from 'react-dropzone'
 import UploadableImage from './UploadableImage'
 import ScaledImage from './ScaledImage'
 
-import './HeroHeader.css'
-import './EditHeroHeader.css'
+import DateRangeInput from './DateRangeInput'
+import PlainTextAreaInput from './PlainTextAreaInput'
 
-class EditHeroHeader extends React.Component {
+import './PostHeader.css'
+import './EditPostHeader.css'
+
+class EditPostHeader extends React.Component {
   constructor(props) {
     super()
     this.state = {
-      title: props.title,
-      subtitle: props.subtitle,
       file: null
     }
   }
@@ -21,7 +22,8 @@ class EditHeroHeader extends React.Component {
     title: PropTypes.string,
     subtitle: PropTypes.string,
     header: PropTypes.object,
-    type: PropTypes.string,
+    startDate: PropTypes.string,
+    endDate: PropTypes.string,
     uploadParentId: PropTypes.string.isRequired,
     uploadParentType: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired
@@ -29,8 +31,6 @@ class EditHeroHeader extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     this.setState({
-      title: nextProps.title,
-      subtitle: nextProps.subtitle,
       header: nextProps.header
     })
   }
@@ -39,16 +39,10 @@ class EditHeroHeader extends React.Component {
     this.setState({file: files[0]})
   }
 
-  handleBlur = () => {
-    this.props.onChange({
-      title:    this.state.title,
-      subtitle: this.state.subtitle
-    })
-  }
 
   render () {
-    const { header, uploadParentId, uploadParentType, type } = this.props
-    const { title, subtitle, file } = this.state
+    const { header, uploadParentId, uploadParentType, startDate, endDate, title, subtitle } = this.props
+    const { file } = this.state
     let backgroundImage;
 
     if (file) {
@@ -65,28 +59,32 @@ class EditHeroHeader extends React.Component {
       cover
       alt="image"/>
     }
+
     return (
-      <Dropzone onDrop={this.onDrop} className={`HeroHeader edit ${type}`} disableClick={true}>
+      <Dropzone onDrop={this.onDrop} className="PostHeader edit" disableClick={true}>
         {backgroundImage}
         <hgroup>
-          <input
-            className="title"
+          <PlainTextAreaInput
+            className="H-Large"
             value={title || ""}
-            placeholder='(Amazing title)'
-            onChange={(e) => this.setState({title: e.target.value})}
-            onBlur={this.handleBlur} />
-          <input
-            className="subtitle"
+            placeholder="Enter the title of your post"
+            onBlur={({ text }) => this.props.onChange({ title: text })} />
+          <dates>
+            <DateRangeInput
+              startDate={startDate}
+              endDate={endDate}
+              onChange={(result) => this.props.onChange(result)}
+              />
+          </dates>
+          <PlainTextAreaInput
+            className="T-Large"
             value={subtitle || ""}
-            placeholder='(Optional subtitle)'
-            onChange={(e) => this.setState({subtitle: e.target.value})}
-            onBlur={this.handleBlur} />
-
-          <p className="drophint"><i className="fa fa-picture-o" /> Drop an image here to update the header image.</p>
+            placeholder="Enter an introduction to your trip"
+            onBlur={({ text }) => this.props.onChange({ subtitle: text })} />
         </hgroup>
       </Dropzone>
     )
   }
 }
 
-export default EditHeroHeader;
+export default EditPostHeader;
