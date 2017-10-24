@@ -23,8 +23,8 @@
   width: 50%;
 }
 
-.PostCard h2 {
-  opacity: 0.6
+.PostCard img {
+  display: block;
 }
 
 /* Small PostCard */
@@ -39,7 +39,8 @@
 }
 
 .PostCard.small figure {
-  min-height: 10rem;
+  height: 12rem;
+  min-height: auto;
   width: auto;
   border-radius: var(--br) var(--br) 0 0;
 }

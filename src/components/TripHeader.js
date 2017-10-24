@@ -12,7 +12,7 @@ const TripHeader = ({ title, subtitle, startDate, endDate }) => (
       <Dates>
         <DateRange startDate={startDate} endDate={endDate}><i className="fa fa-angle-right"></i></DateRange>
       </Dates>
-      <h1 className="H-Large trip-title">{title}</h1>
+      <h1 className="H-Large trip-title">{title || "Untitled trip"}</h1>
       {subtitle && <p className="T-Large trip-intro">{subtitle}</p>}
     </hgroup>
   </section>
