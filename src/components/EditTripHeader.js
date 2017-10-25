@@ -26,7 +26,7 @@ class EditTripHeader extends React.Component {
           <PlainTextAreaInput
             className="H-Large"
             value={title || ""}
-            placeholder="Enter the title of your post"
+            placeholder="Enter the title of your trip"
             onBlur={({ text }) => this.props.onChange({ title: text })} />
           <dates>
             <DateRangeInput
