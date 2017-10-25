@@ -12,7 +12,7 @@ const MarkdownTextAreaInput = (props) => {
   var className = `MarkdownTextAreaInput ${props.className || ""}`
   return (
     <div className={className}>
-      <TextAreaInput {...props} onBlur={handleBlur} value={markdownToDraft(props.value)} />
+      <TextAreaInput {...props} onBlur={handleBlur} value={props.value ? markdownToDraft(props.value) : undefined} />
     </div>
   )
 }
