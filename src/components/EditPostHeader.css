@@ -50,3 +50,7 @@ or: var(--w  colhite);
 .PostHeader.edit .T-Large {
   width: 100%;
 }
+
+.PostHeader.edit dates {
+  z-index: 100;
+}

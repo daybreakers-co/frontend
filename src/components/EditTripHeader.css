@@ -14,3 +14,7 @@
 .TripHeader.edit .T-Large {
   width: 100%;
 }
+
+.TripHeader.edit dates {
+  z-index: 100;
+}
