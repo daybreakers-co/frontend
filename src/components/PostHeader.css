@@ -30,23 +30,6 @@
   max-width: 40rem;
 }
 
-.PostHeader date {
-  font-size: 1rem;
-  text-transform: uppercase;
-  display: block;
-  line-height: 1.2;
-  background: rgba(0,0,0,0.8);
-  border-radius: var(--br);
-  box-shadow: var(--shadow);
-  padding: 0.75rem 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.PostHeader date .fa {
-  margin: 0 0.5rem;
-  opacity: 0.4;
-}
-
 .PostHeader.trip{
   margin-bottom: -8rem;
   height: 60vh

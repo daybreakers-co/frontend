@@ -2,9 +2,9 @@ import React from 'react';
 
 const DateRange = ({ startDate, endDate, separator, children }) => {
   if (startDate === endDate) {
-    return(<span>{startDate}</span>)
+    return(<span className="DateRange">{startDate}</span>)
   } else {
-    return(<span>{startDate} {separator || children || "—"} {endDate}</span>)
+    return(<span className="DateRange">{startDate} {separator || children || "—"} {endDate}</span>)
   }
 };
 

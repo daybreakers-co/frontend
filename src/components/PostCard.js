@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import ScaledImage from './ScaledImage'
 import DateRange from './DateRange'
+import Dates from './Dates'
 
 import './PostCard.css'
 
@@ -15,10 +16,10 @@ const PostCard = ({ link, size, label, post: { title, subtitle, header, startDat
     <Link to={link}>
       <ScaledImage image={header} alt="Trip header" cover />
       <hgroup>
-        <h1 className="H-Medium">{title || "Untitled Post"}</h1>
-        <h2 className="H-Small">
+        <Dates>
           <DateRange startDate={startDate} endDate={endDate} />
-        </h2>
+        </Dates>
+        <h1 className="H-Medium">{title || "Untitled Post"}</h1>
         {subtitle && <p className="T-Medium">{subtitle}</p>}
         <span className="Button secondary">View {label && <span>{label} </span>}post</span>
       </hgroup>
