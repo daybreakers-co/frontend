@@ -10,7 +10,7 @@
   flex-direction: column;
 }
 
-.TripHeader h1,
-.TripHeader p {
+.TripHeader .trip-title,
+.TripHeader .trip-intro {
   max-width: 40rem
 }

@@ -14,3 +14,13 @@
 .TextContent p, .Text .public-DraftStyleDefault-block {
   margin-bottom: 1rem;
 }
+
+.Text ul {
+  list-style: square;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+.Text li p {
+  margin-bottom: 0.5rem;
+}

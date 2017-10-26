@@ -1,5 +1,4 @@
 .edit.PostHeader input {
-or: var(--w  colhite);
   text-align: center;
   background: transparent;
   appearance: none;
@@ -12,26 +11,6 @@ or: var(--w  colhite);
 .PostHeader.edit .fa {
   font-size: 1.25rem;
   margin-right: 0.5rem;
-}
-
-.PostHeader.edit .drophint {
-  order: 1;
-  background: var(--dark);
-  border-radius: var(--br);
-  padding: 1rem 1.5rem;
-  opacity: 0.8;
-  margin-bottom: auto;
-  color: var(--white)
-}
-
-.PostHeader.edit.Trip .drophint {
-  order: 3;
-  margin-bottom: 0;
-  margin-top: auto;
-}
-
-.PostHeader.edit dates {
-  margin-bottom: 1rem
 }
 
 .PostHeader.edit .public-DraftStyleDefault-ltr {

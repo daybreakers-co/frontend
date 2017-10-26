@@ -24,11 +24,6 @@ class EditTripHeader extends React.Component {
     return (
       <div className="TripHeader edit">
         <hgroup>
-          <PlainTextAreaInput
-            className="H-Large"
-            value={title || ""}
-            placeholder="Enter the title of your trip"
-            onBlur={({ text }) => this.props.onChange({ title: text })} />
           <Dates>
             <DateRangeInput
               startDate={startDate}
@@ -36,8 +31,14 @@ class EditTripHeader extends React.Component {
               onChange={(result) => this.props.onChange(result)}
             />
           </Dates>
+
           <PlainTextAreaInput
-            className="T-Large"
+            className="H-Large trip-title"
+            value={title || ""}
+            placeholder="Enter the title of your trip"
+            onBlur={({ text }) => this.props.onChange({ title: text })} />
+          <PlainTextAreaInput
+            className="T-Large trip-intro"
             value={subtitle || ""}
             placeholder="Enter an introduction to your trip"
             onBlur={({text}) => this.props.onChange({subtitle: text})} />

@@ -13,7 +13,7 @@ const PostHeader = ({ title, subtitle, image, type, startDate, endDate, location
       <Dates>
         <DateRange startDate={startDate} endDate={endDate}><i className="fa fa-angle-right"></i></DateRange>
       </Dates>
-      <h1 className="H-Large post-title">{title}</h1>
+      <h1 className="H-Large post-title">{title || "Untitled post"}</h1>
       {subtitle && <p className="T-Large post-intro">{subtitle}</p>}
     </hgroup>
   </section>
