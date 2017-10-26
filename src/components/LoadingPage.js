@@ -3,7 +3,7 @@ import './LoadingPage.css'
 
 const LoadingPage = () => (
  <div className="LoadingPage">
-   <img src="./daybreakers-logo.svg" alt="Logo" className="fa-spin"/>
+   <img src="/daybreakers-logo.svg" alt="Logo" className="fa-spin"/>
  </div>
 );
 

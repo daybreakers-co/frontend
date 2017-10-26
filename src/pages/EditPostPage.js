@@ -14,6 +14,7 @@ import EditorNavigation from '../components/post/sections/EditorNavigation'
 import EditHeader from '../components/EditHeader'
 import EditPostHeader from '../components/EditPostHeader'
 import EditLocations from '../components/EditLocations'
+import LoadingPage from '../components/LoadingPage'
 
 import PostPageQuery from '../graphql/PostPageQuery.gql'
 import UpdatePostQuery from '../graphql/UpdatePostQuery.gql'
@@ -117,8 +118,8 @@ class EditPostPage extends React.Component {
   render () {
     const { data: { error, loading, user }, match: { params: { username, tripId, postId } } } = this.props
 
-    if (loading) { return (<div>Loading</div>) }
     if (error)   { return (<div>ERROR: {error}</div>) }
+    if (loading) { return (<LoadingPage />) }
 
     let post = user.post;
     let sortedSections = post.sections.map(s => s).sort((a, b) => { return a.index - b.index });

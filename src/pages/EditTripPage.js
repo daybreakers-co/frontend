@@ -6,6 +6,7 @@ import { graphql, compose } from 'react-apollo'
 import withCurrentUser from '../components/hoc/withCurrentUser'
 import EditHeader from '../components/EditHeader'
 import EditTripHeader from '../components/EditTripHeader'
+import LoadingPage from '../components/LoadingPage'
 
 import TripPageQuery from '../graphql/TripPageQuery.gql'
 import UpdateTripQuery from '../graphql/UpdateTripQuery.gql'
@@ -34,8 +35,8 @@ class EditTripPage extends React.Component {
 
   render () {
     const { data: { loading, error, user }} = this.props;
-    if (loading) { return (<div>Loading</div>) }
     if (error)   { return (<div>ERROR: {error}</div>) }
+    if (loading) { return (<LoadingPage />) }
     const { id, title, subtitle, header, startDate, endDate } = user.trip;
 
     return (
