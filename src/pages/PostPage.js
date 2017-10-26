@@ -12,6 +12,7 @@ import Header from '../components/Header'
 import PostHeader from '../components/PostHeader'
 import Locations from '../components/Locations'
 import PostNavigation from '../components/PostNavigation'
+import LoadingPage from '../components/LoadingPage'
 
 import ShowPostQuery from '../graphql/PostPageQuery.gql'
 import PostNavigationFragment from '../graphql/_PostNavigation.gql'
@@ -28,7 +29,7 @@ class PostPage extends React.Component {
   }
 
   render () {
-    if (this.props.data.loading) { return (<div>Loading</div>) }
+    if (this.props.data.loading) { return (<LoadingPage />) }
     if (this.props.data.error)   { return (<div>ERROR: {this.props.data.error}</div>) }
 
     const { currentUser, data: { user }, location: { pathname } } = this.props
