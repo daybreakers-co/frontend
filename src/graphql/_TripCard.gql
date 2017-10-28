@@ -4,6 +4,7 @@ fragment TripCardFragment on Trip {
   subtitle
   startDate
   endDate
+  photoCount
   posts {
     id
   }
