@@ -9,7 +9,7 @@ import './TripCard.css'
 
 import TripCardFragment from '../graphql/_TripCard.gql'
 
-const TripCard = ({ link, trip: { title, subtitle, photoCount, header, posts, photos, startDate, endDate } }) => {
+const TripCard = ({ link, trip: { title, subtitle, photoCount, header, postCount, photos, startDate, endDate } }) => {
 
   let shuffled = shuffle(photos)
   let photoGroups = partition(shuffled, 3, 8)
@@ -17,6 +17,7 @@ const TripCard = ({ link, trip: { title, subtitle, photoCount, header, posts, ph
   var days = parseInt(duration.asDays() + 1, 10);
 
   return(<div className="TripCard">
+
     <div className="Container">
       <header>
         <h1>
@@ -25,7 +26,7 @@ const TripCard = ({ link, trip: { title, subtitle, photoCount, header, posts, ph
             <small>
               {`${days} ${pluralize("day", days)}`}
               &mdash;
-              {`${posts.length} ${pluralize("post", posts.length)}`}
+              {`${postCount} ${pluralize("post", postCount)}`}
               &mdash;
               {`${photoCount} ${pluralize("photo", photoCount)}`}
             </small>
