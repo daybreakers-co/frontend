@@ -1,11 +1,13 @@
 .ScaledImage {
-  position: relative;
+  background: var(--bg-invert);
+  background-size: 4rem;
 }
 
-.ScaledImage i {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 12px;
-  color: white;
+.ScaledImage img {
+  height: 100%;
+  width: 100%;
+}
+
+.ScaledImage.cover img {
+  object-fit: cover;
 }

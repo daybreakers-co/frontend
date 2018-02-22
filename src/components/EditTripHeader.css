@@ -1,0 +1,20 @@
+.TripHeader.edit .public-DraftStyleDefault-ltr {
+  text-align: center;
+}
+
+.TripHeader.edit .public-DraftEditorPlaceholder-root {
+  text-align: center;
+  width: 100%;
+}
+
+.TripHeader.edit .H-Large {
+  width: 100%;
+}
+
+.TripHeader.edit .T-Large {
+  width: 100%;
+}
+
+.TripHeader.edit dates {
+  z-index: 100;
+}

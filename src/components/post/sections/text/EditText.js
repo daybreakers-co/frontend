@@ -1,30 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Editor, Plain } from 'slate'
+import MarkdownTextAreaInput from '../../../MarkdownTextAreaInput'
 import { graphql } from 'react-apollo'
 import { postDataByUsernameAndIdFromProxy } from '../../../../pages/EditPostPage'
 
 import PostPageQuery from '../../../../graphql/PostPageQuery.gql'
 import UpdateTextQuery from '../../../../graphql/UpdateTextQuery.gql'
 
-import './EditText.css';
-
-const schema = {
-  marks: {
-    bold: props => <strong>{props.children}</strong>,
-    code: props => <code>{props.children}</code>,
-    italic: props => <em>{props.children}</em>,
-    underlined: props => <u>{props.children}</u>,
-  }
-}
+import './Text.css'
+import '../../../../../node_modules/draft-js/dist/Draft.css'
 
 class PostEditText extends React.Component {
   constructor(props) {
     super()
 
     this.state = {
-      title: props.title || '',
-      state: Plain.deserialize(props.body || '')
+      title: props.title || ''
     }
   }
 
@@ -36,11 +27,10 @@ class PostEditText extends React.Component {
     body:     PropTypes.string
   }
 
-  handleBlur = () => {
+  handleBlur = ({ markdown }) => {
     const { username, postId } = this.props;
     let title = this.state.title;
-    let body = Plain.serialize(this.state.state)
-
+    let body = markdown || this.props.body;
     this.props.mutate({
       variables: {id: this.props.id, title: title, body: body},
       optimisticResponse: {
@@ -72,25 +62,22 @@ class PostEditText extends React.Component {
 
   render () {
     return (
-      <div className="EditText">
+      <div className="Text Container narrow">
         <input
-          className='w-100 pa3 mv2'
+          className='H-Medium InputWithoutStyling'
           value={this.state.title}
-          placeholder='(Optional title)'
+          placeholder='Title of text section'
           onChange={(e) => this.setState({title: e.target.value})}
           onBlur={this.handleBlur}/>
 
-        <Editor
-          className="EditTextor"
-          schema={schema}
-          state={this.state.state}
-          onChange={(state) => {this.setState({ state })}}
-          placeholder="Write your text here..."
+        <MarkdownTextAreaInput
+          className="T-Normal"
+          value={this.props.body}
+          placeholder="Your adventures go here."
           onBlur={this.handleBlur} />
       </div>
     )
   }
 }
-
 
 export default graphql(UpdateTextQuery)(PostEditText);

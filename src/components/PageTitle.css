@@ -1,5 +1,6 @@
 .PageTitle {
-  margin: 4rem 0
+  margin: 4rem 0;
+  padding-bottom: 0.1px; /* Prevent collapsing margins on last element */
 }
 
 .PageTitle h1 {

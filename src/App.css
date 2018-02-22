@@ -1,42 +1,67 @@
 :root {
-  --darkest:      #171C24;
-  --dark:         #222936;
-  --white:        #fff;
-  --light:        #EEEEEE;
+  --darkest:               #171C24;
+  --dark:                  #222936;
+  --white:                 #fff;
+  --light:                 #EEEEEE;
+  --medium:                #555;
 
-  --uh:           5px;
-  --u:            10px;
-  --u15:           20px;
-  --u2:           20px;
-  --u3:           30px;
-  --u4:           40px;
+  --green:                 #4CAF50;
+  --yellow:                #FFC107;
+  --red:                   #E60027;
+  --blue:                  #2979FF;
+  --purple:                #9C27B0;
+  --orange:                #FF6D00;
 
-  --green:        #4CAF50;
-  --red:          #E60027;
+  --bg:                    var(--white);
+  --bg-shade:              var(--light);
+  --bg-invert:             var(--darkest);
 
-  --bg:           var(--darkest);
-  --bg-shade:     var(--dark);
 
-  --color:        var(--white);
-  --color-shade:  var(--light);
 
-  --border-color: var(--dark);
-  --border:       1px solid var(--border-color);
+  --color:                 var(--dark);
+  --color-shade:           var(--medium);
+  --color-invert:          var(--white);
+  --color-link:            var(--darkest);
 
-  --br:           5px
+  --border-color:          var(--light);
+  --border-color-invert:   var(--dark);
+
+  --border:                1px solid var(--border-color);
+  --border-invert:         1px solid var(--border-color-invert);
+  --br:                    5px;
+
+  --shadow:                0 2px 5px rgba(0,0,0,0.1), 0 4px 10px rgba(0,0,0,0.1);
+
+  --font:                  "Circular Std", "Proxima Nova", sans-serif;
+
+  --header-height:         3rem;
+
+}
+
+body.dark {
+  --bg:                    var(--darkest);
+  --bg-shade:              var(--dark);
+  --bg-invert:             var(--white);
+
+  --color:                 var(--white);
+  --color-shade:           var(--light);
+  --color-invert:          var(--dark);
+  --color-link:            var(--white);
+
+  --border-color:          var(--dark);
+  --border-color-invert:   var(--light);
+  --border:                1px solid var(--border-color);
+  --border-invert:         1px solid var(--border-color-invert);
 }
 
 body {
   background: var(--bg);
   color: var(--color);
+  padding-top: var(--header-height);
 }
 
 a {
-  color: var(--color-shade);
-}
-
-.Content {
-  padding: 0rem 4rem;
+  color: var(--color-link);
 }
 
 .Columns {
@@ -71,17 +96,13 @@ a {
 }
 
 .Container.narrow {
-  width: 50vw;
-  max-width: 500px
+  max-width: 40rem
 }
 
-.Container.header {
-  margin-top: 0;
+.Container.tiny {
+  max-width: 30rem
 }
 
-.align-left {
-  text-align: left
-}
 .App {
 }
 

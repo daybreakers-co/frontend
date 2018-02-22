@@ -4,6 +4,7 @@ import { graphql, compose } from 'react-apollo'
 import Button from '../components/Button'
 
 import Modal from '../components/Modal'
+import LoadingPage from '../components/LoadingPage'
 
 import DeletePostQuery from '../graphql/DeletePostQuery.gql'
 import DeletePostPageQuery from '../graphql/DeletePostPageQuery.gql'
@@ -38,14 +39,14 @@ class DeletePostPage extends Component {
   render() {
     const { data: { loading, error, user } } = this.props;
     if (error)   { return (<div>ERROR: {error}</div>) }
-    if (loading) { return (<div>Loading...</div>)     }
+    if (loading) { return (<LoadingPage />) }
 
     return (
       <Modal onClose={this.back}>
         <h1>Delete post</h1>
         <p>Are you sure you want to delete "{user.post.title || 'Untitled'}"?</p>
-        <Button type="destructive" title="Delete Post" onClick={this.handleDeleteClick} />
-        <Button type="secondary" title="Never mind" onClick={this.back} />
+        <Button type="destructive" size="large" title="Delete Post" onClick={this.handleDeleteClick} />
+        <Button type="secondary" size="large" title="Never mind" onClick={this.back} />
       </Modal>
     );
   }

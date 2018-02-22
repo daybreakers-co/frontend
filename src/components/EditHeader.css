@@ -1,0 +1,46 @@
+.edit.Header {
+  background: var(--white);
+  color: var(--dark);
+}
+
+.edit.Header a:not(.Button) {
+  color: var(--dark);
+}
+
+.edit.Header .EditOptions {
+  display: flex;
+  align-items: stretch
+}
+
+.edit.Header .EditOptions {
+  align-self: stretch;
+}
+
+.edit.Header .EditOptions label {
+  margin-right: 0.5rem
+}
+
+.edit.Header .EditOptions input {
+  width: 150px;
+  transition: width 0.2s;
+}
+
+.edit.Header .EditOptions input:focus {
+  width: 250px;
+}
+
+.edit.Header .EditOptions .fa {
+  color: var(--dark);
+  opacity: 0.6
+}
+
+.edit.Header .EditOptions > div {
+  margin-right: 1rem;
+  border-right: var(--border);
+  display: flex;
+  align-items: center;
+  padding-right: 1rem
+}
+.edit.Header .EditOptions .react-toggle {
+  margin-right: 0.25rem
+}

@@ -1,11 +1,11 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Daybreakers",
+  "name": "Daybreakers.co",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "daybreakers-logo.svg",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/svg"
     }
   ],
   "start_url": "./index.html",

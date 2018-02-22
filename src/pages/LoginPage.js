@@ -7,6 +7,8 @@ import Header from '../components/Header'
 
 import SigninUserQuery from '../graphql/SignInQuery.gql'
 
+import "./AuthPage.css"
+
 class LoginPage extends React.Component {
 
   state = {
@@ -25,22 +27,24 @@ class LoginPage extends React.Component {
     return (
       <div>
         <Header />
-        <div className='CenteredForm Centered'>
-          <form onSubmit={this.signinUser}>
-            <h3>Welcome back!</h3>
-
+        <div className="AuthPage">
+          <form onSubmit={this.signinUser} className="Container tiny">
+            <h1 className="H-Large">Welcome back!</h1>
+            <p className="T-Large">We hope you enjoy(ed) your travels. You can login here and share your stories with the world.</p>
             <input
+              className="large"
               type="text"
               value={this.state.email}
               placeholder='Email'
               onChange={(e) => this.setState({email: e.target.value})} />
             <input
+              className="large"
               type='password'
               value={this.state.password}
               placeholder='Password'
               onChange={(e) => this.setState({password: e.target.value})} />
 
-            <button type="submit" disabled={!this.state.email || !this.state.password} >Log in</button>
+            <button type="submit" disabled={!this.state.email || !this.state.password} className="Button large">Log in</button>
           </form>
         </div>
       </div>

@@ -1,0 +1,35 @@
+.edit.PostHeader input {
+  text-align: center;
+  background: transparent;
+  appearance: none;
+  box-shadow: none;
+  border-radius: none;
+  outline: none;
+  border: none
+}
+
+.PostHeader.edit .fa {
+  font-size: 1.25rem;
+  margin-right: 0.5rem;
+}
+
+.PostHeader.edit .public-DraftStyleDefault-ltr {
+  text-align: center;
+}
+
+.PostHeader.edit .public-DraftEditorPlaceholder-root {
+  text-align: center;
+  width: 100%;
+}
+
+.PostHeader.edit .H-Large {
+  width: 100%;
+}
+
+.PostHeader.edit .T-Large {
+  width: 100%;
+}
+
+.PostHeader.edit dates {
+  z-index: 100;
+}

@@ -136,9 +136,16 @@ class UploadableImage extends React.Component {
 
   render () {
     const { src, error, percentComplete } = this.state
+
+    let className = "ScaledImage";
+
+    if (this.props.cover) {
+      className += " cover"
+    }
+
     return (
       <div className="UploadableImage" style={{flex: this.state.ratio}}>
-        <figure className="ScaledImage" ref={this.props.measureRef}>
+        <figure className={className}>
           {src &&
             <img
               onLoad={this.handlePreviewImageLoad}
@@ -147,7 +154,10 @@ class UploadableImage extends React.Component {
               alt="preview" />
           }
         </figure>
-        { error && <div className="uploadError">Error!</div>}
+        { error &&
+          <div className="uploadError">
+            <span>Upload error. Please try again!</span>
+        </div>}
         { percentComplete > 0 && <div className="progress" style={{width: `${percentComplete}%`}}></div>}
       </div>
     )

@@ -1,0 +1,15 @@
+.HomePage {
+  min-height: calc(100vh - var(--header-height));
+  width: 100%;
+  background: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.8)), url("/HomePageBackground.jpg");
+  background-position: center center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white)
+}
+
+.HomePage h1 {
+  max-width: 30rem;
+}

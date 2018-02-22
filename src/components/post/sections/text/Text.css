@@ -1,0 +1,26 @@
+.Text {
+  padding: 2rem;
+}
+
+.TextTitle {
+  font-size: 2rem;
+  margin-bottom: 0.5rem
+}
+
+.TextContent, .Text .DraftEditor-editorContainer {
+  font-size: 1rem;
+}
+
+.TextContent p, .Text .public-DraftStyleDefault-block {
+  margin-bottom: 1rem;
+}
+
+.Text ul {
+  list-style: square;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+.Text li p {
+  margin-bottom: 0.5rem;
+}

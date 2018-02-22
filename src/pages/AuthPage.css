@@ -1,0 +1,18 @@
+.AuthPage {
+  min-height: calc(100vh - var(--header-height));
+  width: 100%;
+  background: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.8)),  url("/HomePageBackground.jpg");
+  background-color: var(--dark);
+  background-position: center center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--white);
+}
+
+.AuthPage input {
+  margin-bottom: 1rem;
+  width: 100%
+}

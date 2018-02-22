@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import { withRouter, Link } from 'react-router-dom'
 import { graphql, compose } from 'react-apollo'
-import DayPicker from 'react-day-picker'
+import Toggle from 'react-toggle'
 
 import withCurrentUser from '../components/hoc/withCurrentUser'
 import PostAddSection from '../components/post/sections/AddSection'
@@ -11,10 +11,10 @@ import PostEditText from '../components/post/sections/text/EditText'
 import PostEditPhotoRow from '../components/post/sections/photoRow/EditPhotoRow'
 import EditHero from '../components/post/sections/hero/EditHero'
 import EditorNavigation from '../components/post/sections/EditorNavigation'
-import Header from '../components/Header'
-import EditHeroHeader from '../components/EditHeroHeader'
+import EditHeader from '../components/EditHeader'
+import EditPostHeader from '../components/EditPostHeader'
 import EditLocations from '../components/EditLocations'
-import Button from '../components/Button'
+import LoadingPage from '../components/LoadingPage'
 
 import PostPageQuery from '../graphql/PostPageQuery.gql'
 import UpdatePostQuery from '../graphql/UpdatePostQuery.gql'
@@ -22,11 +22,14 @@ import CreateEmptySectionQuery from '../graphql/CreateEmptySectionQuery.gql'
 import CreateLocationQuery from '../graphql/CreateLocationQuery.gql'
 import DeleteLocationQuery from '../graphql/DeleteLocationQuery.gql'
 
-import 'react-day-picker/lib/style.css'
+import './PostPage.css'
+import "react-toggle/style.css"
+import 'react-dates/lib/css/_datepicker.css'
 
 class EditPostPage extends React.Component {
   state = {
-    sections: []
+    sections: [],
+    focusedInput: null
   }
 
   static propTypes = {
@@ -45,7 +48,8 @@ class EditPostPage extends React.Component {
         id: postId,
         title: params.title || post.title,
         subtitle: params.subtitle || post.subtitle,
-        publishDate: params.publishDate || post.publishDate,
+        startDate: params.startDate || post.startDate,
+        endDate: params.endDate || post.endDate,
         published: params.published === undefined ? post.published : params.published
       },
       // After receiving mutated data from the server, update the cache
@@ -112,10 +116,10 @@ class EditPostPage extends React.Component {
   }
 
   render () {
-    const { currentUser, data: { error, loading, user }, match: { params: { username, tripId, postId } } } = this.props
+    const { data: { error, loading, user }, match: { params: { username, tripId, postId } } } = this.props
 
-    if (loading) { return (<div>Loading</div>) }
     if (error)   { return (<div>ERROR: {error}</div>) }
+    if (loading) { return (<LoadingPage />) }
 
     let post = user.post;
     let sortedSections = post.sections.map(s => s).sort((a, b) => { return a.index - b.index });
@@ -159,55 +163,46 @@ class EditPostPage extends React.Component {
     });
 
     return (
-      <div>
-        <Header
-          currentUser={currentUser}
-          user={user}
-          trip={post.trip}
-          post={post}
-          button={user.isViewer && <Link className="Button small destructive" to={`/${username}/${tripId}/${postId}/delete`}>Delete post</Link>} />
-        <div className="Container full header EditPost">
-          <EditHeroHeader
-            title={post.title}
-            subtitle={post.subtitle}
-            header={post.header}
-            uploadParentId={post.id}
-            uploadParentType="Post"
-            onChange={this.handleChange} />
-          {sections}
-          <PostAddSection
-            username={username}
-            postId={postId}
-            handleClick={this.handleAddSection} />
-
-          <div className="Container narrow">
-            <h4>Metadata</h4>
-            <DayPicker
-              onDayClick={day => this.handleChange({publishDate: day.toISOString() })}
-              enableOutsideDays
-              selectedDays={[new Date(post.publishDate)]} />
-            <EditLocations
-              locations={post.locations}
-              onCreate={this.handleCreateLocation}
-              onDelete={this.handleDeleteLocation} />
-            {post.published &&
-              <Button
-                type="destructive"
-                title="Unpublish post"
-                onClick={_ => this.handleChange({published: false})} />
-            }
-            {!post.published &&
-              <Button
-                title="Publish post"
-                onClick={_ => this.handleChange({published: true})} />
-            }
+      <div className="PostPage">
+        <EditHeader>
+          <div className="EditOptions">
+            <div className="toggle">
+              <Toggle
+                defaultChecked={post.published}
+                onChange={(event)=> this.handleChange({published: event.target.checked})}
+              /> {post.published ? "published" : "unpublished"}
+            </div>
           </div>
-        </div>
+          <ul className="UserActions">
+            <Link className="Button small" to={`/${username}/${tripId}/${postId}`}>Finish editing</Link>
+            <Link className="Button small destructive" to={`/${username}/${tripId}/${postId}/delete`}>Delete post</Link>
+          </ul>
+        </EditHeader>
+        <EditPostHeader
+          title={post.title}
+          subtitle={post.subtitle}
+          header={post.header}
+          startDate={post.startDate}
+          endDate={post.endDate}
+          uploadParentId={post.id}
+          uploadParentType="Post"
+          onChange={this.handleChange}
+          />
+        <EditLocations
+          locations={post.locations}
+          onCreate={this.handleCreateLocation}
+          onDelete={this.handleDeleteLocation} />
+        <section className="PostSections">
+          {sections}
+        </section>
+        <PostAddSection
+          username={username}
+          postId={postId}
+          handleClick={this.handleAddSection} />
       </div>
     )
    }
 }
-
 
 export function postDataByUsernameAndIdFromProxy(username, postId, proxy) {
   return proxy.readQuery({

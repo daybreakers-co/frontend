@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import 'font-awesome/css/font-awesome.css';
-import './App.css';
 import { Route, Switch } from 'react-router-dom'
 
 import SignupPage from './pages/SignupPage';
@@ -13,7 +12,6 @@ import UserPage from './pages/UserPage';
 import TripPage from './pages/TripPage';
 import DeleteTripPage from './pages/DeleteTripPage';
 import DeletePostPage from './pages/DeletePostPage';
-import Footer from './components/Footer';
 
 export class App extends Component {
   render() {
@@ -35,7 +33,6 @@ export class App extends Component {
           <Route exact path="/:username/:tripId/delete" component={DeleteTripPage}/>
           <Route exact path="/:username/:tripId/:postId/delete" component={DeletePostPage}/>
         </Switch>
-        <Footer />
       </main>
     );
   }

@@ -9,8 +9,10 @@ import ShowPhotoRow from '../components/post/sections/photoRow/ShowPhotoRow'
 import ShowText from '../components/post/sections/text/ShowText'
 import ShowHero from '../components/post/sections/hero/ShowHero'
 import Header from '../components/Header'
-import HeroHeader from '../components/HeroHeader'
+import PostHeader from '../components/PostHeader'
+import Locations from '../components/Locations'
 import PostNavigation from '../components/PostNavigation'
+import LoadingPage from '../components/LoadingPage'
 
 import ShowPostQuery from '../graphql/PostPageQuery.gql'
 import PostNavigationFragment from '../graphql/_PostNavigation.gql'
@@ -27,7 +29,7 @@ class PostPage extends React.Component {
   }
 
   render () {
-    if (this.props.data.loading) { return (<div>Loading</div>) }
+    if (this.props.data.loading) { return (<LoadingPage />) }
     if (this.props.data.error)   { return (<div>ERROR: {this.props.data.error}</div>) }
 
     const { currentUser, data: { user }, location: { pathname } } = this.props
@@ -57,18 +59,28 @@ class PostPage extends React.Component {
     });
 
     return (
-      <div>
+      <div className="PostPage">
         <Header
           currentUser={currentUser}
           user={user}
           trip={post.trip}
           post={post}
           button={user.isViewer && <Link className="Button primary small"  to={`${pathname}/edit`}>Edit post</Link>}/>
-        <HeroHeader
+        <PostHeader
           image={post.header}
           title={post.title}
+          startDate={post.startDate}
+          endDate={post.endDate}
+          locations={post.locations}
           subtitle={post.subtitle} />
-        {sections}
+        {post.locations.length > 0 &&
+            <Locations
+            locations={post.locations}
+          />
+        }
+        <section className="PostSections">
+          {sections}
+        </section>
         <PostNavigation
           postNavigation={filter(PostNavigationFragment, post)} />
       </div>
@@ -79,6 +91,7 @@ class PostPage extends React.Component {
 export default compose(
   graphql(ShowPostQuery, {
     options: (ownProps) => ({
+      fetchPolicy: 'network-only',
       variables: {
         username: ownProps.match.params.username,
         id: ownProps.match.params.postId

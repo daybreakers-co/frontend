@@ -1,11 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Dropzone from 'react-dropzone'
-import './PhotoRow.css'
 import { graphql } from 'react-apollo'
 import ScaledImage from '../../../ScaledImage'
 import CreatePhotoRowItemQuery from '../../../../graphql/CreatePhotoRowItemQuery.gql'
 import UploadableImage from '../../../UploadableImage'
+
+import './PhotoRow.css'
 
 export class PostEditPhotoRow extends React.Component {
   constructor(props) {
@@ -42,9 +43,12 @@ export class PostEditPhotoRow extends React.Component {
   }
 
   render () {
+    let className = "PhotoRow Container edit"
+    let empty = true
     let items = this.state.items.map((item) => {
       let component =  <div>Moo</div>
       if (item.file) {
+        empty = false
         component =  (
           <UploadableImage
             key={item.id}
@@ -53,6 +57,7 @@ export class PostEditPhotoRow extends React.Component {
             file={item.file} />
         )
       } else if (item.photo && item.photo.id) {
+        empty = false
         component =  (
           <ScaledImage
           key={item.id}
@@ -63,10 +68,14 @@ export class PostEditPhotoRow extends React.Component {
       }
       return component
     });
+
+    if(empty) {
+      className = "PhotoRow Container edit empty"
+    }
     return (
-      <div className="EditPhotoRow">
-        <Dropzone onDrop={this.onDrop} className="dropzone">
-          <div className="columns">{items}</div>
+      <div className={className}>
+        <Dropzone onDrop={this.onDrop} className="Dropzone">
+          {items}
         </Dropzone>
       </div>
     )

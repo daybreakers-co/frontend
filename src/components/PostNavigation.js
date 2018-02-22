@@ -2,7 +2,7 @@ import React from 'react'
 import { propType } from 'graphql-anywhere';
 import { withRouter } from 'react-router-dom'
 
-import HeaderCard from './HeaderCard'
+import PostCard from './PostCard'
 
 import PostNavigationFragment from '../graphql/_PostNavigation.gql'
 
@@ -10,23 +10,26 @@ import './PostNavigation.css'
 
 const PostNavigation = ({
   match: { params: { username, tripId } },
-  postNavigation: { previous, next }
+  postNavigation: { previous, next, trip }
 }) => (
-  <div className="Container PostNavigation">
-    {previous &&
-      <div className="previous">
-        <HeaderCard
+  <div className="PostNavigation">
+    <h1 className="H-Large">More posts from {trip.title}</h1>
+    <div className="Container">
+      {previous &&
+        <PostCard
           link={`/${username}/${tripId}/${previous.id}`}
-          headerCard={previous} />
-      </div>
-    }
-    {next &&
-      <div className="next">
-        <HeaderCard
+          post={previous}
+          size="small"
+          label="previous" />
+      }
+      {next &&
+          <PostCard
         link={`/${username}/${tripId}/${next.id}`}
-        headerCard={next} />
-      </div>
-    }
+        post={next}
+        size="small"
+        label="next" />
+      }
+    </div>
   </div>
 )
 

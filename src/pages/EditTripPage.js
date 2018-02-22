@@ -4,8 +4,9 @@ import { withRouter, Link } from 'react-router-dom'
 import { graphql, compose } from 'react-apollo'
 
 import withCurrentUser from '../components/hoc/withCurrentUser'
-import Header from '../components/Header'
-import EditHeroHeader from '../components/EditHeroHeader'
+import EditHeader from '../components/EditHeader'
+import EditTripHeader from '../components/EditTripHeader'
+import LoadingPage from '../components/LoadingPage'
 
 import TripPageQuery from '../graphql/TripPageQuery.gql'
 import UpdateTripQuery from '../graphql/UpdateTripQuery.gql'
@@ -19,45 +20,41 @@ class EditTripPage extends React.Component {
   }
 
   handleChange = (newParams) => {
-    const { data: { user: { trip: {id, header}, username } } } = this.props;
+    const { data: { user: { trip: { id, title, subtitle, startDate, endDate } } } } = this.props;
 
     this.props.updateMutation({
-      variables: {id: id, title: newParams.title, subtitle: newParams.subtitle},
-      optimisticResponse: {
-        updateTrip: {
-          id: id,
-          title: newParams.title,
-          subtitle: newParams.subtitle,
-          header: header,
-          '__typename': 'Trip'
-        }
+      variables: {
+        id: id,
+        title: newParams.title || title,
+        subtitle: newParams.subtitle || subtitle,
+        startDate: newParams.startDate || startDate,
+        endDate: newParams.endDate || endDate
       },
     })
   }
 
   render () {
-    const { currentUser, data: { loading, error, user }} = this.props;
-    if (loading) { return (<div>Loading</div>) }
+    const { data: { loading, error, user }} = this.props;
     if (error)   { return (<div>ERROR: {error}</div>) }
-    const { id, title, subtitle, header } = user.trip;
+    if (loading) { return (<LoadingPage />) }
+    const { id, title, subtitle, header, startDate, endDate } = user.trip;
 
     return (
       <div>
-        <Header
-          user={user}
-          trip={user.trip}
-          currentUser={currentUser}
-          button={[
-            <li key="deleteButton"><Link to={`/${user.username}/${id}/delete`} className="Button small destructive">Delete trip</Link></li>,
-            ]} />
+        <EditHeader>
+          <ul className="UserActions">
+            <Link to={`/${user.username}/${id}`} className="Button small">Finish editing</Link>
+            <Link to={`/${user.username}/${id}/delete`} className="Button small destructive">Delete trip</Link>
+          </ul>
+        </EditHeader>
 
-        <div className="Container full header EditTrip">
-          <EditHeroHeader
+        <div className="Container full header EditTrip TripPage">
+          <EditTripHeader
             title={title}
             subtitle={subtitle}
             header={header}
-            uploadParentId={id}
-            uploadParentType="Trip"
+            startDate={startDate}
+            endDate={endDate}
             onChange={this.handleChange} />
         </div>
       </div>

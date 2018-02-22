@@ -1,12 +1,9 @@
-mutation($id: String!, $title: String, $subtitle: String) {
-  updateTrip(id: $id, title: $title, subtitle: $subtitle) {
+mutation($id: String!, $title: String, $subtitle: String, $startDate: Date, $endDate: Date) {
+  updateTrip(id: $id, title: $title, subtitle: $subtitle, startDate: $startDate, endDate: $endDate) {
     id
     title
     subtitle
-    header {
-      id
-      url
-      ratio
-    }
+    startDate
+    endDate
   }
 }

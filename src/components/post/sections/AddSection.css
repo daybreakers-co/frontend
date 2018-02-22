@@ -1,20 +1,37 @@
 .AddSection {
-  display: inline-block;
-  margin: 10px auto;
+  height: 8rem
+}
+
+.AddSection .inner {
   padding: 0;
-  border-radius: 5px;
-  background: black;
-  list-style: none
+  background: var(--green);
+  list-style: none;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  z-index: 100;
+  font-size: 1rem;
+}
+
+.AddSection div {
+  flex: 0 0 auto
 }
 
 .AddSection a {
-  display: inline-block;
   color: white;
   cursor: pointer;
-  padding: 4px 8px;
-  border-left: 1px solid #222;
+  padding: 1rem 1.5rem;
+  white-space: nowrap;
+  display: block;
 }
 
-.AddSection a:first-child {
-  border: 0;
+.AddSection .fa {
+  margin-right: 0.5rem
+}
+
+.AddSection div + div {
+  border-left: 1px solid rgba(255,255,255,0.3);
 }

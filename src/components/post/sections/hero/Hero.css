@@ -1,31 +1,25 @@
-.EditHero {
-  text-align: left;
-  margin: 10px auto;
-  position: relative;
+.Hero {
+  padding: 2rem 0;
 }
 
-.EditHero .dropzone {
-  width: 80wv;
-  background-color: #bdbdbd;
-}
-
-.EditHero img {
-  width: 100%;
-  height: auto;
-  display: block;
+.Hero.empty .Dropzone {
+  min-height: 10rem;
+  background: url("/placeholder-dark.svg") no-repeat center center;
+  background-size: auto 8rem;
 }
 
 .Hero img {
   width: 100%;
   height: auto;
   display: block;
+  border-radius: calc(var(--br) / 2);
 }
 
-.EditHero .progress {
+.edit.Hero .progress {
   position: absolute;
   height: 5px;
   bottom: 0;
   left: 0;
-  background-color: red;
+  background-color: var(--green);
   z-index: 100;
 }

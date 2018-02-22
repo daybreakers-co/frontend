@@ -2,7 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Geosuggest from 'react-geosuggest';
 
-import './EditLocations.css'
+import './geosuggest.css'
+import './Locations.css'
 
 class EditLocations extends React.Component {
   static propTypes = {
@@ -17,20 +18,30 @@ class EditLocations extends React.Component {
       lat: suggestion.location.lat,
       lng: suggestion.location.lng
     })
+    this._geoSuggest.clear()
+    this._geoSuggest.focus()
   }
 
   render () {
     const { locations, onDelete } = this.props;
     return (
-      <div className="EditLocation">
+      <section className="Locations edit">
         <Geosuggest
+        ref={el => this._geoSuggest = el}
+        className="small"
+        placeholder="Add locations 🔎"
         onSuggestSelect={this.handleSuggestSelect} />
-        <ul>
+        <ul className="tags">
           {locations.map(location => (
-            <li key={location.id}><a onClick={(e) => onDelete(location)}>{location.title}</a></li>
+            <li className="tag" key={location.id}>
+              {location.title}
+              <a className="delete" title="Remove location" onClick={(e) => onDelete(location)}>
+                <i className="fa fa-times" />
+              </a>
+            </li>
           ))}
         </ul>
-      </div>
+      </section>
     )
   }
 }

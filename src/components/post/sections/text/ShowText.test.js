@@ -7,5 +7,5 @@ it('renders a header and body', () => {
   const wrapper = shallow(<ShowText textSection={textSection} />);
 
   expect(wrapper.find('h2').text()).toEqual("Wohoo")
-  expect(wrapper.find('div').at(1).text()).toEqual("Moo")
+  expect(wrapper.find('div').at(1).prop("dangerouslySetInnerHTML")['__html']).toContain("<p>Moo</p")
 });
