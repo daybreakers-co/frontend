@@ -206,7 +206,7 @@ describe("UploadableImage", () => {
 
       instance.handleUploadComplete.call(instance, event)
       expect(instance.state.photo).toEqual(photo)
-      expect(spy).toBeCalledWith("foo.jpg?width=100&height=50")
+      expect(spy).toBeCalledWith("foo.jpg?w=100&h=50")
     })
   })
 
@@ -217,7 +217,7 @@ describe("UploadableImage", () => {
           file={file} />
       )
       const spy = jest.fn()
-      const src = "foo.jpg?width=100&height=50"
+      const src = "foo.jpg?w=100&h=50"
       const instance = wrapper.instance()
       instance.xhr = dummyXHR
       instance.img = dummyImage
@@ -240,7 +240,7 @@ describe("UploadableImage", () => {
           onComplete={spy} />
       )
       const photo = {}
-      const src = "foo.jpg?width=100&height=50"
+      const src = "foo.jpg?w=100&h=50"
       const instance = wrapper.instance()
       wrapper.setState({ photo: photo })
 
@@ -260,7 +260,7 @@ describe("UploadableImage", () => {
           file={file} />
       )
       const spy = jest.fn()
-      const src = "foo.jpg?width=100&height=50"
+      const src = "foo.jpg?w=100&h=50"
       const instance = wrapper.instance()
 
       instance.loadFullImage.call(instance, src)

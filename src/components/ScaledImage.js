@@ -56,12 +56,12 @@ class ScaledImage extends React.Component {
           ref={(previewImage) => { this.previewImage = previewImage }}
           onLoad={this.handleLoadFullImage}
           alt={alt}
-          src={`${image.url}?width=360`}
+          src={`${image.url}?w=360`}
           srcSet={[
-            `${image.url}?width=360 360w`,
-            `${image.url}?width=720 720w`,
-            `${image.url}?width=1200 1200w`,
-            `${image.url}?width=2200 2200w`,
+            `${image.url}?w=360 360w`,
+            `${image.url}?w=720 720w`,
+            `${image.url}?w=1200 1200w`,
+            `${image.url}?w=2200 2200w`,
           ].join(",")}
           sizes={`${this.state.width}px`} />
       }

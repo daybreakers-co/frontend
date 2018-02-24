@@ -39,7 +39,7 @@ const TripCard = ({ link, trip: { title, subtitle, photoCount, header, postCount
         {photoGroups.map(group => (
           <div key={group.map(p => p.id).join()}>
             {group.map(photo => (
-              <figure key={photo.id}><img alt={photo.title} src={`${photo.url}?height=80`} /></figure>
+              <figure key={photo.id}><img alt={photo.title} src={`${photo.url}?h=80`} /></figure>
             ))}
           </div>
         ))}

@@ -78,7 +78,7 @@ class UploadableImage extends React.Component {
     let width = this.previewImage.offsetWidth
     let height = this.previewImage.offsetHeight
     this.setState({photo: photo})
-    this.loadFullImage(`${photo.url}?width=${width}&height=${height}`)
+    this.loadFullImage(`${photo.url}?w=${width}&h=${height}`)
   }
 
   // Once the final image is loaded, set it's src, remove references
