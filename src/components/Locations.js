@@ -7,7 +7,7 @@ const Locations = ({ locations }) => (
   <section className="Locations">
     <ul className="tags">
       {locations.map(location => (
-        <li className="tag" title={location.title}>{location.title.substr(0, 20)}...</li>
+        <li key={location.title} className="tag" title={location.title}>{location.title.substr(0, 20)}...</li>
       ))}
     </ul>
   </section>

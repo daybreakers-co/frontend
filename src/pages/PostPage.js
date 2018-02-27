@@ -13,6 +13,7 @@ import PostHeader from '../components/PostHeader'
 import Locations from '../components/Locations'
 import PostNavigation from '../components/PostNavigation'
 import LoadingPage from '../components/LoadingPage'
+import Map from "../components/Map"
 
 import ShowPostQuery from '../graphql/PostPageQuery.gql'
 import PostNavigationFragment from '../graphql/_PostNavigation.gql'
@@ -78,6 +79,7 @@ class PostPage extends React.Component {
             locations={post.locations}
           />
         }
+        <Map />
         <section className="PostSections">
           {sections}
         </section>
