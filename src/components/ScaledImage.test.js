@@ -27,9 +27,9 @@ describe("ScaledImage", () => {
 
     it("Renders an image", () => {
       let img = wrapper.find("img")
-      expect(img.prop("src")).toEqual("image.jpg?width=360")
+      expect(img.prop("src")).toEqual("image.jpg?w=360")
       expect(img.prop("alt")).toEqual("Alt text")
-      expect(img.prop("srcSet")).toContain("image.jpg?width=360 360w")
+      expect(img.prop("srcSet")).toContain("image.jpg?w=360 360w")
       expect(img.prop("onLoad")).toEqual(wrapper.instance().handleLoadFullImage)
       expect(img.prop("sizes")).toEqual("360px")
     })

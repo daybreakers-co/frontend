@@ -29,7 +29,6 @@ const middlewareLink = new ApolloLink((operation, forward) => {
   return forward(operation)
 })
 
-// use with apollo-client
 const link = middlewareLink.concat(httpLink);
 
 const fragmentMatcher = new IntrospectionFragmentMatcher({
@@ -66,4 +65,5 @@ ReactDOM.render(<ApolloProvider client={client}>
   </ApolloProvider>,
   document.getElementById('root')
 );
+
 registerServiceWorker();
