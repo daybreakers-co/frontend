@@ -8,13 +8,29 @@ import './layout.css';
 import './typography.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import { ApolloClient, ApolloProvider, createBatchingNetworkInterface, IntrospectionFragmentMatcher } from 'react-apollo';
+import ApolloClient from 'apollo-client';
+import { ApolloLink } from 'apollo-link';
+import { BatchHttpLink } from "apollo-link-batch-http";
+import { InMemoryCache, IntrospectionFragmentMatcher } from "apollo-cache-inmemory"
+import { ApolloProvider } from "react-apollo"
 import { BrowserRouter } from 'react-router-dom'
 
-const networkInterface = createBatchingNetworkInterface({
+const httpLink = new BatchHttpLink({
   uri: `${process.env.REACT_APP_API_URL}/graphql`,
   batchInterval: 10
+});
+
+const middlewareLink = new ApolloLink((operation, forward) => {
+  operation.setContext({
+    headers: {
+      authorization: `Bearer ${localStorage.getItem('authenticationToken')}`
+    }
+  });
+  return forward(operation)
 })
+
+// use with apollo-client
+const link = middlewareLink.concat(httpLink);
 
 const fragmentMatcher = new IntrospectionFragmentMatcher({
   introspectionQueryResultData: {
@@ -34,24 +50,14 @@ const fragmentMatcher = new IntrospectionFragmentMatcher({
   }
 })
 
-networkInterface.use([{
-  applyBatchMiddleware (req, next) {
-    if (!req.options.headers) {
-      req.options.headers = {}
-    }
-
-    // get the authentication token from local storage if it exists
-    if (localStorage.getItem('authenticationToken')) {
-      req.options.headers.authorization = `Bearer ${localStorage.getItem('authenticationToken')}`
-    }
-    next()
-  },
-}])
+const cache = new InMemoryCache({
+  fragmentMatcher: fragmentMatcher
+})
 
 const client = new ApolloClient({
-  networkInterface: networkInterface,
-  fragmentMatcher: fragmentMatcher,
-});
+  link: link,
+  cache: cache,
+})
 
 ReactDOM.render(<ApolloProvider client={client}>
     <BrowserRouter>
