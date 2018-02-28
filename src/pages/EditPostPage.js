@@ -156,6 +156,7 @@ class EditPostPage extends React.Component {
           username={username}
           sectionsLength={sectionsIndex.length}
           sectionsIndex={sectionsIndex}
+          __typename={section.__typename}
         >
           {sectionComponent}
         </EditorNavigation>

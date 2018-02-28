@@ -1,7 +1,7 @@
 .Dates {
   display: block;
   margin-bottom: 1rem;
-  z-index: 1000;
+  z-index: 900;
 }
 
 .Dates .DateRange {
