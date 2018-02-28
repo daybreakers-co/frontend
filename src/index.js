@@ -21,11 +21,14 @@ const httpLink = new BatchHttpLink({
 });
 
 const middlewareLink = new ApolloLink((operation, forward) => {
-  operation.setContext({
-    headers: {
-      authorization: `Bearer ${localStorage.getItem('authenticationToken')}`
-    }
-  });
+  if (localStorage.getItem('authenticationToken')) {
+    operation.setContext({
+      headers: {
+        authorization: `Bearer ${localStorage.getItem('authenticationToken')}`
+      }
+    });
+  };
+
   return forward(operation)
 })
 
