@@ -75,11 +75,8 @@ class PostPage extends React.Component {
           locations={post.locations}
           subtitle={post.subtitle} />
         {post.locations.length > 0 &&
-            <Locations
-            locations={post.locations}
-          />
+          <Map locations={post.locations} />
         }
-        <Map />
         <section className="PostSections">
           {sections}
         </section>

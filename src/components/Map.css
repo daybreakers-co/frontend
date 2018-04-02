@@ -1,0 +1,17 @@
+.rsm-geography {
+  fill: none;
+  stroke: var(--medium-light);
+}
+
+.Map {
+  padding-top: 4rem;
+}
+
+.Map circle {
+  fill: var(--dark);
+  stroke: none;
+}
+
+.Map text {
+  fill: var(--dark),
+}

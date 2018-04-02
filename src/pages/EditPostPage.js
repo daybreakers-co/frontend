@@ -15,7 +15,7 @@ import EditHeader from '../components/EditHeader'
 import EditPostHeader from '../components/EditPostHeader'
 import EditLocations from '../components/EditLocations'
 import LoadingPage from '../components/LoadingPage'
-
+import Map from "../components/Map"
 import PostPageQuery from '../graphql/PostPageQuery.gql'
 import UpdatePostQuery from '../graphql/UpdatePostQuery.gql'
 import CreateEmptySectionQuery from '../graphql/CreateEmptySectionQuery.gql'
@@ -193,6 +193,9 @@ class EditPostPage extends React.Component {
           locations={post.locations}
           onCreate={this.handleCreateLocation}
           onDelete={this.handleDeleteLocation} />
+        {post.locations.length > 0 &&
+          <Map locations={post.locations} />
+        }
         <section className="PostSections">
           {sections}
         </section>
